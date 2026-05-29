@@ -47,7 +47,7 @@ export function CareerTimeline() {
           </p>
         </div>
 
-        <div className="relative border-l-2 border-border ml-md md:ml-0">
+        <div className="relative border-l-2 border-border ml-xl">
           {milestones.map((item, index) => (
             <div key={index} className="mb-xl ml-lg relative">
               <div className="absolute -left-[1.8rem] top-1 h-4 w-4 rounded-full bg-background border-2 border-primarySoft" />

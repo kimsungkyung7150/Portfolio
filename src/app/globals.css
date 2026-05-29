@@ -5,7 +5,7 @@
   --font-sans: "Inter", "Pretendard", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Consolas", monospace;
   
-  --text-h1: clamp(2.75rem, 7vw, 5.5rem);
+  --text-h1: clamp(2rem, 7vw, 5.5rem);
   --text-h2: clamp(2rem, 4vw, 3.25rem);
   --text-h3: 1.5rem;
   --text-body: 1rem;
