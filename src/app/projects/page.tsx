@@ -134,7 +134,6 @@ export default function ProjectsPage() {
                         </Badge>
                       ))}
                     </div>
-                    <Button variant="outline" className="w-full mt-auto" href="#">View Details</Button>
                   </CardContent>
                 </Card>
               ))}
