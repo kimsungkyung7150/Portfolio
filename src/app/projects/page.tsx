@@ -7,6 +7,8 @@ type Project = {
   subtitle: string
   description: string
   tags: string[]
+  status?: string
+  statusVariant?: "default" | "info" | "success" | "warning"
 }
 
 type Category = {
@@ -21,6 +23,30 @@ const projectCategories: Category[] = [
     description: "레거시 시스템을 지능화하고 반복되는 작업을 자동화한 프로젝트",
     projects: [
       {
+        title: "Routoon",
+        subtitle: "AI 웹소설 생성·품질 검증 플랫폼",
+        description: "정본(Canon), 캐릭터 보이스, 회차 맥락을 기반으로 Writer·Critic·품질 검증·발행 흐름을 연결하는 AI 웹소설 플랫폼입니다. 생성 품질과 운영 파이프라인을 지속적으로 고도화하고 있습니다.",
+        tags: ["AI", "LLM", "ASP.NET Core", "Neo4j", "MS SQL Server", "MCP"],
+        status: "고도화 중",
+        statusVariant: "info",
+      },
+      {
+        title: "ShowRoom",
+        subtitle: "AI 기반 2D 스프라이트·게임 에셋 파이프라인",
+        description: "원화에서 방향·액션별 PNG 스프라이트와 모션 프레임을 생성·검증하고 Unity로 전달하기 위한 Asset Foundry입니다. 2D 산출물과 모션 검증은 진행됐지만 원화 보존 8방향 자동화와 제품용 3D 경로는 아직 개발 중입니다.",
+        tags: ["AI", "2D Sprite", "Unity", "Blender", "ComfyUI", "MCP"],
+        status: "개발 중",
+        statusVariant: "warning",
+      },
+      {
+        title: "마제헌 랜덤 디펜스",
+        subtitle: "AI 에셋 파이프라인과 결정론 전투 코어를 결합한 웹 게임",
+        description: "140종 몬스터 도감과 3마리 조합을 중심으로 서버 권위·결정론 전투·재시뮬레이션·보상 위변조 방지를 적용한 Unity WebGL 게임입니다. 전투 코어는 진행됐지만 대량 캐릭터 자산을 공급할 ShowRoom 파이프라인이 미완성이라 전체 게임은 개발 중입니다.",
+        tags: ["Unity WebGL", "C#", ".NET", "Deterministic", "Server Authority", "AI Asset Pipeline"],
+        status: "개발 중",
+        statusVariant: "warning",
+      },
+{
         title: "ImpactSuite",
         subtitle: "비침습형 레거시 시스템 분석 도구",
         description: "레거시 시스템을 직접 수정하지 않고 사용자 행동, API 호출, SQL 실행 흐름을 수집해 변경 영향과 병목을 분석하는 도구입니다. AI(MCP) 기반 자동 탐색과 결합 중입니다.",
@@ -119,6 +145,11 @@ export default function ProjectsPage() {
                 <Card key={idx} className="flex flex-col h-full hover:border-primarySoft/50 hover:shadow-glow transition-all">
                   <CardHeader>
                     <CardTitle className="text-textPrimary">{project.title}</CardTitle>
+                    {project.status && (
+                      <div className="mt-xs">
+                        <Badge variant={project.statusVariant ?? "default"} className="text-xs">{project.status}</Badge>
+                      </div>
+                    )}
                     <CardDescription className="font-mono text-xs mt-xs text-textMuted">
                       {project.subtitle}
                     </CardDescription>
