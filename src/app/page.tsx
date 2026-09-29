@@ -1,16 +1,17 @@
-import { HeroSection } from "@/components/home/HeroSection"
-
+import { EngineeringStrengths } from "@/components/home/EngineeringStrengths"
+import { ExperienceSummary } from "@/components/home/ExperienceSummary"
 import { FeaturedProjects } from "@/components/home/FeaturedProjects"
-import { TechStack } from "@/components/home/TechStack"
-import { CareerTimeline } from "@/components/home/CareerTimeline"
+import { HeroSection } from "@/components/home/HeroSection"
+import { HomeCTA } from "@/components/home/HomeCTA"
 
 export default function Home() {
   return (
     <div className="w-full">
       <HeroSection />
       <FeaturedProjects />
-      <TechStack />
-      <CareerTimeline />
+      <EngineeringStrengths />
+      <ExperienceSummary />
+      <HomeCTA />
     </div>
   )
 }
