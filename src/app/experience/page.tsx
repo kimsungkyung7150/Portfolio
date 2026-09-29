@@ -8,7 +8,7 @@ const experiences = [
     details: [
       "Routoon: 정본(Canon)·캐릭터 보이스·회차 맥락을 기반으로 AI 웹소설 생성·검수·발행 파이프라인 고도화",
       "ShowRoom: 캐릭터 원화를 방향·액션별 2D 스프라이트와 모션 프레임으로 생성·검증하는 게임 에셋 파이프라인 개발",
-      "랜덤 디펜스 게임: 결정론 전투 코어, 서버 권위, 재시뮬레이션과 AI 에셋 파이프라인을 결합한 Unity WebGL 게임 개발",
+      "랜덤 디펜스 게임: 140종 몬스터, 3마리 조합, 웨이브 전투를 중심으로 한 Unity WebGL 모바일 랜덤 디펜스 개발",
     ],
     tags: ["AI", "LLM", "MCP", "Unity WebGL", "Neo4j", "ASP.NET Core"],
   },
