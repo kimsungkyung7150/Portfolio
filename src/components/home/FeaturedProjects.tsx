@@ -106,15 +106,32 @@ export function FeaturedProjects() {
             <div className="grid lg:grid-cols-[0.88fr_1.12fr]">
               <Link
                 href="/projects/showroom"
-                className="relative min-h-[260px] overflow-hidden border-b border-border bg-[#101620] lg:min-h-[300px] lg:border-b-0 lg:border-r"
+                className="grid min-h-[280px] grid-cols-[0.38fr_0.62fr] gap-2 overflow-hidden border-b border-border bg-[#101620] p-3 lg:min-h-[310px] lg:border-b-0 lg:border-r"
               >
-                <Image
-                  src="/projects/showroom/comparison-final.png"
-                  alt="ShowRoom 원화와 결과 비교 화면"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  className="object-contain p-3"
-                />
+                <div className="relative overflow-hidden rounded-lg border border-border bg-[#e8ebef]">
+                  <Image
+                    src="/projects/showroom/fullbody-reference.png"
+                    alt="ShowRoom 기준 원화 전신"
+                    fill
+                    sizes="(max-width: 1024px) 38vw, 220px"
+                    className="object-contain p-2"
+                  />
+                  <span className="absolute left-2 top-2 rounded bg-background/80 px-2 py-1 font-mono text-[9px] text-white/70">
+                    ORIGINAL
+                  </span>
+                </div>
+                <div className="relative overflow-hidden rounded-lg border border-border bg-[#111722]">
+                  <Image
+                    src="/projects/showroom/directional-row.png"
+                    alt="ShowRoom 방향별 전체 결과"
+                    fill
+                    sizes="(max-width: 1024px) 62vw, 340px"
+                    className="object-contain p-2"
+                  />
+                  <span className="absolute left-2 top-2 rounded bg-background/80 px-2 py-1 font-mono text-[9px] text-white/70">
+                    DIRECTIONAL RESULT
+                  </span>
+                </div>
               </Link>
 
               <div className="flex flex-col justify-center p-6 lg:p-7">

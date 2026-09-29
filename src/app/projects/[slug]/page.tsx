@@ -139,20 +139,49 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
 
   if (project.slug === "showroom") {
     return (
-      <div className="relative pb-0 sm:pb-10">
-        <BrowserFrame
-          src="/projects/showroom/comparison-final.png"
-          alt="ShowRoom 원화와 결과 비교 화면"
-          label="WPF · SOURCE / RESULT"
-          contain
-        />
-        <div className="absolute -bottom-2 right-0 hidden w-[46%] sm:block">
-          <BrowserFrame
-            src="/projects/showroom/direction-lab.png"
-            alt="ShowRoom Direction Lab"
-            label="DIRECTION LAB"
-            contain
+      <div className="grid min-h-[360px] grid-cols-[0.36fr_0.64fr] gap-3 rounded-[18px] border border-border bg-[#101620] p-3 shadow-card sm:min-h-[430px]">
+        <div className="relative overflow-hidden rounded-xl border border-border bg-[#e8ebef]">
+          <Image
+            src="/projects/showroom/fullbody-reference.png"
+            alt="ShowRoom 기준 원화 전신"
+            fill
+            sizes="(max-width: 768px) 36vw, 240px"
+            className="object-contain p-3"
+            priority
           />
+          <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
+            ORIGINAL ART
+          </span>
+        </div>
+
+        <div className="grid gap-3">
+          <div className="relative overflow-hidden rounded-xl border border-border bg-[#111722]">
+            <Image
+              src="/projects/showroom/directional-row.png"
+              alt="ShowRoom 방향별 전체 결과"
+              fill
+              sizes="(max-width: 768px) 64vw, 420px"
+              className="object-contain p-3"
+              priority
+            />
+            <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
+              DIRECTIONAL RESULT
+            </span>
+          </div>
+
+          <div className="relative overflow-hidden rounded-xl border border-border bg-[#111722]">
+            <Image
+              src="/projects/showroom/motion-lab.png"
+              alt="ShowRoom WPF Motion Lab"
+              fill
+              sizes="(max-width: 768px) 64vw, 420px"
+              className="object-contain"
+              priority
+            />
+            <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
+              WPF MOTION LAB
+            </span>
+          </div>
         </div>
       </div>
     )
@@ -430,7 +459,56 @@ export default async function ProjectDetailPage({
             description={project.screenshotNote}
           />
 
-          {project.screenshots.length > 0 ? (
+          {project.slug === "showroom" ? (
+            <div className="grid gap-4 lg:grid-cols-[0.42fr_1.58fr]">
+              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                <div className="relative h-[520px] bg-[#e8ebef] sm:h-[680px]">
+                  <Image
+                    src="/projects/showroom/fullbody-reference.png"
+                    alt="ShowRoom 기준 원화 전신"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 360px"
+                    className="object-contain p-4"
+                  />
+                </div>
+                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                  기준 원화 전신 · 캐릭터 정체성과 디테일 기준
+                </figcaption>
+              </figure>
+
+              <div className="grid gap-4">
+                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                  <div className="relative h-[180px] w-full bg-backgroundSoft sm:h-[220px]">
+                    <Image
+                      src="/projects/showroom/directional-row.png"
+                      alt="ShowRoom 방향별 전체 결과"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 820px"
+                      className="object-contain p-4"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                    원화 품질을 유지한 방향별 전체 결과
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                  <div className="relative aspect-[16/9] bg-backgroundSoft">
+                    <Image
+                      src="/projects/showroom/motion-lab.png"
+                      alt="ShowRoom WPF Motion Lab"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 820px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                    WPF Motion Lab · 모션 프레임 검토
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          ) : project.screenshots.length > 0 ? (
             <div
               className={
                 project.slug === "random-defense"

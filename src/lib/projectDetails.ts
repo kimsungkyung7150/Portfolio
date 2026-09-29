@@ -197,13 +197,24 @@ export const projectDetails: ProjectDetail[] = [
       "원화·결과물·Candidate의 해시·버전·검증 이력 관리",
       "방향별·액션별 PNG 모션 프레임 생성과 품질 검토",
       "Unity 게임 자산으로 넘기기 위한 패키징·전달 구조",
+    ],    screenshots: [
+      {
+        src: "/projects/showroom/fullbody-reference.png",
+        alt: "ShowRoom 캐릭터 원화 전신",
+        caption: "기준 원화 전신 · 캐릭터 정체성과 디테일 기준",
+      },
+      {
+        src: "/projects/showroom/directional-row.png",
+        alt: "ShowRoom 방향별 캐릭터 결과",
+        caption: "원화 품질을 유지한 방향별 전체 결과",
+      },
+      {
+        src: "/projects/showroom/motion-lab.png",
+        alt: "ShowRoom WPF Motion Lab 화면",
+        caption: "WPF Motion Lab · 모션 프레임 검토",
+      },
     ],
-    screenshots: [
-      { src: "/projects/showroom/direction-lab.png", alt: "ShowRoom WPF Direction Lab 화면", caption: "WPF Direction Lab · 방향별 결과 검토" },
-      { src: "/projects/showroom/motion-lab.png", alt: "ShowRoom WPF Motion Lab 화면", caption: "WPF Motion Lab · 모션 프레임 검토" },
-      { src: "/projects/showroom/comparison-final.png", alt: "ShowRoom 원화와 결과 비교 화면", caption: "원화(왼쪽)와 결과(오른쪽) 고해상도 비교" },
-    ],
-    screenshotNote: "서로 다른 WPF 작업 화면과 원화/결과 비교 화면으로 구성했습니다.",
+    screenshotNote: "기준 원화 전신, 방향별 전체 결과, 실제 WPF Motion Lab 화면으로 구성했습니다.",
   },
   {
     slug: "random-defense",
