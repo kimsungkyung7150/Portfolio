@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/Badge"
 
 const experiences = [
   {
-    period: "2024 - Present",
-    title: "AI-Assisted Tools & Architecture",
+    period: "2024 - 현재",
+    title: "AI 지원 도구 및 아키텍처",
     description: "레거시 시스템 분석 자동화 및 스마트팜 관제 시스템 설계",
     details: [
       "AI(MCP) 연동 레거시 시스템 분석 도구 (ImpactSuite) 설계 및 개발",
@@ -14,18 +14,18 @@ const experiences = [
   },
   {
     period: "2023 - 2026",
-    title: "HR & Recruitment Systems",
+    title: "인사 및 채용 시스템",
     description: "통합 인사 관리 시스템 고도화 및 외부 플랫폼 API 연동",
     details: [
       "채용 합격자 오퍼레터, 계약, 발령 통합 인사(HR) 관리 시스템 구축",
       "카카오스타일 고도화 프로젝트 성공적 수행",
       "Slack 및 구글 캘린더 API 구축 연동을 통한 실무 업무 편의성 극대화"
     ],
-    tags: ["ASP.NET", "MS SQL Server", "API Integration", "Slack API"]
+    tags: ["ASP.NET", "MS SQL Server", "API 연동", "Slack API"]
   },
   {
     period: "2021 - 2022",
-    title: "Enterprise Business Systems Expansion",
+    title: "엔터프라이즈 업무 시스템 확장",
     description: "다양한 도메인의 엔터프라이즈 업무 시스템 및 상거래 시스템 고도화",
     details: [
       "매출 시점 관리, 환율 계산 등 회계 업무 자동화 기능 개발",
@@ -36,7 +36,7 @@ const experiences = [
   },
   {
     period: "2015 - 2018",
-    title: "Web Maintenance & System Foundation",
+    title: "웹 유지보수 및 시스템 기반 구축",
     description: "업무 시스템 유지보수 및 홈페이지 제작 엔진 고도화",
     details: [
       "100여 개 이상 다양한 웹사이트 제작, 유지보수 및 성능 최적화",
@@ -47,7 +47,7 @@ const experiences = [
   },
   {
     period: "2014",
-    title: "Early Web Projects",
+    title: "초기 웹 프로젝트",
     description: "웹 프로그래밍 입문 및 DB 설계 (Misty Foods)",
     details: [
       "사용자의 감각적 선호(색상, 느낌)를 음식 추천으로 연결하는 알고리즘 구현",
@@ -62,7 +62,7 @@ export default function ExperiencePage() {
   return (
     <div className="container mx-auto px-md py-4xl max-w-4xl">
       <div className="mb-xxl text-center">
-        <h1 className="font-h1 text-h1 text-textPrimary mb-sm">Experience</h1>
+        <h1 className="font-h1 text-h1 text-textPrimary mb-sm">경력</h1>
         <p className="font-body text-body text-textSecondary max-w-2xl mx-auto">
           기술의 트렌드를 좇기보다, 비즈니스의 문제를 가장 안정적이고 효율적으로 해결하는 과정에 집중했습니다.
         </p>

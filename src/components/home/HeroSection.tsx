@@ -7,7 +7,7 @@ export function HeroSection() {
       
       <div className="z-10 flex max-w-4xl flex-col items-center gap-xl">
         <h1 className="font-h1 text-h1 text-textPrimary leading-none tracking-h1 drop-shadow-md">
-          Legacy Systems into <span className="text-primarySoft drop-shadow-glow">Intelligent</span> Engineering Tools
+          레거시 시스템을 <span className="text-primarySoft drop-shadow-glow">지능형</span> 엔지니어링 도구로
         </h1>
         
         <p className="font-body text-body text-textSecondary max-w-2xl text-lg">
@@ -15,7 +15,7 @@ export function HeroSection() {
         </p>
 
         <div className="flex gap-md mt-lg">
-          <Button variant="primary" href="/projects">View Projects</Button>
+          <Button variant="primary" href="/projects">프로젝트 보기</Button>
         </div>
       </div>
     </section>

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio of a full-stack developer",
+  title: "김성경 포트폴리오",
+  description: "풀스택 개발자 김성경의 포트폴리오",
 };
 
 import { Header } from "@/components/layout/Header";
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="ko" className="dark">
       <body
         className={`antialiased min-h-screen flex flex-col`}
       >

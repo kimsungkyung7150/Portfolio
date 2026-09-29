@@ -3,22 +3,22 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card"
 export function TechStack() {
   const stackCategories = [
     {
-      category: "Backend & Frameworks",
+      category: "백엔드 및 프레임워크",
       skills: ["C#", "ASP.NET MVC", "ASP.NET WebForms", "ASP.NET Core", ".NET 8", "Java", "Spring"],
       icon: "⚙️"
     },
     {
-      category: "Database & Data",
-      skills: ["MS SQL Server", "Oracle", "Neo4j", "Redis", "T-SQL", "Performance Tuning"],
+      category: "데이터베이스 및 데이터",
+      skills: ["MS SQL Server", "Oracle", "Neo4j", "Redis", "T-SQL", "성능 튜닝"],
       icon: "💾"
     },
     {
-      category: "Frontend",
+      category: "프론트엔드",
       skills: ["JavaScript", "jQuery", "Vue", "React", "Next.js", "Tailwind CSS"],
       icon: "🖥️"
     },
     {
-      category: "Infra & Architecture",
+      category: "인프라 및 아키텍처",
       skills: ["Docker", "Kubernetes", "GitHub Actions", "Prometheus", "Grafana", "MQTT"],
       icon: "☁️"
     }
@@ -27,7 +27,7 @@ export function TechStack() {
   return (
     <section className="container mx-auto max-w-6xl py-4xl px-md">
       <div className="mb-xxl text-center">
-        <h2 className="font-h2 text-h2 text-textPrimary tracking-h2">Tech Stack</h2>
+        <h2 className="font-h2 text-h2 text-textPrimary tracking-h2">기술 스택</h2>
         <p className="mt-md font-body text-body text-textSecondary max-w-2xl mx-auto">
           다양한 환경에서 안정적으로 동작하는 시스템을 구축하고 운영한 기술 경험입니다.
         </p>

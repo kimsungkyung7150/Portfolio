@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <div className="container mx-auto px-md py-4xl max-w-4xl">
       <div className="mb-xxl text-center">
-        <h1 className="font-h1 text-h1 text-textPrimary mb-sm">About Me</h1>
+        <h1 className="font-h1 text-h1 text-textPrimary mb-sm">소개</h1>
         <p className="font-body text-body text-textSecondary">
           안정적으로 동작하고 유지보수가 가능한 구조를 만드는 개발자, 김성경입니다.
         </p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
         </p>
         
         <div className="flex gap-md pt-lg border-t border-border">
-          <Button variant="primary" href="/experience">View Experience</Button>
+          <Button variant="primary" href="/experience">경력 보기</Button>
         </div>
       </div>
     </div>
