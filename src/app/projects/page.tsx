@@ -39,7 +39,7 @@ const projectCategories: Category[] = [
         statusVariant: "warning",
       },
       {
-        title: "마제헌 랜덤 디펜스",
+        title: "랜덤 디펜스 게임",
         subtitle: "AI 에셋 파이프라인과 결정론 전투 코어를 결합한 웹 게임",
         description: "140종 몬스터 도감과 3마리 조합을 중심으로 서버 권위·결정론 전투·재시뮬레이션·보상 위변조 방지를 적용한 Unity WebGL 게임입니다. 전투 코어는 진행됐지만 대량 캐릭터 자산을 공급할 ShowRoom 파이프라인이 미완성이라 전체 게임은 개발 중입니다.",
         tags: ["Unity WebGL", "C#", ".NET", "Deterministic", "Server Authority", "AI Asset Pipeline"],

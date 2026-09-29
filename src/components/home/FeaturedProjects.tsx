@@ -94,7 +94,7 @@ export function FeaturedProjects() {
     },
     {
       type: "AI / 게임",
-      title: "마제헌 랜덤 디펜스",
+      title: "랜덤 디펜스 게임",
       status: "개발 중",
       subtitle: "AI 에셋 파이프라인과 결정론 전투 코어를 결합한 웹 게임",
       description:
