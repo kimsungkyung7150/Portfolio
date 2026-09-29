@@ -65,25 +65,55 @@ function BrowserFrame({
 }
 
 function RandomDefenseHero() {
-  const images = [
-    ["/projects/random-defense/gold-active.png", "골드 몬스터 전투"],
-    ["/projects/random-defense/wave-deployed.png", "웨이브 전개"],
-    ["/projects/random-defense/boss-fight.png", "보스 전투"],
+  const stats = [
+    ["Standing", "28 / 28"],
+    ["Attack Atlas", "9 / 28"],
+    ["Parity", "2,071 / 0 mismatch"],
+    ["WebGL", "PASS"],
   ]
 
   return (
-    <div className="grid min-h-[330px] grid-cols-3 gap-2.5 rounded-[18px] border border-border bg-backgroundSoft p-3 shadow-card sm:min-h-[430px] sm:gap-3 sm:p-4">
-      {images.map(([src, alt], index) => (
-        <div
-          key={src}
-          className={[
-            "relative overflow-hidden rounded-xl border border-border bg-black",
-            index === 1 ? "translate-y-5" : "",
-          ].join(" ")}
-        >
-          <Image src={src} alt={alt} fill sizes="220px" className="object-cover object-top" priority />
+    <div className="grid min-h-[360px] grid-cols-[0.42fr_0.58fr] gap-3 rounded-[18px] border border-border bg-backgroundSoft p-3 shadow-card sm:min-h-[430px] sm:p-4">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-black">
+        <Image
+          src="/projects/random-defense/boss-fight.png"
+          alt="랜덤 디펜스 보스 전투 런타임"
+          fill
+          sizes="(max-width: 768px) 42vw, 280px"
+          className="object-cover object-top"
+          priority
+        />
+        <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
+          430×844 RUNTIME
+        </span>
+      </div>
+
+      <div className="grid min-w-0 grid-rows-[auto_1fr] gap-3">
+        <div className="grid grid-cols-2 gap-2">
+          {stats.map(([label, value]) => (
+            <div key={label} className="rounded-lg border border-border bg-surface px-3 py-2.5">
+              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-textMuted">{label}</p>
+              <p className="mt-1 text-[11px] font-semibold leading-4 text-textPrimary sm:text-[13px]">{value}</p>
+            </div>
+          ))}
         </div>
-      ))}
+
+        <div className="relative min-h-[180px] overflow-hidden rounded-xl border border-border bg-[#0a0e16]">
+          <Image
+            src="/projects/random-defense/roster-28.png"
+            alt="REG-01 28종 비주얼 로스터"
+            fill
+            sizes="(max-width: 768px) 58vw, 420px"
+            className="object-contain p-2"
+            priority
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent px-3 pb-2 pt-8">
+            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-primarySoft">
+              REG-01 VISUAL ROSTER · 28 / 28
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -508,14 +538,72 @@ export default async function ProjectDetailPage({
                 </figure>
               </div>
             </div>
+          ) : project.slug === "random-defense" ? (
+            <div className="grid gap-4">
+              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                <div className="relative aspect-[1600/980] bg-[#0a0e16]">
+                  <Image
+                    src="/projects/random-defense/roster-28.png"
+                    alt="랜덤 디펜스 REG-01 28종 비주얼 로스터"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 1180px"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                  REG-01 Standing 비주얼 로스터 · 28/28 실제 런타임 바인딩
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                <div className="relative aspect-[16/9] bg-[#0a0e16]">
+                  <Image
+                    src="/projects/random-defense/enemy-concepts.png"
+                    alt="랜덤 디펜스 적군 P0 컨셉 아트"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 1180px"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                  적군 P0 컨셉 아트 · 현재 아트 방향과 적 디자인 기준
+                </figcaption>
+              </figure>
+
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                  <div className="relative h-[330px] bg-backgroundSoft sm:h-[480px] lg:h-[620px]">
+                    <Image
+                      src="/projects/random-defense/boss-fight.png"
+                      alt="랜덤 디펜스 보스 전투 화면"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 360px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                    모바일 430×844 · 보스 전투 런타임
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
+                  <div className="relative h-[330px] bg-backgroundSoft sm:h-[480px] lg:h-[620px]">
+                    <Image
+                      src="/projects/random-defense/gold-active.png"
+                      alt="랜덤 디펜스 골드 몬스터 활성 전투"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 360px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
+                    Phase6B · 골드 몬스터 활성 전투
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
           ) : project.screenshots.length > 0 ? (
-            <div
-              className={
-                project.slug === "random-defense"
-                  ? "grid grid-cols-2 gap-3 lg:grid-cols-4"
-                  : "grid gap-4 lg:grid-cols-2"
-              }
-            >
+            <div className="grid gap-4 lg:grid-cols-2">
               {project.screenshots.map((shot, index) => (
                 <figure
                   key={shot.src}

@@ -177,25 +177,39 @@ export function FeaturedProjects() {
 
                 <Link
                   href="/projects/random-defense"
-                  className="grid min-h-[280px] grid-cols-2 gap-2 border-t border-border bg-backgroundSoft p-3 sm:border-l sm:border-t-0"
+                  className="grid min-h-[280px] grid-rows-[0.62fr_0.38fr] gap-2 border-t border-border bg-backgroundSoft p-3 sm:border-l sm:border-t-0"
                 >
-                  <div className="relative overflow-hidden rounded-lg border border-border bg-black">
+                  <div className="relative overflow-hidden rounded-lg border border-border bg-[#0a0e16]">
                     <Image
-                      src="/projects/random-defense/gold-active.png"
-                      alt="랜덤 디펜스 골드 몬스터 전투 화면"
+                      src="/projects/random-defense/roster-28.png"
+                      alt="랜덤 디펜스 REG-01 28종 비주얼 로스터"
                       fill
-                      sizes="180px"
-                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 360px"
+                      className="object-contain p-2"
                     />
+                    <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
+                      REG-01 · 28 / 28
+                    </span>
                   </div>
-                  <div className="relative overflow-hidden rounded-lg border border-border bg-black">
-                    <Image
-                      src="/projects/random-defense/boss-fight.png"
-                      alt="랜덤 디펜스 보스 전투 화면"
-                      fill
-                      sizes="180px"
-                      className="object-cover object-top"
-                    />
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative overflow-hidden rounded-lg border border-border bg-black">
+                      <Image
+                        src="/projects/random-defense/boss-fight.png"
+                        alt="랜덤 디펜스 보스 전투"
+                        fill
+                        sizes="180px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="relative overflow-hidden rounded-lg border border-border bg-black">
+                      <Image
+                        src="/projects/random-defense/gold-active.png"
+                        alt="랜덤 디펜스 골드 몬스터 전투"
+                        fill
+                        sizes="180px"
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                 </Link>
               </div>

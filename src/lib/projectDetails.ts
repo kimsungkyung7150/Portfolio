@@ -276,10 +276,10 @@ export const projectDetails: ProjectDetail[] = [
       "ShowRoom이 대량 스프라이트 공급 파이프라인으로 안정화되면 Presentation 자산만 교체할 수 있도록 게임 규칙과 아트 경계를 분리했습니다.",
     ],
     currentScope: [
-      "REG-01 28종 전투용 로스터와 모바일 전투 슬라이스 구현",
-      "140종 / 115 조합 / 5권역 데이터 구조 검증",
-      "WebGL 빌드와 PlayMode/브라우저 검증 통과",
-      "나머지 권역·대량 애니메이션 자산·완성형 메타 시스템은 개발 중",
+      "콘텐츠 기준선: 140종 몬스터 · 115개 조합 · 5개 권역",
+      "현재 REG-01 전투 런타임: 28종 몬스터 · 23개 조합",
+      "Standing 비주얼 28/28 · Attack Atlas 9/28 · 상위 스킬 이펙트 3종",
+      "PlayMode / Domain / Application / WebGL 검증 통과, 나머지 권역과 메타 시스템은 개발 중",
     ],
     highlights: [
       "140종 몬스터 · 115개 조합 · 5개 권역 데이터 구조",
@@ -288,10 +288,26 @@ export const projectDetails: ProjectDetail[] = [
       "보스전·골드 몬스터·실패 조합 기록 등 게임 규칙 확장 중",
     ],
     screenshots: [
-      { src: "/projects/random-defense/gold-active.png", alt: "랜덤 디펜스 게임 골드 몬스터 전투 화면", caption: "골드 몬스터 활성 전투" },
-      { src: "/projects/random-defense/wave-deployed.png", alt: "랜덤 디펜스 게임 웨이브 전개 화면", caption: "웨이브 전개 및 전장 배치" },
-      { src: "/projects/random-defense/boss-fight.png", alt: "랜덤 디펜스 게임 보스 전투 화면", caption: "보스 전투" },
-      { src: "/projects/random-defense/victory.png", alt: "랜덤 디펜스 게임 승리 화면", caption: "전투 승리 상태" },
+      {
+        src: "/projects/random-defense/roster-28.png",
+        alt: "랜덤 디펜스 REG-01 28종 비주얼 로스터",
+        caption: "REG-01 Standing 비주얼 로스터 · 28/28 실제 런타임 바인딩",
+      },
+      {
+        src: "/projects/random-defense/enemy-concepts.png",
+        alt: "랜덤 디펜스 적 컨셉 아트",
+        caption: "적군 P0 컨셉 아트 · 현재 아트 방향과 적 디자인 기준",
+      },
+      {
+        src: "/projects/random-defense/boss-fight.png",
+        alt: "랜덤 디펜스 보스 전투 화면",
+        caption: "모바일 430×844 · 보스 전투 런타임",
+      },
+      {
+        src: "/projects/random-defense/gold-active.png",
+        alt: "랜덤 디펜스 골드 몬스터 전투 화면",
+        caption: "Phase6B · 골드 몬스터 활성 전투",
+      },
     ],
   },
   {
