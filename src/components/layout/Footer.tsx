@@ -1,7 +1,5 @@
 import Link from "next/link"
 
-const githubUrl = "https://github.com/kimsungkyung7150"
-
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-background">
@@ -15,9 +13,6 @@ export function Footer() {
         <div className="flex flex-wrap items-center gap-4 text-sm text-textSecondary">
           <Link href="/projects" className="transition-colors hover:text-textPrimary">프로젝트</Link>
           <Link href="/experience" className="transition-colors hover:text-textPrimary">경력</Link>
-          <a href={githubUrl} target="_blank" rel="noreferrer" className="transition-colors hover:text-textPrimary">
-            GitHub ↗
-          </a>
           <span className="text-textMuted">© {new Date().getFullYear()}</span>
         </div>
       </div>

@@ -1,7 +1,5 @@
 import Link from "next/link"
 
-const githubUrl = "https://github.com/kimsungkyung7150"
-
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-background/88 backdrop-blur-xl">
@@ -25,14 +23,6 @@ export function Header() {
           <Link href="/about" className="rounded-md px-2.5 py-2 text-xs font-medium text-textSecondary transition-colors hover:bg-surface hover:text-textPrimary sm:px-3 sm:text-sm">
             소개
           </Link>
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-md border border-border px-3 py-2 text-sm font-medium text-textPrimary transition-colors hover:border-primarySoft/50 hover:bg-surface sm:inline-flex"
-          >
-            GitHub ↗
-          </a>
         </nav>
       </div>
     </header>

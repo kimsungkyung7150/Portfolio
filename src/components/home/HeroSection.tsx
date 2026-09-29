@@ -2,8 +2,6 @@ import Image from "next/image"
 
 import { Button } from "@/components/ui/Button"
 
-const githubUrl = "https://github.com/kimsungkyung7150"
-
 function ProductWindow({
   label,
   meta,
@@ -77,14 +75,6 @@ export function HeroSection() {
           <div className="mt-7 flex flex-wrap gap-2.5">
             <Button href="/projects">주요 프로젝트 보기 →</Button>
             <Button href="/experience" variant="outline">경력 보기</Button>
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center justify-center rounded-lg px-3 text-sm font-semibold text-textSecondary transition-colors hover:text-textPrimary"
-            >
-              GitHub ↗
-            </a>
           </div>
 
           <dl className="mt-8 grid max-w-[500px] grid-cols-3 border-t border-border pt-5">
