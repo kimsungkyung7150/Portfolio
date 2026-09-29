@@ -72,7 +72,7 @@ function RandomDefenseHero() {
   ]
 
   return (
-    <div className="grid min-h-[430px] grid-cols-3 gap-3 rounded-[18px] border border-border bg-backgroundSoft p-4 shadow-card">
+    <div className="grid min-h-[330px] grid-cols-3 gap-2.5 rounded-[18px] border border-border bg-backgroundSoft p-3 shadow-card sm:min-h-[430px] sm:gap-3 sm:p-4">
       {images.map(([src, alt], index) => (
         <div
           key={src}
@@ -102,12 +102,12 @@ function ImpactSuiteHero({ project }: { project: ProjectDetail }) {
 
       <div className="grid gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
         <div className="rounded-xl border border-border bg-background px-4 py-5 text-center">
-          <p className="text-sm font-semibold text-textPrimary">Browser Trace</p>
+          <p className="text-[13px] font-semibold text-textPrimary sm:text-sm">Browser Trace</p>
           <p className="mt-1 text-[11px] text-textMuted">사용자 행동 수집</p>
         </div>
         <ChevronRight className="mx-auto hidden h-4 w-4 text-textMuted md:block" />
         <div className="rounded-xl border border-border bg-background px-4 py-5 text-center">
-          <p className="text-sm font-semibold text-textPrimary">API / SQL</p>
+          <p className="text-[13px] font-semibold text-textPrimary sm:text-sm">API / SQL</p>
           <p className="mt-1 text-[11px] text-textMuted">실행 증거 연결</p>
         </div>
         <ChevronRight className="mx-auto hidden h-4 w-4 text-textMuted md:block" />
@@ -139,7 +139,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
 
   if (project.slug === "showroom") {
     return (
-      <div className="relative pb-10">
+      <div className="relative pb-0 sm:pb-10">
         <BrowserFrame
           src="/projects/showroom/comparison-final.png"
           alt="ShowRoom 원화와 결과 비교 화면"
@@ -159,7 +159,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
   }
 
   return (
-    <div className="relative pb-9">
+    <div className="relative pb-0 sm:pb-9">
       <BrowserFrame
         src="/projects/routoon/home.png"
         alt="Routoon 실제 서비스 메인 화면"
@@ -187,7 +187,7 @@ function SectionHeading({
   description?: string
 }) {
   return (
-    <div className="mb-7 grid gap-3 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+    <div className="mb-5 grid gap-3 sm:mb-7 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
       <div>
         <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-primarySoft">
           {eyebrow}
@@ -220,7 +220,7 @@ export default async function ProjectDetailPage({
   return (
     <div>
       <section className="border-b border-white/[0.06] bg-background">
-        <div className="mx-auto max-w-[1240px] px-5 py-10 lg:px-8 lg:py-14">
+        <div className="mx-auto max-w-[1240px] px-5 py-8 sm:py-10 lg:px-8 lg:py-14">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-sm text-textMuted transition-colors hover:text-textPrimary"
@@ -229,14 +229,14 @@ export default async function ProjectDetailPage({
             전체 프로젝트
           </Link>
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-14">
+          <div className="mt-6 grid gap-7 sm:mt-8 sm:gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-14">
             <div>
               <div className="flex flex-wrap gap-2">
                 <Badge variant={project.statusVariant}>{project.type}</Badge>
                 <Badge variant={project.statusVariant}>{project.status}</Badge>
               </div>
 
-              <h1 className="mt-5 text-[clamp(3rem,5vw,4.6rem)] font-[780] leading-[1.02] tracking-[-0.055em] text-textPrimary">
+              <h1 className="mt-5 text-[clamp(2.55rem,5vw,4.6rem)] font-[780] leading-[1.02] tracking-[-0.055em] text-textPrimary">
                 {project.title}
               </h1>
               <p className="mt-3 max-w-[540px] text-[15px] font-medium leading-6 text-textSecondary">
@@ -286,7 +286,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="bg-backgroundSoft py-14 lg:py-16">
+      <section className="bg-backgroundSoft py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow="Context"
@@ -315,7 +315,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-background py-14 lg:py-16">
+      <section className="border-y border-white/[0.06] bg-background py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow="Architecture"
@@ -323,9 +323,9 @@ export default async function ProjectDetailPage({
             description="실제 구현의 계층과 책임을 흐름 순서대로 요약했습니다."
           />
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-3">
             {project.architecture.map((step, index) => (
-              <article key={step.title} className="relative rounded-xl border border-border bg-surface p-5">
+              <article key={step.title} className="relative rounded-xl border border-border bg-surface p-4 sm:p-5">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[10px] text-primarySoft">
                     {String(index + 1).padStart(2, "0")}
@@ -334,15 +334,15 @@ export default async function ProjectDetailPage({
                     <ChevronRight className="hidden h-4 w-4 text-textMuted lg:block" />
                   )}
                 </div>
-                <h3 className="mt-4 text-[15px] font-semibold text-textPrimary">{step.title}</h3>
-                <p className="mt-2 text-[12px] leading-5 text-textSecondary">{step.description}</p>
+                <h3 className="mt-3 text-[13px] font-semibold leading-5 text-textPrimary sm:mt-4 sm:text-[15px]">{step.title}</h3>
+                <p className="mt-2 text-[11px] leading-[1.4] text-textSecondary sm:text-[12px] sm:leading-5">{step.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-backgroundSoft py-14 lg:py-16">
+      <section className="bg-backgroundSoft py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow="Key Decisions"
@@ -362,7 +362,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-background py-14 lg:py-16">
+      <section className="border-y border-white/[0.06] bg-background py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow="Technology"
@@ -370,10 +370,10 @@ export default async function ProjectDetailPage({
             description="프로젝트 안에서 실제로 맡은 역할 기준으로 기술을 묶었습니다."
           />
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
             {project.techGroups.map((group) => (
-              <article key={group.name} className="rounded-xl border border-border bg-surface p-5">
-                <h3 className="text-sm font-semibold text-textPrimary">{group.name}</h3>
+              <article key={group.name} className="rounded-xl border border-border bg-surface p-4 sm:p-5">
+                <h3 className="text-[13px] font-semibold text-textPrimary sm:text-sm">{group.name}</h3>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {group.items.map((item) => (
                     <span
@@ -390,7 +390,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="bg-backgroundSoft py-14 lg:py-16">
+      <section className="bg-backgroundSoft py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <div className="grid gap-4 lg:grid-cols-2">
             <article className="rounded-xl border border-border bg-surface p-6 lg:p-7">
@@ -422,7 +422,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="bg-background py-14 lg:py-16">
+      <section className="bg-background py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow="Evidence"
@@ -470,7 +470,7 @@ export default async function ProjectDetailPage({
                       className="object-contain"
                     />
                   </div>
-                  <figcaption className="border-t border-border px-4 py-3 text-[11px] text-textSecondary">
+                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
                     {shot.caption}
                   </figcaption>
                 </figure>
@@ -482,7 +482,7 @@ export default async function ProjectDetailPage({
         </div>
       </section>
 
-      <section className="border-t border-white/[0.06] bg-backgroundSoft py-10">
+      <section className="border-t border-white/[0.06] bg-backgroundSoft py-8 sm:py-10">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-4 px-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-textMuted">Next Project</p>
