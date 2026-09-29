@@ -127,6 +127,105 @@ export const projectDetails: ProjectDetail[] = [
     screenshotNote: "실제 공개 서비스에서 캡처한 화면입니다.",
   },
   {
+    slug: "idle-game",
+    title: "Routoon 연동 방치형 게임",
+    type: "Routoon Ecosystem / Game",
+    status: "개발 중",
+    statusVariant: "warning",
+    subtitle: "React Host + Unity WebGL + 서버 권위 전투·성장 시스템",
+    summary:
+      "Routoon 작품 경험 안에서 함께 즐길 수 있도록 설계한 방치형 전투 모듈입니다. React Product Host와 Unity WebGL 런타임, ASP.NET Core 서버 권위 전투·영속화를 연결합니다.",
+    description:
+      "웹소설을 읽는 경험과 게임 플레이를 같은 플랫폼 안에서 이어가기 위해 만든 MHWG V2 방치형 게임 모듈입니다. React Product Host가 인증·프로필·자동 사냥·장비 UI를 관리하고, Unity WebGL은 전투를 재생하며, ASP.NET Core 서버가 BattleTicket·결과 재검증·보상·영속화를 권위 있게 처리합니다. 현재 게임 로직과 제품 통합 구조는 실제 구현되어 있고, 시각 표현은 상용화 목표 UI 방향으로 계속 교체 중입니다.",
+    role: "Product Integration · React Host · Unity WebGL · Server-authoritative Game Backend",
+    problem:
+      "브라우저 안에서 자동 전투를 돌리는 것만으로는 제품이 되지 않습니다. 새로고침·재접속·중복 요청에도 전투와 보상이 깨지지 않아야 하고, 클라이언트가 결과나 재화를 임의로 만들 수 없어야 하며, 작품 서비스와 같은 인증·세션 안에서 자연스럽게 실행돼야 합니다.",
+    constraints: [
+      "Unity WebGL 클라이언트를 보상·진행의 권위로 신뢰할 수 없음",
+      "클라이언트 재생 결과와 서버 재시뮬레이션이 결정론적으로 일치해야 함",
+      "새로고침·재시도·중복 Settlement에도 보상이 정확히 한 번만 반영돼야 함",
+      "React 제품 UI와 Unity 런타임의 책임을 분리하면서 하나의 게임 경험으로 연결해야 함",
+      "현재 시각 자산은 최종 상용 품질로 교체 중이며 UI 시안과 실제 런타임을 구분해 관리해야 함",
+    ],
+    decisions: [
+      {
+        title: "BattleTicket + 불변 전투 스냅샷",
+        reason:
+          "서버가 stage, seed, 전투 정의를 묶은 티켓을 발급하고 Unity는 그 입력을 재생하도록 해 클라이언트가 임의의 전투 조건을 만들지 못하게 했습니다.",
+      },
+      {
+        title: "클라이언트 재생, 서버 재시뮬레이션·정산",
+        reason:
+          "Unity가 완료 hash를 돌려주면 서버가 동일 전투를 다시 계산해 일치 여부를 검증한 뒤에만 보상과 진행 상태를 커밋합니다.",
+      },
+      {
+        title: "React Product Host와 Unity Runtime 분리",
+        reason:
+          "자동 사냥, 프로필, 오프라인 보상, 장비 제작·강화 같은 제품 UI는 React가 담당하고 전투 표현은 Unity에 집중시켜 각 계층의 책임을 분리했습니다.",
+      },
+    ],
+    tags: ["React", "TypeScript", "Unity 6", "WebGL", "ASP.NET Core", "C#", "Deterministic Combat"],
+    techGroups: [
+      { name: "Product Host", items: ["React", "TypeScript", "MhwgProductHost", "GameHost Bridge"] },
+      { name: "Runtime", items: ["Unity 6000.5.8f1", "WebGL", "C#", "Bridge Protocol 1.0"] },
+      { name: "Backend", items: ["ASP.NET Core", "BattleTicket", "Server Re-simulation", "Settlement"] },
+      { name: "Progression", items: ["Offline Reward", "Equipment", "Craft / Enhance", "Auto Next"] },
+      { name: "Safety", items: ["Idempotency", "Session Guard", "Simulation Hash", "Durable Persistence"] },
+    ],
+    architecture: [
+      { title: "Routoon Reader", description: "작품 서비스의 인증·세션 안에서 게임 실행 진입" },
+      { title: "React Product Host", description: "프로필, 자동 사냥, 속도, 장비·성장 명령을 관리" },
+      { title: "BattleTicket API", description: "서버가 stage·seed·불변 전투 스냅샷을 발급" },
+      { title: "Unity WebGL Runtime", description: "티켓 입력을 결정론적으로 재생하고 완료 hash를 반환" },
+      { title: "Server Settlement", description: "서버 재시뮬레이션으로 결과를 검증하고 정확히 한 번 정산" },
+      { title: "Durable Progression", description: "Gold, Offline Reward, Inventory, Equipment, Stage 진행을 영속화" },
+    ],
+    architectureNotes: [
+      "Unity는 전투 표현과 재생을 담당하지만 최종 결과와 보상 권위는 서버에 둡니다.",
+      "SettlementRequestId와 영속화 계층을 이용해 재시도에도 중복 보상이 발생하지 않도록 설계합니다.",
+      "React Host가 제품 UI와 Unity Bridge를 중재해 게임 런타임을 Routoon 서비스 흐름에 통합합니다.",
+      "UI 시안은 목표 상용 방향이며, 실제 런타임 캡처와 구분해서 포트폴리오에 표시합니다.",
+    ],
+    currentScope: [
+      "MHWG V2 Development/Test Product Host와 Unity WebGL Bridge 실제 구현",
+      "BattleTicket 발급 → Unity 재생 → 서버 재시뮬레이션 → Settlement 흐름 구현",
+      "자동 사냥·실패 스테이지 복구·오프라인 Gold·공격력 성장 구현",
+      "장비 제작·착용·분해·잠금·강화와 Stage 10 장비 진행 흐름 구현",
+      "상용 UI/아트는 선택된 UI 시안을 기준으로 교체·고도화 중",
+    ],
+    highlights: [
+      "React Product Host와 Unity WebGL 런타임을 같은 Routoon 세션에 통합",
+      "BattleTicket·Simulation Hash·서버 재시뮬레이션으로 클라이언트 위변조 방지",
+      "Idempotent Settlement와 Durable Persistence로 재시도·재접속 안전성 확보",
+      "자동 사냥·오프라인 보상·장비 제작/강화까지 제품 성장 루프 확장",
+    ],
+    screenshots: [
+      {
+        src: "/projects/idle-game/ui-concept.png",
+        alt: "Routoon 연동 방치형 게임 상용 UI 방향 시안",
+        caption: "선택한 상용 UI 방향 시안 · 목표 디자인이며 실제 런타임 화면과 구분",
+      },
+      {
+        src: "/projects/idle-game/runtime-idle.png",
+        alt: "방치형 게임 실제 idle 런타임 화면",
+        caption: "실제 Product Host + Unity WebGL 런타임 · Idle 상태",
+      },
+      {
+        src: "/projects/idle-game/runtime-battle.png",
+        alt: "방치형 게임 실제 전투 런타임 화면",
+        caption: "실제 Unity WebGL 전투 재생 화면",
+      },
+      {
+        src: "/projects/idle-game/runtime-result.png",
+        alt: "방치형 게임 실제 전투 결과 화면",
+        caption: "실제 전투 Settlement 이후 결과 화면",
+      },
+    ],
+    screenshotNote:
+      "첫 이미지는 선택된 상용 UI 방향 시안이고, 나머지 3장은 실제 개발 런타임 visual audit 화면입니다. 현재 시각 자산은 계속 교체 중입니다.",
+  },
+
+  {
     slug: "showroom",
     title: "ShowRoom",
     type: "AI / 게임 에셋",

@@ -27,8 +27,8 @@ export function CareerTimeline() {
     },
     {
       year: "현재",
-      title: "Routoon · ShowRoom · 랜덤 디펜스 게임",
-      description: "현재 개발의 중심은 AI 웹소설 플랫폼 Routoon, AI 게임 에셋 파이프라인 ShowRoom, 그리고 140종 몬스터·3마리 조합·웨이브 전투를 구현하는 Unity WebGL 랜덤 디펜스 게임입니다.",
+      title: "Routoon · 방치형 게임 · ShowRoom · 랜덤 디펜스 게임",
+      description: "현재 개발의 중심은 AI 웹소설 플랫폼 Routoon, Routoon 연동 방치형 게임, AI 게임 에셋 파이프라인 ShowRoom, 그리고 140종 몬스터·3마리 조합·웨이브 전투를 구현하는 Unity WebGL 랜덤 디펜스 게임입니다.",
     },
   ]
 

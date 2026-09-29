@@ -18,6 +18,7 @@ const principles = [
 const currentFocus = [
   "AI 웹소설 생성·품질 검증 플랫폼 Routoon",
   "WPF 기반 AI 게임 에셋 제작 도구 ShowRoom",
+  "Routoon 연동 Unity WebGL 방치형 게임",
   "Unity WebGL 랜덤 디펜스 게임",
   "레거시 실행 흐름 분석 도구 ImpactSuite",
 ]

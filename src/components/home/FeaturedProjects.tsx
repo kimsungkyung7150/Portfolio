@@ -7,6 +7,7 @@ import { projectDetails } from "@/lib/projectDetails"
 
 const routoon = projectDetails.find((project) => project.slug === "routoon")!
 const showroom = projectDetails.find((project) => project.slug === "showroom")!
+const idleGame = projectDetails.find((project) => project.slug === "idle-game")!
 const randomDefense = projectDetails.find((project) => project.slug === "random-defense")!
 const impactSuite = projectDetails.find((project) => project.slug === "impactsuite")!
 
@@ -151,6 +152,58 @@ export function FeaturedProjects() {
                 </div>
                 <div className="mt-6">
                   <Button href="/projects/showroom" variant="outline">Case Study</Button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-card">
+            <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+              <Link
+                href="/projects/idle-game"
+                className="relative min-h-[280px] overflow-hidden border-b border-border bg-[#0a0e16] lg:min-h-[330px] lg:border-b-0 lg:border-r"
+              >
+                <Image
+                  src="/projects/idle-game/ui-concept.png"
+                  alt="Routoon 연동 방치형 게임 상용 UI 방향 시안"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 650px"
+                  className="object-contain p-3"
+                />
+                <div className="absolute left-3 top-3 rounded-md border border-primary/30 bg-background/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-primarySoft">
+                  ROUTOON ECOSYSTEM · TARGET UI
+                </div>
+              </Link>
+
+              <div className="flex flex-col justify-center p-6 lg:p-7">
+                <ProjectMeta type="Routoon Ecosystem / Game" status={idleGame.status} variant="warning" />
+                <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-textPrimary">
+                  방치형 게임
+                </h3>
+                <p className="mt-1.5 text-sm font-semibold text-textSecondary">
+                  React Host + Unity WebGL + 서버 권위 전투·성장 시스템
+                </p>
+                <p className="mt-4 max-w-[560px] text-sm leading-6 text-textSecondary">
+                  Routoon 작품 경험 안에서 함께 즐길 수 있도록 설계한 방치형 전투 모듈입니다.
+                  React Product Host, Unity WebGL, ASP.NET Core 서버 권위 정산을 하나의 흐름으로 연결합니다.
+                </p>
+
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  <div className="rounded-lg border border-border bg-background px-3 py-2">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-textMuted">Runtime</p>
+                    <p className="mt-1 text-[11px] font-semibold text-textPrimary">Unity WebGL</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-background px-3 py-2">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-textMuted">Authority</p>
+                    <p className="mt-1 text-[11px] font-semibold text-textPrimary">Server Settlement</p>
+                  </div>
+                </div>
+
+                <div className="mt-5">
+                  <TechRow tags={idleGame.tags} />
+                </div>
+                <div className="mt-6">
+                  <Button href="/projects/idle-game" variant="outline">Case Study</Button>
                 </div>
               </div>
             </div>

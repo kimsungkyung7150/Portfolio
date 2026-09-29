@@ -1,11 +1,12 @@
 const experiences = [
   {
     period: "현재",
-    title: "Routoon · ShowRoom · 랜덤 디펜스 게임",
+    title: "Routoon · 방치형 게임 · ShowRoom · 랜덤 디펜스 게임",
     role: "Product / AI / Game Engineering",
     summary: "개인 제품을 직접 설계하고 구현하며 AI, WPF, Unity까지 개발 범위를 확장하고 있습니다.",
     points: [
       "Routoon: 정본·캐릭터 보이스·회차 맥락을 활용하는 AI 웹소설 생성·검수·발행 흐름 개발",
+      "Routoon 연동 방치형 게임: React Host · Unity WebGL · 서버 권위 BattleTicket/Settlement와 성장 루프 개발",
       "ShowRoom: WPF Studio와 Foundry Host를 분리한 AI 게임 에셋 제작·검수 파이프라인 개발",
       "랜덤 디펜스: 140종 몬스터와 3마리 조합, 웨이브 전투를 구현하는 Unity WebGL 프로젝트",
     ],

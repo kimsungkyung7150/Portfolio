@@ -95,7 +95,7 @@ export function HeroSection() {
             </div>
             <div className="border-l border-border px-4">
               <dt className="font-mono text-[9px] uppercase tracking-[0.13em] text-textMuted">Current</dt>
-              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">4 Products</dd>
+              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">5 Products</dd>
               <dd className="mt-0.5 text-[10px] text-textMuted">직접 설계하고 개발</dd>
             </div>
             <div className="border-l border-border pl-4">

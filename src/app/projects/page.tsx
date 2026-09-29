@@ -53,7 +53,7 @@ export default function ProjectsPage() {
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">Selected Work</p>
             <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">주요 제품</h2>
           </div>
-          <span className="hidden text-sm text-textMuted sm:block">4 projects</span>
+          <span className="hidden text-sm text-textMuted sm:block">{projectDetails.length} projects</span>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
