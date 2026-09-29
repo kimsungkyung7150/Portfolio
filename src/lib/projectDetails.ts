@@ -16,6 +16,11 @@ export type ArchitectureStep = {
   description: string
 }
 
+export type ProjectDecision = {
+  title: string
+  reason: string
+}
+
 export type ProjectDetail = {
   slug: string
   title: string
@@ -25,6 +30,10 @@ export type ProjectDetail = {
   subtitle: string
   summary: string
   description: string
+  role: string
+  problem: string
+  constraints: string[]
+  decisions: ProjectDecision[]
   tags: string[]
   techGroups: TechGroup[]
   architecture: ArchitectureStep[]
@@ -48,7 +57,33 @@ export const projectDetails: ProjectDetail[] = [
     summary:
       "정본(Canon), 캐릭터 보이스, 회차 맥락을 기반으로 집필부터 검수·발행까지 연결하는 AI 웹소설 플랫폼입니다.",
     description:
-      "작가와 AI가 대화를 통해 작품의 정본을 만들고, 회차 생성·비평·품질 검증·발행 후보 선정을 하나의 제품 흐름으로 연결합니다. 독자 서비스와 작가 작업실을 함께 운영하면서 세계관 일관성, 장편 문맥 유지, 문체 자연스러움과 발행 안전성을 지속적으로 고도화하고 있습니다.",
+      "작가와 AI가 대화를 통해 작품의 정본을 만들고, 회차 생성·비평·품질 검증·발행 후보 선정을 하나의 제품 흐름으로 연결합니다. 독자 서비스와 작가 작업실을 함께 운영하면서 장편 문맥 유지, 세계관 일관성, 문체 자연스러움과 발행 안전성을 지속적으로 고도화하고 있습니다.",
+    role: "Product Architecture · Backend · AI Pipeline · Frontend",
+    problem:
+      "장편 웹소설 생성은 한 번의 프롬프트로 끝나지 않습니다. 설정이 밀리고, 캐릭터 보이스가 흔들리고, 회차가 길어질수록 이전 사건과의 연결이 약해지며, 생성 결과를 그대로 발행하기도 어렵습니다. 그래서 생성 자체보다 ‘어떤 맥락을 어떤 순서로 공급하고 어떻게 검증할 것인가’를 제품 구조로 풀어야 했습니다.",
+    constraints: [
+      "장편 연재에서 세계관·인물·사건의 연속성을 장기간 유지해야 함",
+      "AI 생성 후보와 실제 공개 원고를 분리해 발행 안전성을 지켜야 함",
+      "작가의 의도와 캐릭터 보이스를 모델 입력에 지속적으로 반영해야 함",
+      "품질 개선이 다른 회차나 기존 운영 흐름을 깨뜨리지 않도록 회귀 검증이 필요함",
+    ],
+    decisions: [
+      {
+        title: "정본(Canon)을 프롬프트 밖의 제품 상태로 관리",
+        reason:
+          "세계관과 인물 설정을 매번 긴 프롬프트로만 전달하지 않고 구조화된 상태로 관리해 장편 문맥의 기준점을 유지합니다.",
+      },
+      {
+        title: "Writer와 Critic·품질 검증 계층을 분리",
+        reason:
+          "생성과 평가를 한 단계에 섞지 않고 서로 다른 책임으로 분리해 원고 품질 문제의 원인을 추적하기 쉽게 만들었습니다.",
+      },
+      {
+        title: "Candidate와 Publish를 분리",
+        reason:
+          "AI가 만든 결과가 곧바로 독자에게 공개되지 않도록 후보와 공개 상태를 나눠 검토·복구·감사가 가능한 흐름을 유지합니다.",
+      },
+    ],
     tags: ["React", "TypeScript", "ASP.NET Core", "MS SQL Server", "Neo4j", "LLM", "MCP"],
     techGroups: [
       { name: "Frontend", items: ["React 19", "TypeScript", "Vite", "TanStack Query"] },
@@ -89,7 +124,7 @@ export const projectDetails: ProjectDetail[] = [
     ],
     liveUrl: "https://reader.routoon.com/",
     liveLabel: "Routoon 접속",
-    screenshotNote: "실제 공개 서비스에서 캡처한 메인·작품 목록·작품 상세·회차 읽기 화면입니다.",
+    screenshotNote: "실제 공개 서비스에서 캡처한 화면입니다.",
   },
   {
     slug: "showroom",
@@ -99,9 +134,35 @@ export const projectDetails: ProjectDetail[] = [
     statusVariant: "warning",
     subtitle: "WPF 기반 AI 게임 에셋 제작·검수·전달 도구",
     summary:
-      "WPF 데스크톱 앱에서 캐릭터 원화를 입력하고, AI·Blender·로컬 도구를 오케스트레이션해 게임용 2D 스프라이트와 모션 자산을 생성·검증하는 Asset Foundry입니다.",
+      "WPF 데스크톱 앱에서 캐릭터 원화를 입력하고 AI·Blender·로컬 도구를 오케스트레이션해 게임용 2D 스프라이트와 모션 자산을 생성·검증하는 Asset Foundry입니다.",
     description:
-      "ShowRoom은 단순 이미지 생성기가 아니라 게임 에셋 제작 Orchestrator입니다. WPF Studio가 사용자 작업 화면을 제공하고, Foundry Host가 생성 작업·상태·후보 버전의 권위를 관리합니다. SQLite와 CAS/Vault에는 작업 이력과 불변 Candidate를 저장하고, ComfyUI·Blender·Generation Worker 같은 전문 도구를 단계별로 호출한 뒤 QA를 통과한 결과만 Unity 전달 대상으로 만듭니다.",
+      "ShowRoom은 단순 이미지 생성기가 아니라 게임 에셋 제작 Orchestrator입니다. WPF Studio가 사용자 작업 화면을 제공하고 Foundry Host가 작업·상태·후보 버전의 권위를 관리합니다. SQLite와 CAS/Vault에는 작업 이력과 불변 Candidate를 저장하고, 전문 Worker를 단계별로 호출한 뒤 QA를 통과한 결과만 Unity 전달 대상으로 만듭니다.",
+    role: "Desktop Product Architecture · WPF UI · Pipeline / Tooling",
+    problem:
+      "게임 캐릭터 하나를 실제 제품 자산으로 쓰려면 원화 한 장을 만드는 것보다 방향, 액션, 모션 프레임, 품질 비교, 버전 관리와 Unity 전달까지 반복 가능한 제작 파이프라인이 필요합니다. 생성 도구마다 결과 형식과 품질이 달라 작업자가 수동으로 관리하면 재현성과 추적성이 쉽게 무너집니다.",
+    constraints: [
+      "원화의 인상과 캐릭터 정체성을 여러 방향·액션에서도 유지해야 함",
+      "로컬 GPU와 도구 제약 안에서 생성·검수 과정을 반복 가능하게 만들어야 함",
+      "AI, Blender, ComfyUI 등 서로 다른 전문 도구의 실패와 재시도를 통제해야 함",
+      "2D 제품 경로와 3D/2.5D 실험 경로를 분리하면서 동일한 작업 이력을 유지해야 함",
+    ],
+    decisions: [
+      {
+        title: "WPF Studio와 Foundry Host를 분리",
+        reason:
+          "UI가 작업 상태의 권위를 직접 갖지 않도록 하고, 명령·Job·Candidate 상태는 Host에서 관리해 도구 교체와 복구를 쉽게 했습니다.",
+      },
+      {
+        title: "Candidate를 불변 버전으로 관리",
+        reason:
+          "결과물을 덮어쓰지 않고 새 Candidate로 남겨 원화와 결과 비교, 재현, 승인 이력과 품질 회귀를 추적할 수 있게 했습니다.",
+      },
+      {
+        title: "전문 Worker + QA Gate 구조",
+        reason:
+          "생성, 방향, 모션, Blender 작업을 한 프로세스에 묶지 않고 전문 Worker로 나누고 검증을 통과한 결과만 다음 단계로 전달합니다.",
+      },
+    ],
     tags: [".NET 10", "WPF", "C#", "WebView2", "SQLite", "MCP", "Unity", "Blender", "ComfyUI"],
     techGroups: [
       { name: "Desktop UI", items: [".NET 10 Windows", "WPF / XAML", "WebView2", "Workspace / Review UI"] },
@@ -155,6 +216,32 @@ export const projectDetails: ProjectDetail[] = [
       "140종 몬스터, 115개 조합 데이터와 5개 권역을 기반으로 소환·3마리 조합·웨이브 전투를 구현하는 별도 Unity 프로젝트입니다.",
     description:
       "Feature Modular Clean Architecture를 적용해 Unity 표현 계층과 게임 규칙을 분리했습니다. 소환, 전장/보관함 배치, 3마리 조합, 웨이브와 전투 규칙은 Application/Domain 계층에서 처리하고, Unity Presentation은 해당 상태를 모바일 전투 화면으로 표현합니다. 현재 REG-01 전투 슬라이스와 WebGL 검증이 완료됐으며 전체 5권역 제품화와 대량 아트 확장은 진행 중입니다.",
+    role: "Game Architecture · Unity Client · Deterministic Game Core",
+    problem:
+      "랜덤 디펜스는 단순히 화면에 유닛을 배치하는 게임이 아니라 140종 몬스터, 115개 조합, 5개 권역과 웨이브 규칙이 함께 움직여야 합니다. 콘텐츠가 늘어나도 규칙이 코드 분기로 폭발하지 않고, 모바일 WebGL에서 동일한 게임 상태를 재현할 수 있는 구조가 필요했습니다.",
+    constraints: [
+      "140종 몬스터와 115개 조합 규칙을 데이터 중심으로 확장해야 함",
+      "Unity Presentation과 게임 규칙을 분리해 테스트 가능성을 유지해야 함",
+      "모바일 430×844 화면에서 전투 정보와 조작성을 동시에 확보해야 함",
+      "ShowRoom의 대량 아트 파이프라인이 미완성이라 게임 구조와 자산 공급 경계를 분리해야 함",
+    ],
+    decisions: [
+      {
+        title: "Feature Modular Clean Architecture",
+        reason:
+          "Battle, Combination, Storage 등의 기능 경계를 분리해 특정 UI나 MonoBehaviour가 전체 게임 규칙을 소유하지 않도록 했습니다.",
+      },
+      {
+        title: "결정론 RNG와 Golden Scenario",
+        reason:
+          "리팩터링이나 WebGL 빌드 이후에도 동일한 규칙과 결과가 유지되는지 테스트 가능한 기준선을 만들었습니다.",
+      },
+      {
+        title: "콘텐츠 정의와 표현 자산을 분리",
+        reason:
+          "몬스터·조합 규칙은 데이터로 유지하고 ShowRoom에서 공급되는 스프라이트는 Presentation 계층에서 교체할 수 있도록 설계했습니다.",
+      },
+    ],
     tags: ["Unity 6", "C#", "WebGL", "Clean Architecture", "Deterministic RNG", "140 Monsters"],
     techGroups: [
       { name: "Engine", items: ["Unity 6000.5.8f1", "URP", "WebGL", "430×844 Mobile UI"] },
@@ -190,7 +277,7 @@ export const projectDetails: ProjectDetail[] = [
       "보스전·골드 몬스터·실패 조합 기록 등 게임 규칙 확장 중",
     ],
     screenshots: [
-      { src: "/projects/random-defense/gold-active.png", alt: "랜덤 디펜스 게임 골드 몬스터 전투 화면", caption: "실제 랜덤 디펜스 프로젝트 · 골드 몬스터 활성 전투" },
+      { src: "/projects/random-defense/gold-active.png", alt: "랜덤 디펜스 게임 골드 몬스터 전투 화면", caption: "골드 몬스터 활성 전투" },
       { src: "/projects/random-defense/wave-deployed.png", alt: "랜덤 디펜스 게임 웨이브 전개 화면", caption: "웨이브 전개 및 전장 배치" },
       { src: "/projects/random-defense/boss-fight.png", alt: "랜덤 디펜스 게임 보스 전투 화면", caption: "보스 전투" },
       { src: "/projects/random-defense/victory.png", alt: "랜덤 디펜스 게임 승리 화면", caption: "전투 승리 상태" },
@@ -207,6 +294,32 @@ export const projectDetails: ProjectDetail[] = [
       "운영 시스템을 직접 수정하지 않고 브라우저 행동·API·SQL 실행 흐름을 수집해 변경 영향과 병목을 구조적으로 분석하는 도구입니다.",
     description:
       "문서가 부족한 레거시 시스템에서도 추측이 아니라 실제 실행 흐름을 근거로 분석하는 것을 목표로 합니다. 브라우저 사용자 행동과 API 호출, SQL 실행을 하나의 흐름으로 연결하고 Neo4j에 의존성 그래프를 구성한 뒤, AI(MCP)가 해당 증거를 바탕으로 변경 영향과 병목 원인을 탐색하도록 설계했습니다.",
+    role: "Architecture · Trace Capture · Graph Analysis · MCP",
+    problem:
+      "오래 운영된 업무 시스템은 문서와 실제 동작이 다르거나, 화면 하나의 변경이 어떤 API와 SQL에 영향을 주는지 사람이 기억에 의존해야 하는 경우가 많습니다. 소스를 읽는 것만으로는 실제 런타임 흐름을 놓칠 수 있어 ‘실제로 실행된 증거’를 중심으로 구조를 복원할 필요가 있었습니다.",
+    constraints: [
+      "분석 대상 시스템 코드를 직접 수정하지 않는 비침습 방식이 필요함",
+      "브라우저·API·SQL처럼 서로 다른 증거를 하나의 흐름으로 연결해야 함",
+      "AI가 추측이 아니라 실제 실행 증거를 우선 사용하도록 해야 함",
+      "관계형 로그의 나열을 변경 영향 탐색이 가능한 그래프로 전환해야 함",
+    ],
+    decisions: [
+      {
+        title: "Browser → API → SQL 실행 흐름을 하나의 Trace로 연결",
+        reason:
+          "사용자 행동과 서버·데이터베이스 사이의 인과 관계를 실제 실행 순서로 따라갈 수 있게 했습니다.",
+      },
+      {
+        title: "Neo4j로 의존성 그래프 구성",
+        reason:
+          "화면·API·서비스·SQL의 관계를 단순 로그가 아니라 탐색 가능한 그래프로 만들어 변경 영향 범위를 빠르게 좁힐 수 있게 했습니다.",
+      },
+      {
+        title: "MCP를 분석 인터페이스로 사용",
+        reason:
+          "AI가 시스템을 임의로 추측하지 않고 수집된 Trace와 그래프를 근거로 질의·탐색하도록 연결했습니다.",
+      },
+    ],
     tags: ["C#", "ASP.NET Core", "Playwright", "Neo4j", "GraphRAG", "MCP"],
     techGroups: [
       { name: "Capture", items: ["Playwright", "Browser Trace", "API Capture", "SQL Execution Trace"] },
@@ -239,8 +352,7 @@ export const projectDetails: ProjectDetail[] = [
       "AI(MCP)를 이용한 구조 탐색·원인 분석 자동화",
     ],
     screenshots: [],
-    screenshotNote:
-      "현재 포트폴리오 저장소에 공개용으로 정리된 실제 화면 캡처가 없어 임의 이미지는 만들지 않았습니다.",
+    screenshotNote: "공개 가능한 실제 UI 캡처가 없어 임의 화면을 만들지 않고 구조와 분석 흐름으로 설명합니다.",
   },
 ]
 
