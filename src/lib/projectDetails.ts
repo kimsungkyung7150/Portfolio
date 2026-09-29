@@ -136,14 +136,14 @@ export const projectDetails: ProjectDetail[] = [
     summary:
       "Routoon 작품 경험 안에서 함께 즐길 수 있도록 설계한 방치형 전투 모듈입니다. React Product Host와 Unity WebGL 런타임, ASP.NET Core 서버 권위 전투·영속화를 연결합니다.",
     description:
-      "웹소설을 읽는 경험과 게임 플레이를 같은 플랫폼 안에서 이어가기 위해 만든 MHWG V2 방치형 게임 모듈입니다. React Product Host가 인증·프로필·자동 사냥·장비 UI를 관리하고, Unity WebGL은 전투를 재생하며, ASP.NET Core 서버가 BattleTicket·결과 재검증·보상·영속화를 권위 있게 처리합니다. 현재 게임 로직과 제품 통합 구조는 실제 구현되어 있고, 시각 표현은 상용화 목표 UI 방향으로 계속 교체 중입니다.",
+      "웹소설을 읽는 경험과 게임 플레이를 같은 플랫폼 안에서 이어가기 위해 만든 MHWG V2 방치형 게임 모듈입니다. React Product Host가 인증·프로필·자동 사냥·장비 UI를 관리하고, Unity WebGL은 전투를 재생하며, ASP.NET Core 서버가 BattleTicket 발급, 결과 재검증, 보상과 영속화를 담당하도록 구성했습니다. 현재 게임 로직과 제품 통합 구조는 실제 구현되어 있고, 시각 표현은 상용화 목표 UI 방향으로 계속 교체 중입니다.",
     role: "Product Integration · React Host · Unity WebGL · Server-authoritative Game Backend",
     problem:
-      "브라우저 안에서 자동 전투를 돌리는 것만으로는 제품이 되지 않습니다. 새로고침·재접속·중복 요청에도 전투와 보상이 깨지지 않아야 하고, 클라이언트가 결과나 재화를 임의로 만들 수 없어야 하며, 작품 서비스와 같은 인증·세션 안에서 자연스럽게 실행돼야 합니다.",
+      "브라우저 안에서 자동 전투를 돌리는 것만으로는 제품이 되지 않습니다. 새로고침·재접속·중복 요청에서도 전투와 보상 상태가 일관되게 유지되어야 하고, 클라이언트가 결과나 재화를 임의로 만들 수 없어야 하며, 작품 서비스와 같은 인증·세션 안에서 자연스럽게 실행돼야 합니다.",
     constraints: [
       "Unity WebGL 클라이언트를 보상·진행의 권위로 신뢰할 수 없음",
       "클라이언트 재생 결과와 서버 재시뮬레이션이 결정론적으로 일치해야 함",
-      "새로고침·재시도·중복 Settlement에도 보상이 정확히 한 번만 반영돼야 함",
+      "새로고침·재시도·중복 Settlement에서 보상이 중복 반영되지 않도록 해야 함",
       "React 제품 UI와 Unity 런타임의 책임을 분리하면서 하나의 게임 경험으로 연결해야 함",
       "현재 시각 자산은 최종 상용 품질로 교체 중이며 UI 시안과 실제 런타임을 구분해 관리해야 함",
     ],
@@ -177,7 +177,7 @@ export const projectDetails: ProjectDetail[] = [
       { title: "React Product Host", description: "프로필, 자동 사냥, 속도, 장비·성장 명령을 관리" },
       { title: "BattleTicket API", description: "서버가 stage·seed·불변 전투 스냅샷을 발급" },
       { title: "Unity WebGL Runtime", description: "티켓 입력을 결정론적으로 재생하고 완료 hash를 반환" },
-      { title: "Server Settlement", description: "서버 재시뮬레이션으로 결과를 검증하고 정확히 한 번 정산" },
+      { title: "Server Settlement", description: "서버 재시뮬레이션으로 결과를 검증하고 중복되지 않도록 정산" },
       { title: "Durable Progression", description: "Gold, Offline Reward, Inventory, Equipment, Stage 진행을 영속화" },
     ],
     architectureNotes: [
@@ -195,8 +195,8 @@ export const projectDetails: ProjectDetail[] = [
     ],
     highlights: [
       "React Product Host와 Unity WebGL 런타임을 같은 Routoon 세션에 통합",
-      "BattleTicket·Simulation Hash·서버 재시뮬레이션으로 클라이언트 위변조 방지",
-      "Idempotent Settlement와 Durable Persistence로 재시도·재접속 안전성 확보",
+      "BattleTicket·Simulation Hash·서버 재시뮬레이션으로 클라이언트 결과를 그대로 신뢰하지 않는 구조",
+      "Idempotent Settlement와 Durable Persistence로 재시도·재접속 시 중복 처리를 줄이는 구조",
       "자동 사냥·오프라인 보상·장비 제작/강화까지 제품 성장 루프 확장",
     ],
     screenshots: [

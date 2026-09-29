@@ -52,8 +52,8 @@ export function FeaturedProjects() {
             </h2>
           </div>
           <p className="max-w-[500px] text-sm leading-6 text-textSecondary lg:justify-self-end">
-            현재 공개 가능한 주요 프로젝트입니다. 실제 동작하는 서비스와 도구의 화면,
-            구조와 기술 스택을 바탕으로 소개합니다.
+            공개 가능한 범위에서 현재 프로젝트의 화면과 구조,
+            사용 기술과 진행 상태를 정리했습니다.
           </p>
         </div>
 
@@ -184,8 +184,8 @@ export function FeaturedProjects() {
                   React Host + Unity WebGL + 서버 권위 전투·성장 시스템
                 </p>
                 <p className="mt-4 max-w-[560px] text-sm leading-6 text-textSecondary">
-                  Routoon 작품 경험 안에서 함께 즐길 수 있도록 설계한 방치형 전투 모듈입니다.
-                  React Product Host, Unity WebGL, ASP.NET Core 서버 권위 정산을 하나의 흐름으로 연결합니다.
+                  Routoon 작품 경험과 함께 사용할 수 있도록 개발 중인 방치형 전투 모듈입니다.
+                  React Product Host, Unity WebGL, ASP.NET Core 정산 흐름을 연결해 구현하고 있습니다.
                 </p>
 
                 <div className="mt-5 grid grid-cols-2 gap-2">

@@ -13,10 +13,10 @@ const experiences = [
     stack: "React · ASP.NET Core · WPF · Neo4j · MCP · Unity",
   },
   {
-    period: "2024 - 현재",
+    period: "2025 - 현재",
     title: "ImpactSuite",
     role: "AI-assisted Legacy Analysis",
-    summary: "실행 증거를 기반으로 레거시 시스템의 구조와 변경 영향을 탐색하는 비침습 분석 도구를 설계했습니다.",
+    summary: "2025년부터 실행 증거를 바탕으로 레거시 시스템의 구조와 변경 영향을 살펴보는 분석 도구를 개발하고 있습니다.",
     points: [
       "브라우저 행동, API 호출, SQL 실행 흐름을 하나의 분석 경로로 연결",
       "Neo4j 그래프로 화면·API·서비스·SQL 간 의존성을 구조화",

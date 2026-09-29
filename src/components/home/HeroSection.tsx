@@ -63,15 +63,15 @@ export function HeroSection() {
             <span className="text-[12px] text-textMuted">· 10년+ 엔터프라이즈 개발 경험</span>
           </div>
 
-          <h1 className="max-w-[10.5ch] text-[clamp(2.75rem,4.5vw,3.75rem)] font-[780] leading-[1.06] tracking-[-0.05em] text-textPrimary">
-            복잡한 문제를
-            <span className="block text-primarySoft">실제로 동작하는 제품으로.</span>
+          <h1 className="max-w-[11.5ch] text-[clamp(2.65rem,4.35vw,3.65rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
+            복잡한 문제를,
+            <span className="block text-primarySoft">실제 제품으로 풀어가고 있습니다.</span>
           </h1>
 
           <p className="mt-5 max-w-[520px] text-[15px] leading-7 text-textSecondary sm:text-[16px]">
-            업무 시스템과 데이터베이스를 오래 다뤄온 경험을 기반으로,
-            지금은 AI 웹 서비스, WPF 데스크톱 도구, Unity 게임까지
-            아이디어를 구조화하고 직접 구현합니다.
+            업무 시스템과 데이터베이스를 다뤄온 경험을 바탕으로,
+            AI 웹 서비스, WPF 데스크톱 도구, Unity 게임 등
+            아이디어를 구조화해 실제 구현으로 이어가는 작업을 하고 있습니다.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5">
@@ -95,8 +95,8 @@ export function HeroSection() {
             </div>
             <div className="border-l border-border px-4">
               <dt className="font-mono text-[9px] uppercase tracking-[0.13em] text-textMuted">Current</dt>
-              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">5 Products</dd>
-              <dd className="mt-0.5 text-[10px] text-textMuted">직접 설계하고 개발</dd>
+              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">5 Projects</dd>
+              <dd className="mt-0.5 text-[10px] text-textMuted">현재 개발·운영 중</dd>
             </div>
             <div className="border-l border-border pl-4">
               <dt className="font-mono text-[9px] uppercase tracking-[0.13em] text-textMuted">Focus</dt>
@@ -123,9 +123,6 @@ export function HeroSection() {
             className="relative z-20 -mt-10 w-[64%] sm:-mt-14"
             imageClassName="object-contain bg-[#101620]"
           />
-          <p className="absolute right-0 top-[8%] hidden translate-x-[70%] font-mono text-[10px] leading-5 text-textMuted xl:block">
-            좋은 도구가<br />더 좋은 결과를 만든다.<br /><span className="text-[9px]">Ideas to Real Products.</span>
-          </p>
         </div>
       </div>
     </section>

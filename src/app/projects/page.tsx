@@ -37,13 +37,13 @@ export default function ProjectsPage() {
         <div>
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-primarySoft">Projects</p>
           <h1 className="mt-3 text-[clamp(2.75rem,5vw,4rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
-            제품으로 증명하고,
-            <span className="block text-textSecondary">업무 경험은 문제로 설명합니다.</span>
+            현재 만드는 제품과,
+            <span className="block text-textSecondary">그동안 다뤄온 문제를 정리했습니다.</span>
           </h1>
         </div>
         <p className="max-w-[36rem] text-[1.05rem] leading-8 text-textSecondary">
-          현재 공개 가능한 제품은 실제 화면과 아키텍처를 함께 보여줍니다.
-          과거 회사 프로젝트는 내부 자산을 노출하지 않고 역할과 기술적 문제 해결 중심으로 정리했습니다.
+          공개 가능한 개인 프로젝트는 화면과 구조를 함께 정리했습니다.
+          이전 회사 프로젝트는 내부 자산을 공개하지 않고 역할과 기술적 판단 중심으로 요약했습니다.
         </p>
       </header>
 

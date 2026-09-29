@@ -2,7 +2,7 @@
 @import "./theme.css";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+  --font-sans: "Noto Sans KR", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), "JetBrains Mono", "Consolas", monospace;
 
   --text-h1: clamp(2.75rem, 5vw, 4rem);
@@ -40,8 +40,31 @@ body {
     radial-gradient(circle at 82% 4%, rgba(124, 92, 252, 0.08), transparent 28rem),
     var(--color-background);
   color: var(--color-textPrimary);
-  font-family: var(--font-sans);
+  font-family: "Noto Sans KR", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Noto Sans KR", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
+  word-break: keep-all;
+}
+
+.font-mono {
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 ::selection {

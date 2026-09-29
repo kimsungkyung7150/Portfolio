@@ -21,7 +21,7 @@ export function CareerTimeline() {
       description: "채용부터 계약·발령까지 이어지는 HR 업무 흐름을 시스템화하고 외부 API 연동과 운영 고도화를 수행했습니다.",
     },
     {
-      year: "2024-현재",
+      year: "2025-현재",
       title: "ImpactSuite · AI 시스템 분석",
       description: "실행 흐름과 데이터 의존성을 추적해 레거시 시스템의 변경 영향과 병목을 분석하는 AI(MCP) 기반 도구를 주요 AI 프로젝트로 개발했습니다.",
     },

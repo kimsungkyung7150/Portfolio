@@ -10,35 +10,35 @@ import {
 const strengths = [
   {
     title: "Product Architecture",
-    description: "아이디어를 실제 서비스로 만들기 위한 전체 구조를 설계하고, 단계적으로 구현합니다.",
+    description: "아이디어를 서비스로 옮길 때 필요한 구조를 설계하고 단계적으로 구현해 왔습니다.",
     evidence: "Routoon · ShowRoom",
     href: "/projects",
     icon: Blocks,
   },
   {
     title: "AI Systems",
-    description: "LLM, MCP, 지식 그래프를 실제 업무와 서비스에 연결하는 구조를 설계합니다.",
+    description: "LLM, MCP, 지식 그래프를 업무와 서비스에 연결하는 구조를 실험하고 적용하고 있습니다.",
     evidence: "LLM · MCP · Neo4j",
     href: "/projects/routoon",
     icon: Bot,
   },
   {
     title: ".NET & Desktop",
-    description: "ASP.NET, WPF, C# 기반의 웹·데스크톱 애플리케이션을 안정적으로 개발합니다.",
+    description: "ASP.NET, WPF, C# 기반의 웹·데스크톱 업무 시스템과 도구를 개발해 왔습니다.",
     evidence: "ASP.NET · WPF · C#",
     href: "/projects/showroom",
     icon: MonitorCog,
   },
   {
     title: "Game & Unity",
-    description: "Unity를 활용해 게임 프로토타입부터 WebGL 배포까지 직접 구현합니다.",
+    description: "Unity를 활용해 게임 프로토타입과 WebGL 배포 흐름을 구현하고 있습니다.",
     evidence: "Unity · WebGL",
     href: "/projects/random-defense",
     icon: Gamepad2,
   },
   {
     title: "Enterprise & Data",
-    description: "대용량 데이터, 업무 시스템 연동, 외부 API 등 실무 중심의 데이터 문제를 해결합니다.",
+    description: "대용량 데이터, 업무 시스템 연동, 외부 API 같은 실무 데이터 문제를 다뤄왔습니다.",
     evidence: "MS SQL · Workflow · Integration",
     href: "/experience",
     icon: Database,
@@ -59,7 +59,7 @@ export function EngineeringStrengths() {
               <span className="block text-textSecondary">무엇을 구조화할 수 있는지.</span>
             </h2>
             <p className="mt-4 max-w-[420px] text-sm leading-6 text-textSecondary">
-              다양한 기술은 도구일 뿐, 문제를 구조화하고 끝까지 연결하는 것을 더 중요하게 봅니다.
+              기술 이름보다 실제 프로젝트에서 어떤 역할로 사용했는지를 중심으로 정리했습니다.
             </p>
           </div>
 
