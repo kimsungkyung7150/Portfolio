@@ -1,39 +1,87 @@
-import { Button } from "@/components/ui/Button"
+import Link from "next/link"
+
+const principles = [
+  {
+    title: "흐름을 먼저 봅니다",
+    body: "문제가 생긴 지점만 고치기보다 사용자 행동, API, 데이터와 상태 변화가 어디서 이어지는지 추적합니다.",
+  },
+  {
+    title: "권위와 경계를 분리합니다",
+    body: "UI, 도메인 규칙, 저장소, AI 작업자가 서로의 책임을 침범하지 않도록 상태의 소유권과 변경 경로를 먼저 정합니다.",
+  },
+  {
+    title: "검증 가능한 결과를 남깁니다",
+    body: "결정론 테스트, 후보 버전, 품질 게이트처럼 다시 확인할 수 있는 증거를 제품 구조 안에 넣으려고 합니다.",
+  },
+]
+
+const currentFocus = [
+  "AI 웹소설 생성·품질 검증 플랫폼 Routoon",
+  "WPF 기반 AI 게임 에셋 제작 도구 ShowRoom",
+  "Unity WebGL 랜덤 디펜스 게임",
+  "레거시 실행 흐름 분석 도구 ImpactSuite",
+]
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-md py-4xl max-w-4xl">
-      <div className="mb-xxl text-center">
-        <h1 className="font-h1 text-h1 text-textPrimary mb-sm">소개</h1>
-        <p className="font-body text-body text-textSecondary">
-          안정적으로 동작하고 유지보수가 가능한 구조를 만드는 개발자, 김성경입니다.
-        </p>
-      </div>
-
-      <div className="prose prose-invert max-w-none prose-p:text-body prose-p:text-textSecondary prose-headings:text-textPrimary prose-p:font-body prose-headings:font-h2 bg-surface p-xl md:p-3xl rounded-xl border border-border shadow-card leading-relaxed">
-        <p className="mb-md">
-          안녕하세요. 배움에 즐거움을 느끼는 개발자 김성경입니다.
-        </p>
-        <p className="mb-md">
-          프로그래밍에 흥미를 느낀 이후, 더 깊이 있는 이해를 위해 꾸준히 학습하고 실무 경험을 쌓아왔습니다. 
-          저는 단순히 기능을 구현하는 것에서 끝나지 않고, <strong>문제가 발생했을 때 원인을 끝까지 분석하고 같은 문제가 반복되지 않도록 구조를 개선하는 과정</strong>을 중요하게 생각합니다.
-        </p>
-        <p className="mb-md">
-          ASP.NET과 MS SQL Server 기반 업무 시스템을 개발·유지보수하며 
-          채용, 회계, 전자결재, 쇼핑몰, 재고관리 등 다양한 도메인의 업무 흐름을 경험했습니다. 
-          현업의 복잡한 로직을 프로시저와 API로 구현하고, 
-          데이터베이스 튜닝을 통해 시스템의 응답 속도를 개선하며 안정적인 운영을 이끌었습니다.
-        </p>
-        <p className="mb-xl">
-          최근에는 이러한 경험을 바탕으로 <strong>레거시 시스템 분석 자동화 도구, 스마트팜 관제 시스템, AI(MCP) 기반 개발 지원 도구 설계</strong>로 
-          역량을 확장하고 있습니다. 클라우드와 컨테이너(Docker, Kubernetes) 환경에서의 배포, 
-          Redis와 Prometheus를 활용한 실시간 모니터링 아키텍처를 결합하여, 
-          더욱 현대적이고 효율적인 엔지니어링 생태계를 구축하는 데 기여하고 싶습니다.
-        </p>
-        
-        <div className="flex gap-md pt-lg border-t border-border">
-          <Button variant="primary" href="/experience">경력 보기</Button>
+    <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+      <header className="grid gap-8 border-b border-border pb-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <div>
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-primarySoft">About</p>
+          <h1 className="mt-3 text-[clamp(2.75rem,5vw,4rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
+            기능보다 구조를,
+            <span className="block text-textSecondary">구조보다 실제 동작을 봅니다.</span>
+          </h1>
         </div>
+        <div className="max-w-[36rem] text-[1.05rem] leading-8 text-textSecondary">
+          <p>
+            ASP.NET과 MS SQL Server 기반 업무 시스템을 오래 개발·운영하며 HR, 회계, 결재,
+            커머스와 재고 같은 복잡한 업무 흐름을 다뤘습니다.
+          </p>
+          <p className="mt-4">
+            지금은 그 경험을 AI, WPF 데스크톱 도구, Unity 게임으로 확장하면서
+            아이디어를 실제 제품 구조로 만드는 일을 하고 있습니다.
+          </p>
+        </div>
+      </header>
+
+      <section className="grid gap-10 py-16 lg:grid-cols-[0.65fr_1.35fr]">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">How I Work</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">개발할 때 중요하게 보는 것</h2>
+        </div>
+        <div className="grid gap-4">
+          {principles.map((item, index) => (
+            <article key={item.title} className="grid gap-3 rounded-xl border border-border bg-surface p-6 sm:grid-cols-[48px_1fr]">
+              <span className="font-mono text-xs text-textMuted">0{index + 1}</span>
+              <div>
+                <h3 className="font-semibold text-textPrimary">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-textSecondary">{item.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-10 border-t border-border py-16 lg:grid-cols-[0.65fr_1.35fr]">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">Current Focus</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">현재 만들고 있는 것</h2>
+        </div>
+        <div className="divide-y divide-border border-y border-border">
+          {currentFocus.map((item) => (
+            <div key={item} className="py-4 text-textSecondary">{item}</div>
+          ))}
+        </div>
+      </section>
+
+      <div className="flex flex-wrap gap-3 border-t border-border pt-10">
+        <Link href="/projects" className="inline-flex min-h-11 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-white">
+          프로젝트 보기
+        </Link>
+        <Link href="/experience" className="inline-flex min-h-11 items-center rounded-lg border border-borderStrong px-4 text-sm font-semibold text-textPrimary">
+          경력 보기
+        </Link>
       </div>
     </div>
   )
