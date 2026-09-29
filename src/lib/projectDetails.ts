@@ -82,13 +82,14 @@ export const projectDetails: ProjectDetail[] = [
       "세계관·사건·관계 데이터를 구조화해 장편 연재 일관성 강화",
     ],
     screenshots: [
-      { src: "/projects/routoon/home.png", alt: "Routoon 독자 서비스 메인 화면", caption: "Routoon 독자 서비스 메인" },
+      { src: "/projects/routoon/home.png", alt: "Routoon 메인 화면과 작품 슬라이드", caption: "메인 화면 · 실제 작품 슬라이드가 표시된 상태" },
       { src: "/projects/routoon/works.png", alt: "Routoon 공개 작품 목록 화면", caption: "공개 작품 목록" },
       { src: "/projects/routoon/work-detail.png", alt: "Routoon 공개 작품 상세 화면", caption: "공개 작품 상세" },
+      { src: "/projects/routoon/reader.png", alt: "Routoon 실제 회차 읽기 화면", caption: "실제 공개 회차 읽기 화면" },
     ],
     liveUrl: "https://reader.routoon.com/",
     liveLabel: "Routoon 접속",
-    screenshotNote: "실제 공개 서비스 화면 기준으로 구성했습니다. 읽기 화면은 별도 캡처로 추가할 예정입니다.",
+    screenshotNote: "실제 공개 서비스에서 캡처한 메인·작품 목록·작품 상세·회차 읽기 화면입니다.",
   },
   {
     slug: "showroom",
@@ -137,11 +138,11 @@ export const projectDetails: ProjectDetail[] = [
       "Unity 게임 자산으로 넘기기 위한 패키징·전달 구조",
     ],
     screenshots: [
-      { src: "/projects/showroom/workspace.png", alt: "ShowRoom WPF 캐릭터 제작 워크스페이스", caption: "WPF 캐릭터 제작 워크스페이스" },
-      { src: "/projects/showroom/pipeline-running.png", alt: "ShowRoom 제작 파이프라인 실행 화면", caption: "제작 파이프라인 실행 상태" },
-      { src: "/projects/showroom/directional-review.png", alt: "ShowRoom 방향별 결과 검토 화면", caption: "방향별 스프라이트·모션 결과 검토" },
+      { src: "/projects/showroom/direction-lab.png", alt: "ShowRoom WPF Direction Lab 화면", caption: "WPF Direction Lab · 방향별 결과 검토" },
+      { src: "/projects/showroom/motion-lab.png", alt: "ShowRoom WPF Motion Lab 화면", caption: "WPF Motion Lab · 모션 프레임 검토" },
+      { src: "/projects/showroom/comparison-final.png", alt: "ShowRoom 원화와 결과 비교 화면", caption: "원화(왼쪽)와 결과(오른쪽) 고해상도 비교" },
     ],
-    screenshotNote: "현재 캡처 구성은 추가 교체 예정이며, 중복 화면과 품질이 낮은 결과 화면은 제거할 예정입니다.",
+    screenshotNote: "서로 다른 WPF 작업 화면과 원화/결과 비교 화면으로 구성했습니다.",
   },
   {
     slug: "random-defense",
