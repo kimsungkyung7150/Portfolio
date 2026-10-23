@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Fingerprint, GitBranch, Play, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, FileText, Fingerprint, GitBranch, ShieldCheck } from "lucide-react"
 import { HaruFlow } from "@/components/haru/HaruFlow"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
@@ -15,7 +15,7 @@ export function HaruFeature() {
           <p className="mt-4 max-w-[520px] text-sm leading-7 text-textSecondary">여러 AI의 업무 보고서를 모아 변경 이유, 수정 파일, 확인 결과와 남은 일을 기억합니다. 원본 근거가 연결된 답변과 인수인계로 다시 꺼내 씁니다.</p>
           <p className="mt-5 font-mono text-[10px] leading-5 text-textMuted">C# · ASP.NET Core · SQL Server · MCP · Hybrid RAG</p>
           <Button href="/projects/haru" className="mt-6 gap-2">설계와 실사용 검증 보기<ArrowUpRight className="size-4" aria-hidden="true" /></Button>
-          <Link href="/projects/haru#demo" className="mt-3 flex min-h-11 w-fit items-center gap-2 text-xs text-primarySoft underline decoration-primarySoft/30 underline-offset-4 hover:text-textPrimary"><Play className="size-3.5" aria-hidden="true" />저장부터 인수인계까지 · 실제 사용 영상</Link>
+          <Link href="/projects/haru#demo" className="mt-3 flex min-h-11 w-fit items-center gap-2 text-xs text-primarySoft underline decoration-primarySoft/30 underline-offset-4 hover:text-textPrimary"><FileText className="size-3.5" aria-hidden="true" />실제 기록으로 만든 인수인계 보고서</Link>
         </div>
         <div className="flex flex-col justify-center gap-6 border-t border-border p-6 sm:p-8 lg:border-l lg:border-t-0">
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-primarySoft">One memory. Clear responsibilities.</p>

@@ -58,7 +58,7 @@ export function HaruCaseStudy() {
               <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.18em] text-primarySoft">Haru · Memory OS</p>
               <h1 className="mt-3 text-[clamp(2.65rem,4.5vw,4rem)] font-semibold leading-[1.15] tracking-[-0.045em]">일이 끝나도,<br /><span className="text-primarySoft">맥락은 남도록.</span></h1>
               <p className="mt-6 max-w-[520px] text-[15px] leading-8 text-textSecondary">여러 AI와 진행한 작업을 하나의 업무 기억으로 연결합니다. 무엇을 했는지부터 <strong className="font-medium text-textPrimary">왜 바꿨고, 무엇을 확인했고, 무엇이 남았는지</strong>까지 원본 근거로 다시 설명하는 비서입니다.</p>
-              <div className="mt-7 flex flex-wrap gap-3"><Button href="#demo">실제 사용 영상 보기<ArrowDown className="ml-2 size-4" aria-hidden="true" /></Button><Button href="#difference" variant="outline">차별점 살펴보기</Button></div>
+              <div className="mt-7 flex flex-wrap gap-3"><Button href="#demo">인수인계 결과물 보기<ArrowDown className="ml-2 size-4" aria-hidden="true" /></Button><Button href="#difference" variant="outline">차별점 살펴보기</Button></div>
               <dl className="mt-8 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 border-t border-border pt-5 text-xs leading-6">
                 <dt className="text-textMuted">진행</dt><dd className="text-textSecondary">2026.10 · 개인 프로젝트</dd>
                 <dt className="text-textMuted">역할</dt><dd className="text-textSecondary">{haruProject.role}</dd>
@@ -71,8 +71,8 @@ export function HaruCaseStudy() {
       </section>
 
       <nav aria-label="하루 사례 목차" className="sticky top-[72px] z-30 border-b border-border bg-background/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1240px] gap-1 overflow-x-auto px-3 py-2 lg:px-6">
-          {[["demo", "실사용 영상"], ["difference", "차별점"], ["pipeline", "기억 파이프라인"], ["engineering", "문제 해결"], ["verification", "검증 결과"]].map(([id, label]) => <a key={id} href={`#${id}`} className="shrink-0 rounded-md px-3 py-2.5 text-xs text-textSecondary transition hover:bg-surface hover:text-primarySoft focus-visible:outline-2 focus-visible:outline-primarySoft">{label}</a>)}
+        <div className="mx-auto flex max-w-[1240px] gap-1 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:px-6">
+          {[["demo", "인수인계 결과물"], ["difference", "차별점"], ["pipeline", "기억 파이프라인"], ["engineering", "문제 해결"], ["verification", "검증 결과"]].map(([id, label]) => <a key={id} href={`#${id}`} className="shrink-0 rounded-md px-3 py-2.5 text-xs text-textSecondary transition hover:bg-surface hover:text-primarySoft focus-visible:outline-2 focus-visible:outline-primarySoft">{label}</a>)}
         </div>
       </nav>
 
