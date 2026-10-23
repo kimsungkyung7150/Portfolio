@@ -1,7 +1,13 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 
 import { Badge } from "@/components/ui/Badge"
 import { projectDetails } from "@/lib/projectDetails"
+
+export const metadata: Metadata = {
+  title: "프로젝트",
+  description: "하루 업무 기억 시스템, Routoon AI 플랫폼 등 김성경의 제품 설계·구현·검증 사례를 살펴보세요.",
+}
 
 const otherExperience = [
   {
@@ -37,7 +43,7 @@ export default function ProjectsPage() {
         <div>
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-primarySoft">Projects</p>
           <h1 className="mt-3 text-[clamp(2.75rem,5vw,4rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
-            현재 만드는 제품과,
+            직접 만든 시스템과,
             <span className="block text-textSecondary">그동안 다뤄온 문제를 정리했습니다.</span>
           </h1>
         </div>

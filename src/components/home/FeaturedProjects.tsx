@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
 import { projectDetails } from "@/lib/projectDetails"
+import { HaruFeature } from "./HaruFeature"
 
 const routoon = projectDetails.find((project) => project.slug === "routoon")!
 const showroom = projectDetails.find((project) => project.slug === "showroom")!
@@ -48,7 +49,7 @@ export function FeaturedProjects() {
               Selected Work
             </p>
             <h2 className="mt-1.5 text-[clamp(2rem,3vw,2.65rem)] font-[740] tracking-[-0.04em] text-textPrimary">
-              지금 만들고 있는 제품
+              만들어온 제품과 시스템
             </h2>
           </div>
           <p className="max-w-[500px] text-sm leading-6 text-textSecondary lg:justify-self-end">
@@ -58,6 +59,7 @@ export function FeaturedProjects() {
         </div>
 
         <div className="space-y-4">
+          <HaruFeature />
           <article className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-card">
             <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
               <div className="flex flex-col justify-center p-6 lg:p-7">

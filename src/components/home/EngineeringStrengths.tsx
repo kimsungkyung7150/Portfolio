@@ -11,15 +11,15 @@ const strengths = [
   {
     title: "Product Architecture",
     description: "아이디어를 서비스로 옮길 때 필요한 구조를 설계하고 단계적으로 구현해 왔습니다.",
-    evidence: "Routoon · ShowRoom",
+    evidence: "하루 · Routoon · ShowRoom",
     href: "/projects",
     icon: Blocks,
   },
   {
     title: "AI Systems",
-    description: "LLM, MCP, 지식 그래프를 업무와 서비스에 연결하는 구조를 실험하고 적용하고 있습니다.",
-    evidence: "LLM · MCP · Neo4j",
-    href: "/projects/routoon",
+    description: "업무 AI의 기록 제출, 기억 검색, 원문 검증과 인수인계를 실제 MCP·SQL 흐름으로 연결합니다.",
+    evidence: "하루 · MCP · Hybrid RAG · Evidence Gate",
+    href: "/projects/haru",
     icon: Bot,
   },
   {

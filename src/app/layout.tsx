@@ -16,12 +16,13 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-seven-pied-70.vercel.app"),
   title: {
     default: "김성경 | Product / AI Engineer",
     template: "%s | 김성경",
   },
   description:
-    "10년 이상의 엔터프라이즈 개발 경험을 기반으로 AI, 웹, WPF 데스크톱, Unity 게임까지 실제 제품을 설계하고 구현하는 개발자 김성경의 포트폴리오입니다.",
+    "10년 이상의 C#·SQL 업무 시스템 경험을 바탕으로 업무 기억 비서 하루, AI 웹소설 플랫폼 Routoon 등 근거와 검증이 남는 제품을 만드는 개발자 김성경의 포트폴리오입니다.",
 }
 
 export default function RootLayout({

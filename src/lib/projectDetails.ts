@@ -1,3 +1,5 @@
+import { haruProject } from "@/lib/haru"
+
 export type ProjectStatusVariant = "default" | "info" | "success" | "warning"
 
 export type ProjectScreenshot = {
@@ -47,6 +49,7 @@ export type ProjectDetail = {
 }
 
 export const projectDetails: ProjectDetail[] = [
+  haruProject,
   {
     slug: "routoon",
     title: "Routoon",

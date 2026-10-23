@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, Check, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 
 import { Badge } from "@/components/ui/Badge"
+import { HaruCaseStudy } from "@/components/haru/HaruCaseStudy"
 import { getProjectDetail, projectDetails, type ProjectDetail } from "@/lib/projectDetails"
 
 export function generateStaticParams() {
@@ -299,6 +300,10 @@ export default async function ProjectDetailPage({
 
   if (!project) {
     notFound()
+  }
+
+  if (project.slug === "haru") {
+    return <HaruCaseStudy />
   }
 
   return (

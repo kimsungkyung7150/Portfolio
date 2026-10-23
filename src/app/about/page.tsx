@@ -16,6 +16,7 @@ const principles = [
 ]
 
 const currentFocus = [
+  "여러 AI의 업무 기록을 근거와 함께 기억하는 비서 하루 · Memory OS",
   "AI 웹소설 생성·품질 검증 플랫폼 Routoon",
   "WPF 기반 AI 게임 에셋 제작 도구 ShowRoom",
   "Routoon 연동 Unity WebGL 방치형 게임",
@@ -40,8 +41,8 @@ export default function AboutPage() {
             커머스와 재고 같은 복잡한 업무 흐름을 다뤘습니다.
           </p>
           <p className="mt-4">
-            지금은 그 경험을 AI, WPF 데스크톱 도구, Unity 게임으로 확장하면서
-            아이디어를 실제 제품 구조로 만드는 일을 하고 있습니다.
+            지금은 그 경험을 업무 기억 비서 하루와 AI 플랫폼으로 확장하면서
+            원본·권한·검증 결과가 남는 제품 구조를 만드는 일을 하고 있습니다.
           </p>
         </div>
       </header>
