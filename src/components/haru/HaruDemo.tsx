@@ -1,5 +1,6 @@
 import { ArrowUpRight, BookOpen, FileText } from "lucide-react"
 import { HaruReportPreview } from "./HaruReportPreview"
+import { HaruWorkflowVideo } from "./HaruWorkflowVideo"
 
 export function HaruDemo() {
   return (
@@ -17,6 +18,8 @@ export function HaruDemo() {
             <a href="/projects/haru/report/index.html" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primarySoft underline decoration-primarySoft/30 underline-offset-4 hover:text-textPrimary">실제 내용으로 만든 보고서 읽기<ArrowUpRight className="size-4" aria-hidden="true" /></a>
           </div>
         </div>
+        <HaruWorkflowVideo />
+        <div className="mb-4 flex items-center gap-2 text-sm font-medium"><FileText className="size-4 text-primarySoft" aria-hidden="true" />보고서 결과물 직접 살펴보기</div>
         <HaruReportPreview />
         <div className="mt-6 grid gap-5 border-b border-border pb-6 sm:grid-cols-3 sm:gap-8">
           <div><p className="text-sm font-medium">01 · 맥락부터 파악</p><p className="mt-2 text-xs leading-6 text-textMuted">변경 이유와 이전·이후 상태를 먼저 읽습니다.</p></div>

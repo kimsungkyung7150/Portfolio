@@ -128,7 +128,7 @@
   <script>
     document.getElementById('print-document').addEventListener('click',()=>window.print());
     document.querySelectorAll('a.inline-source').forEach(link=>link.addEventListener('click',()=>{const source=document.querySelector(link.getAttribute('href'));if(source instanceof HTMLDetailsElement)source.open=true;}));
-    if('IntersectionObserver' in window){const links=[...document.querySelectorAll('.toc a')];const observer=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];if(!visible)return;links.forEach(link=>{if(link.hash==='#'+visible.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});},{rootMargin:'-5% 0px -65% 0px',threshold:0});document.querySelectorAll('.section').forEach(section=>observer.observe(section));}
+    { const links=[...document.querySelectorAll('.toc a')],sections=[...document.querySelectorAll('.section')]; let queued=false; const sync=()=>{queued=false;const current=sections.filter(section=>section.getBoundingClientRect().top<=Math.max(80,innerHeight*.22)).at(-1)||sections[0];links.forEach(link=>{if(link.hash==='#'+current.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});};const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(sync);}};window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);sync(); }
   </script>
 </body>
 </html>
