@@ -198,3 +198,21 @@ summary:focus-visible {
 @media(max-width:640px){.film-copy .film-personal-copy,.film-second .film-personal-copy{font-size:clamp(25px,6.6vw,38px);line-height:1.4;letter-spacing:-.055em}.film-first .film-copy{max-width:calc(100% - 40px)}.film-second .film-copy{margin-top:70px}}
 .portfolio-section{scroll-margin-top:100px}
 @media(max-width:640px){.portfolio-section{scroll-margin-top:116px}}
+/* Compact editorial chapters; movement belongs to the chapter, not every card. */
+.chapter{position:relative;padding-top:32px;background:#090c12}
+.chapter:nth-child(2){background:#11151a}.chapter:nth-child(3){background:#0d1117}
+.chapter-ribbon{display:flex;align-items:center;gap:24px;max-width:1240px;margin:0 auto;padding:12px 32px;color:#b5a486;font-size:13px;letter-spacing:.08em;overflow:hidden}
+.chapter-number{font-size:clamp(48px,7vw,96px);line-height:1;font-weight:500;letter-spacing:-.08em;transform:translateY(12px);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.chapter-line{height:1px;flex:1;background:#b5a48660;transform:scaleX(.15);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.chapter[data-visible=true] .chapter-line{transform:scaleX(1)}.chapter[data-visible=true] .chapter-number{transform:translateY(0)}
+.chapter>div:not(.chapter-ribbon){padding-top:32px;padding-bottom:40px}.chapter>header{padding-top:24px;padding-bottom:24px}
+.chapter header{gap:24px;padding-bottom:24px}.chapter header h2{font-size:clamp(32px,3.3vw,48px)}
+.chapter article{padding-top:24px;padding-bottom:24px}.chapter .py-14{padding-top:32px;padding-bottom:32px}.chapter .mt-12{margin-top:28px}.chapter .pb-12{padding-bottom:24px}.chapter .lg\:py-24{padding-top:28px;padding-bottom:36px}
+.chapter #work-cases{background:transparent}.chapter .min-h-\[300px\]{min-height:240px}
+.film-stage{min-height:0}.film-character{height:calc(100% - 80px);max-width:90%;width:auto;bottom:40px;object-fit:contain}
+@media(max-width:640px){.chapter{padding-top:20px}.chapter-ribbon{padding:8px 20px;gap:16px}.chapter>div:not(.chapter-ribbon){padding-top:24px;padding-bottom:28px}.chapter header h2{font-size:32px}.chapter article{padding-top:20px;padding-bottom:20px}.film-stage{min-height:0}.film-art{height:calc(100% - 310px)}.film-character{height:calc(100% - 32px);bottom:24px;max-width:92%}}
+@media(max-width:640px) and (max-height:740px){.film-second .film-copy{width:52%;margin-top:90px}.film-second .film-personal-copy{font-size:22px;line-height:1.4}.film-second .film-description{font-size:12px}.film-art{width:43%;height:calc(100% - 110px)}.film-art-label{font-size:7px}.film-copy .film-personal-copy{font-size:25px}.film-description{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.chapter-number,.chapter-line{transform:none!important;transition:none!important}}
+
+.chapter-ribbon{padding-top:4px;padding-bottom:4px}.chapter-number{font-size:clamp(40px,4.5vw,64px)}
+
