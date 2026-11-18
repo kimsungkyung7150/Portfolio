@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 export function BackToTop() {
   const [visible, setVisible] = useState(false)
   useEffect(() => {
-    const update = () => setVisible(scrollY > innerHeight)
+    const update = () => { const intro=document.querySelector<HTMLElement>(".scroll-film"); const threshold=intro ? intro.offsetTop+intro.offsetHeight-120 : innerHeight; setVisible(scrollY > Math.max(innerHeight,threshold)) }
     update()
     addEventListener("scroll", update, { passive: true })
     addEventListener("resize", update)
