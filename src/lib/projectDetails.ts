@@ -148,7 +148,7 @@ export const projectDetails: ProjectDetail[] = [
     architectureNotes: ["개발 중인 프로젝트이며 최종 품질 검증은 완료되지 않았습니다."],
     currentScope: ["모바일 가로 UI 시안 제작", "Unity 화면 적용 및 사용성·시각 품질 보완 중"],
     highlights: ["전투·성장·편성을 연결한 모바일 화면 구성"],
-    screenshots: [{src:"/projects/light-knights/battle-runtime-refined-20261118.png",alt:"빛의 기사단 Unity 실제 전투 화면: 기사·궁수·마법사와 오크 전투",caption:"Unity 전투 화면 · PC 테스트 캡처"},{src:"/projects/light-knights/battle-magic-cast-20261118.png",alt:"빛의 기사단 실제 전투에서 마법진과 불구체가 나타나는 마법 발사 장면",caption:"Unity 마법 발사 장면 · PC 플레이 캡처"},{src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 승인된 영웅 UI 목표 시안",caption:"승인된 UI 목표 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"},{src:"/projects/light-knights/growth-ui-reference.png",alt:"빛의 기사단 룬 성장 UI 참고 시안",caption:"성장 UI 참고 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"}],
+    screenshots: [{src:"/projects/light-knights/battle-runtime-refined-20261118.png",alt:"빛의 기사단 Unity 실제 전투 화면: 기사·궁수·마법사와 오크 전투",caption:"Unity 전투 화면 · PC 테스트 캡처"},{src:"/projects/light-knights/battle-fire-impact-20261118.png",alt:"빛의 기사단 실제 전투에서 화염 마법이 크게 폭발하는 명중 장면",caption:"Unity 화염 마법 명중 장면 · PC 플레이 캡처"},{src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 승인된 영웅 UI 목표 시안",caption:"승인된 UI 목표 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"},{src:"/projects/light-knights/growth-ui-reference.png",alt:"빛의 기사단 룬 성장 UI 참고 시안",caption:"성장 UI 참고 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"}],
     screenshotNote: "전투 화면은 테스트 프로필로 실행한 Unity PC 캡처입니다. 영웅·성장 화면은 AI 이미지를 활용한 UI 시안으로 구분했습니다.",
   },
   {
