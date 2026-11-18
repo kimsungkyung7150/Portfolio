@@ -128,14 +128,7 @@ function IdleGameHero() {
         label="TARGET UI CONCEPT"
         contain
       />
-      <div className="absolute -bottom-2 right-0 hidden w-[42%] sm:block">
-        <BrowserFrame
-          src="/projects/idle-game/runtime-battle.png"
-          alt="Routoon 연동 웹 방치형 게임 실제 Unity WebGL 전투 화면"
-          label="ACTUAL UNITY WEBGL"
-          contain
-        />
-      </div>
+
     </div>
   )
 }
@@ -183,6 +176,10 @@ function ImpactSuiteHero({ project }: { project: ProjectDetail }) {
 function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
   if (project.slug === "random-defense") {
     return <RandomDefenseHero />
+  }
+
+  if (project.slug === "light-knights") {
+    return <BrowserFrame src="/projects/light-knights/approved-ui-reference.png" alt="빛의 기사단 승인 UI 목표 시안" label="APPROVED UI CONCEPT · NOT RUNTIME" contain />
   }
 
   if (project.slug === "idle-game") {
