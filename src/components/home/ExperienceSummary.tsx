@@ -1,101 +1,28 @@
-import {
-  DatabaseZap,
-  Network,
-  PanelsTopLeft,
-  UsersRound,
-} from "lucide-react"
-
-const domains = [
-  "HR/채용",
-  "회계",
-  "전자결재",
-  "커머스/WMS",
-  "재고",
-  "SQL 성능 개선",
-  "외부 API",
-  "레거시 유지보수",
-]
-
-const challenges = [
-  {
-    title: "데이터가 커질수록 느려지는 조회",
-    body: "데이터가 증가하며 느려지는 조회를 실행 계획, 인덱스와 SQL 접근 패턴 중심으로 분석하고 병목을 좁혔습니다.",
-    tags: ["MS SQL", "쿼리 최적화", "대용량 데이터"],
-    icon: DatabaseZap,
-  },
-  {
-    title: "복잡한 업무 규칙을 시스템 흐름으로",
-    body: "예외가 많은 채용·계약·회계·결재 업무를 상태와 권한 중심의 시스템 흐름으로 구조화했습니다.",
-    tags: ["업무 설계", "워크플로우", "유지보수성"],
-    icon: Network,
-  },
-  {
-    title: "서로 다른 시스템을 하나의 운영 흐름으로",
-    body: "외부 API와 사내 시스템을 연결해 중복 작업을 줄이고 하나의 운영 흐름으로 이어지게 만들었습니다.",
-    tags: ["외부 API", "데이터 연동", "운영 효율화"],
-    icon: PanelsTopLeft,
-  },
-  {
-    title: "다양한 도메인과 함께한 개발 경험",
-    body: "HR, 회계, 커머스, 재고부터 AI 서비스와 게임까지 문제 정의부터 구현·운영까지 경험했습니다.",
-    tags: ["기획 · 개발", "프로덕트", "지속적 개선"],
-    icon: UsersRound,
-  },
+import Link from "next/link"
+const cases = [
+  { title: "채용 합격자 통합 관리 시스템", period: "ASP.NET WebForms · JavaScript · jQuery · MS SQL Server", rows: [
+    ["다룬 업무", "합격 후 오퍼레터·품의·계약·발령으로 이어지는 절차를 다뤘습니다."],
+    ["본인 역할", "아키텍처 설계와 전반 개발을 담당했습니다."],
+    ["조치", "오퍼레터·품의·계약·발령 절차를 통합 관리하는 시스템을 구축했습니다."],
+    ["구현 내용", "합격 이후 절차의 통합 관리 시스템 구축 경험입니다. 이력서에 기재한 내용이며, 시간 절감이나 운영 성과 수치를 주장하지 않습니다."],
+  ]},
+  { title: "재고관리·도매 사이트 개선", period: "ASP.NET MVC · MS SQL Server · JavaScript · jQuery · Vue", rows: [
+    ["문제", "느린 쿼리와 기존 비즈니스 로직의 개선이 필요했습니다."],
+    ["본인 역할", "화면·백엔드·프로시저 개발을 담당했습니다."],
+    ["조치", "느린 쿼리를 튜닝하고 비즈니스 로직을 개선했습니다. Vue를 도입해 프론트엔드와 백엔드를 분리했습니다."],
+    ["개선 내용", "프론트엔드·백엔드 분리와 유지보수 구조 개선 경험입니다. 이력서 기재 기준이며, 응답 시간·처리량·절감률은 측정 근거가 없어 제시하지 않습니다."],
+  ]},
 ]
 
 export function ExperienceSummary() {
   return (
-    <section className="bg-backgroundSoft py-14 lg:py-16">
+    <section id="work-cases" className="scroll-mt-24 bg-backgroundSoft py-14">
       <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
-        <div className="mb-7 grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-          <div>
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-primarySoft">
-              Experience
-            </p>
-            <h2 className="mt-1.5 text-[clamp(2rem,3vw,2.55rem)] font-[740] tracking-[-0.04em] text-textPrimary">
-              8년 6개월의 업무 시스템 경험
-            </h2>
-          </div>
-          <p className="max-w-[590px] text-sm leading-6 text-textSecondary lg:justify-self-end">
-            회사 내부 화면, 소스, 고객 정보는 공개하지 않지만
-            다양한 도메인의 업무 시스템을 설계하고 개발해온 경험을 문제의 범위와 기술적 판단 중심으로 정리합니다.
-          </p>
-        </div>
-
-        <div className="mb-5 flex flex-wrap gap-2">
-          {domains.map((domain) => (
-            <span
-              key={domain}
-              className="rounded-md border border-border bg-surface px-2.5 py-1 text-[11px] text-textSecondary"
-            >
-              {domain}
-            </span>
-          ))}
-        </div>
-
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          {challenges.map((challenge) => {
-            const Icon = challenge.icon
-
-            return (
-              <article key={challenge.title} className="rounded-xl border border-border bg-surface p-5">
-                <Icon className="h-6 w-6 text-primarySoft" strokeWidth={1.6} />
-                <h3 className="mt-4 text-[15px] font-semibold leading-5 text-textPrimary">{challenge.title}</h3>
-                <p className="mt-3 text-[12px] leading-5 text-textSecondary">{challenge.body}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {challenge.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-border bg-background px-2 py-1 font-mono text-[9px] text-textMuted"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            )
-          })}
-        </div>
+        <p className="text-xs font-medium uppercase tracking-widest text-primarySoft">Professional experience</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight">실무에서 맡았던 두 가지 문제</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-textSecondary">회사 내부 화면·코드·고객 데이터는 공개하지 않습니다. 아래 내용은 경력 기록에 있는 문제, 본인 역할과 조치를 재구성한 요약이며 성과 수치를 추정하지 않았습니다.</p>
+        <div className="mt-7 grid gap-5 lg:grid-cols-2">{cases.map(item => <article key={item.title} className="rounded-xl border border-border bg-surface p-5 sm:p-7"><p className="text-xs text-primarySoft">{item.period}</p><h3 className="mt-3 text-xl font-semibold leading-8">{item.title}</h3><dl className="mt-5 divide-y divide-border">{item.rows.map(([label,text])=><div key={label} className="py-4"><dt className="text-sm font-semibold text-textPrimary">{label}</dt><dd className="mt-2 text-sm leading-7 text-textSecondary">{text}</dd></div>)}</dl></article>)}</div>
+        <Link href="/experience" className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">전체 경력 보기 →</Link>
       </div>
     </section>
   )

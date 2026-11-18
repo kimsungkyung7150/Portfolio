@@ -1,0 +1,4 @@
+import Link from "next/link"
+import type { Metadata } from "next"
+export const metadata: Metadata = { title: "연락 안내" }
+export default function ContactPage() { return <section className="mx-auto max-w-3xl px-5 py-16"><p className="text-sm text-primarySoft">Contact</p><h1 className="mt-4 text-4xl font-semibold">채용·면접 연락 안내</h1><p className="mt-6 text-base leading-8 text-textSecondary">이 포트폴리오와 함께 전달된 지원서에 기재된 연락처를 이용해 주세요. 사이트에는 전화번호와 이메일을 별도로 공개하지 않았습니다.</p><p className="mt-4 text-sm leading-7 text-textSecondary">ASP.NET·MS SQL Server 실무 경험과 개인 프로젝트에서 직접 다룬 범위, 구현 결과 및 검증 한계를 설명드릴 수 있습니다.</p><div className="mt-8 flex flex-wrap gap-5"><Link href="/experience" className="inline-flex min-h-11 items-center text-primarySoft">경력 보기 →</Link><Link href="/projects/haru" className="inline-flex min-h-11 items-center text-primarySoft">대표 사례 · 하루 →</Link><Link href="/" className="inline-flex min-h-11 items-center text-primarySoft">처음으로 →</Link></div></section> }
