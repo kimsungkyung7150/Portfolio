@@ -192,3 +192,7 @@ summary:focus-visible {
 /* Match the original artwork matte; do not alter the source artwork. */
 .film-art{background:#e0e6ee}
 
+/* Personal working principles: complete sentences, comfortable line lengths. */
+.film-copy .film-personal-copy{font-size:clamp(36px,4.35vw,66px);line-height:1.3;letter-spacing:-.055em}
+.film-second .film-personal-copy{font-size:clamp(32px,3.7vw,56px)}
+@media(max-width:640px){.film-copy .film-personal-copy,.film-second .film-personal-copy{font-size:clamp(25px,6.6vw,38px);line-height:1.4;letter-spacing:-.055em}.film-first .film-copy{max-width:calc(100% - 40px)}.film-second .film-copy{margin-top:70px}}
