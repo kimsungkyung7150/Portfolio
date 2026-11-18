@@ -30,8 +30,10 @@ export function HeroSection(){
   const start=(e:TouchEvent)=>{touching=within()&&!interactive(e.target)&&e.touches.length===1;if(touching){touchY=e.touches[0].clientY;touchX=e.touches[0].clientX}}
   const drag=(e:TouchEvent)=>{if(touching&&e.touches.length===1&&Math.abs(e.touches[0].clientY-touchY)>Math.abs(e.touches[0].clientX-touchX))e.preventDefault()}
   const end=(e:TouchEvent)=>{if(!touching)return;touching=false;const dy=touchY-e.changedTouches[0].clientY;if(Math.abs(dy)>40)move(Math.sign(dy))}
+  const cancelMove=()=>{cancelAnimationFrame(frame);busy=false;consumed=true}
+  addEventListener("portfolio:direct-navigation",cancelMove)
   addEventListener("wheel",wheel,{passive:false});addEventListener("keydown",key);addEventListener("touchstart",start,{passive:true});addEventListener("touchmove",drag,{passive:false});addEventListener("touchend",end,{passive:true})
-  return()=>{cancelAnimationFrame(frame);removeEventListener("wheel",wheel);removeEventListener("keydown",key);removeEventListener("touchstart",start);removeEventListener("touchmove",drag);removeEventListener("touchend",end)}
+  return()=>{cancelAnimationFrame(frame);removeEventListener("portfolio:direct-navigation",cancelMove);removeEventListener("wheel",wheel);removeEventListener("keydown",key);removeEventListener("touchstart",start);removeEventListener("touchmove",drag);removeEventListener("touchend",end)}
  },[motion,reduced])
  const isStatic=!motion||reduced
  return <section ref={root} data-scene={scene} className={`scroll-film film-showcase ${isStatic?"film-static":""}`} aria-label="포트폴리오 인트로">
@@ -39,7 +41,7 @@ export function HeroSection(){
  <div className="film-controls"><Link href="#explore-work" className="sr-only focus:not-sr-only focus:inline-flex focus:min-h-11 focus:items-center">본문 바로가기</Link><button type="button" disabled={reduced} onClick={()=>setMotion(!motion)} aria-pressed={isStatic} className="min-h-11 rounded-full border border-current/25 px-4 text-xs">{reduced?"동작 줄이기 적용됨":motion?"모션 끄기":"모션 켜기"}</button></div>
  <div className="film-scene film-first"><div className="system-plane" aria-hidden="true"><i/><i/><i/><span>C#</span><span>.NET</span><span>SQL</span></div><div className="film-copy"><p className="film-kicker">ENGINEERING</p><h1 className="film-personal-copy">복잡한 업무를 이해하고,<br/><span>구조적으로 풀어내기 위해<br/>노력합니다.</span></h1><p className="film-description">ASP.NET · MS SQL Server<br/>8년 6개월의 업무 시스템 개발 경험.</p></div></div>
  {showcases.map((item,index)=><div key={item.slug} aria-hidden={!isStatic&&scene!==index+1} className={`showcase-panel ${scene===index+1?"is-active":""}`}>
- <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p className="showcase-purpose">{item.description}</p><p>{item.kind}</p></div></div>
+ <div className="showcase-copy"><p className="film-kicker"><span className="showcase-section-label">개인 프로젝트</span>EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p className="showcase-purpose">{item.description}</p><p>{item.kind}</p></div></div>
  <div className={`showcase-visual visual-${item.slug}`}><span className="showcase-word" aria-hidden="true">EXPLORE</span>
  {item.slug==="haru"?<HaruIntroFilm active={scene===index+1} staticMode={isStatic}/>:<div className="showcase-screen"><Image src={item.src} alt={item.alt} width={1400} height={900} sizes="(max-width:640px) 90vw,60vw" className="showcase-capture" /></div>}
  </div></div>)}
