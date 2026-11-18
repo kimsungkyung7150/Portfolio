@@ -1,9 +1,11 @@
+import Link from "next/link"
+
 const experiences = [
   {
     period: "현재",
     title: "Routoon · 방치형 게임 · ShowRoom · 랜덤 디펜스 게임",
     role: "Product / AI / Game Engineering",
-    summary: "개인 제품을 직접 설계하고 구현하며 AI, WPF, Unity까지 개발 범위를 확장하고 있습니다.",
+    summary: "개인 제품의 설계·구현 경험을 정리했습니다. Routoon은 고도화 예정이며, 게임과 ShowRoom은 하드웨어 환경 개선 후 개발 재개 예정입니다.",
     points: [
       "Routoon: 정본·캐릭터 보이스·회차 맥락을 활용하는 AI 웹소설 생성·검수·발행 흐름 개발",
       "Routoon 연동 방치형 게임: React Host · Unity WebGL · 서버 권위 BattleTicket/Settlement와 성장 루프 개발",
@@ -16,7 +18,7 @@ const experiences = [
     period: "2025 - 현재",
     title: "ImpactSuite",
     role: "AI-assisted Legacy Analysis",
-    summary: "2025년부터 실행 증거를 바탕으로 레거시 시스템의 구조와 변경 영향을 살펴보는 분석 도구를 개발하고 있습니다.",
+    summary: "2025년부터 레거시 시스템의 구조와 변경 영향을 살펴보는 분석 도구를 설계·개발해 왔습니다. 현재는 하드웨어 환경 개선 후 개발 재개 예정입니다.",
     points: [
       "브라우저 행동, API 호출, SQL 실행 흐름을 하나의 분석 경로로 연결",
       "Neo4j 그래프로 화면·API·서비스·SQL 간 의존성을 구조화",
@@ -79,6 +81,11 @@ export default function ExperiencePage() {
           </p>
         </div>
       </header>
+      <aside className="mt-8 rounded-xl border border-border bg-surface p-5 sm:p-6">
+        <h2 className="text-lg font-semibold text-textPrimary">설계·이전 프로젝트 기록</h2>
+        <p className="mt-2 text-sm leading-7 text-textSecondary">레거시 분석, 스마트팜 데이터 파이프라인, 음식 탐색 교육 프로젝트와 웹 개발 참여 기록을 원본 근거·담당 역할·검증 범위로 나누어 정리했습니다.</p>
+        <Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">6개 프로젝트 기록 보기 →</Link>
+      </aside>
 
       <div className="mt-12 divide-y divide-border border-y border-border">
         {experiences.map((item) => (

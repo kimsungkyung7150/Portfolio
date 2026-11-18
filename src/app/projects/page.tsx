@@ -43,8 +43,8 @@ export default function ProjectsPage() {
         <div>
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-primarySoft">Projects</p>
           <h1 className="mt-3 text-[clamp(2.75rem,5vw,4rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
-            직접 만든 시스템과,
-            <span className="block text-textSecondary">그동안 다뤄온 문제를 정리했습니다.</span>
+            제품과 시스템,
+            <span className="block text-textSecondary">설계와 구현의 기록.</span>
           </h1>
         </div>
         <p className="max-w-[36rem] text-[1.05rem] leading-8 text-textSecondary">
@@ -52,6 +52,11 @@ export default function ProjectsPage() {
           이전 회사 프로젝트는 내부 자산을 공개하지 않고 역할과 기술적 판단 중심으로 요약했습니다.
         </p>
       </header>
+      <aside className="mt-8 rounded-xl border border-border bg-surface p-5 sm:p-6">
+        <h2 className="text-lg font-semibold text-textPrimary">설계·이전 프로젝트 기록</h2>
+        <p className="mt-2 text-sm leading-7 text-textSecondary">레거시 분석, 스마트팜 데이터 파이프라인, 음식 탐색 교육 프로젝트와 웹 개발 참여 기록을 원본 근거·담당 역할·검증 범위로 나누어 정리했습니다.</p>
+        <Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">6개 프로젝트 기록 보기 →</Link>
+      </aside>
 
       <section className="py-14">
         <div className="mb-8 flex items-end justify-between gap-6">
@@ -62,8 +67,15 @@ export default function ProjectsPage() {
           <span className="hidden text-sm text-textMuted sm:block">{projectDetails.length} projects</span>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {projectDetails.map((project, index) => (
+        <p className="mb-6 text-sm leading-7 text-textSecondary">하루는 개인 환경 테스트 완료 후 실사용 예정이며, Routoon은 고도화 예정입니다. 그 외 프로젝트는 하드웨어 환경 개선 후 개발 재개 예정으로 묶어 소개합니다. 기존 구현 기록과 남은 품질·검증 과제는 각 사례에서 구분합니다.</p>
+        {[
+          { title: "테스트 완료 · 고도화 예정", slugs: ["haru", "routoon"] },
+          { title: "하드웨어 환경 개선 후 개발 재개 예정", slugs: ["showroom", "idle-game", "random-defense", "impactsuite"] },
+        ].map((group) => (
+          <div key={group.title} className="mb-10 last:mb-0">
+            <h3 className="mb-4 text-lg font-semibold leading-7 text-textPrimary">{group.title}</h3>
+            <div className="grid gap-4 md:grid-cols-2">
+          {projectDetails.filter((project) => group.slugs.includes(project.slug)).map((project) => (
             <Link
               key={project.slug}
               href={"/projects/" + project.slug}
@@ -74,7 +86,7 @@ export default function ProjectsPage() {
                   <Badge variant={project.statusVariant}>{project.type}</Badge>
                   <Badge variant={project.statusVariant}>{project.status}</Badge>
                 </div>
-                <span className="font-mono text-xs text-textMuted">0{index + 1}</span>
+                <span className="shrink-0 whitespace-nowrap font-mono text-xs text-textMuted">0{projectDetails.indexOf(project) + 1}</span>
               </div>
               <h3 className="mt-8 text-3xl font-semibold tracking-[-0.035em] text-textPrimary group-hover:text-primarySoft">
                 {project.title}
@@ -86,7 +98,9 @@ export default function ProjectsPage() {
               </div>
             </Link>
           ))}
-        </div>
+            </div>
+          </div>
+        ))}
       </section>
 
       <section className="border-t border-border py-14">

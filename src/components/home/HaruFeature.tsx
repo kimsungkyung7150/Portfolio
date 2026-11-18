@@ -9,12 +9,12 @@ export function HaruFeature() {
     <article className="relative overflow-hidden rounded-2xl border border-primarySoft/25 bg-surface shadow-card">
       <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
         <div className="p-6 sm:p-8">
-          <div className="flex flex-wrap gap-2"><Badge>AI / 업무 기억</Badge><Badge variant="info">개인 실사용 검증</Badge></div>
+          <div className="flex flex-wrap gap-2"><Badge>AI / 업무 기억</Badge><Badge variant="info">개인 환경 테스트 완료 · 실사용 예정</Badge></div>
           <h3 className="mt-5 text-4xl font-semibold tracking-tight">하루 <span className="text-lg font-normal text-textMuted">Memory OS</span></h3>
           <p className="mt-3 text-lg font-medium leading-7 text-textPrimary">AI와 한 일을,<br />다음 사람이 이어갈 수 있도록.</p>
           <p className="mt-4 max-w-[520px] text-sm leading-7 text-textSecondary">여러 AI의 업무 보고서를 모아 변경 이유, 수정 파일, 확인 결과와 남은 일을 기억합니다. 원본 근거가 연결된 답변과 인수인계로 다시 꺼내 씁니다.</p>
           <p className="mt-5 font-mono text-[10px] leading-5 text-textMuted">C# · ASP.NET Core · SQL Server · MCP · Hybrid RAG</p>
-          <Button href="/projects/haru" className="mt-6 gap-2">설계와 실사용 검증 보기<ArrowUpRight className="size-4" aria-hidden="true" /></Button>
+          <Button href="/projects/haru" className="mt-6 gap-2">설계와 개인 환경 테스트 보기<ArrowUpRight className="size-4" aria-hidden="true" /></Button>
           <Link href="/projects/haru#demo" className="mt-3 flex min-h-11 w-fit items-center gap-2 text-xs text-primarySoft underline decoration-primarySoft/30 underline-offset-4 hover:text-textPrimary"><FileText className="size-3.5" aria-hidden="true" />실제 기록으로 만든 인수인계 보고서</Link>
         </div>
         <div className="flex flex-col justify-center gap-6 border-t border-border p-6 sm:p-8 lg:border-l lg:border-t-0">

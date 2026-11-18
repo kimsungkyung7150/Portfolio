@@ -60,7 +60,8 @@ export function HaruCaseStudy() {
               <p className="mt-6 max-w-[520px] text-[15px] leading-8 text-textSecondary">여러 AI와 진행한 작업을 하나의 업무 기억으로 연결합니다. 무엇을 했는지부터 <strong className="font-medium text-textPrimary">왜 바꿨고, 무엇을 확인했고, 무엇이 남았는지</strong>까지 원본 근거로 다시 설명하는 비서입니다.</p>
               <div className="mt-7 flex flex-wrap gap-3"><Button href="#demo">인수인계 결과물 보기<ArrowDown className="ml-2 size-4" aria-hidden="true" /></Button><Button href="#difference" variant="outline">차별점 살펴보기</Button></div>
               <dl className="mt-8 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 border-t border-border pt-5 text-xs leading-6">
-                <dt className="text-textMuted">진행</dt><dd className="text-textSecondary">2026.10 · 개인 프로젝트</dd>
+                <dt className="text-textMuted">진행</dt><dd className="text-textSecondary">2026.10 시작 · 개인 환경 테스트 완료 · 실사용 예정</dd>
+                <dt className="text-textMuted">범위</dt><dd className="text-textSecondary">테스트 완료는 개인 환경에서 확인한 경로에 한정합니다. 아래 과거 평가와 운영·타 계정·새 장치 미검증 항목은 그대로 유지합니다.</dd>
                 <dt className="text-textMuted">역할</dt><dd className="text-textSecondary">{haruProject.role}</dd>
                 <dt className="text-textMuted">구현</dt><dd className="text-textSecondary">Codex 협업 · C# / ASP.NET Core / SQL Server</dd>
               </dl>

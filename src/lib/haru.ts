@@ -4,7 +4,7 @@ export const haruProject: ProjectDetail = {
   slug: "haru",
   title: "하루 · Memory OS",
   type: "AI / 업무 기억 시스템",
-  status: "개인 실사용 검증",
+  status: "개인 환경 테스트 완료 · 실사용 예정",
   statusVariant: "info",
   subtitle: "여러 AI의 작업 기록을, 근거 있는 업무 기억으로",
   summary: "Codex·ChatGPT 등에서 제출한 업무 기록을 원본과 함께 보존하고, 변경 이유·작업자·남은 일을 찾아 인수인계로 연결하는 AI 비서입니다.",

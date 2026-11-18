@@ -63,7 +63,7 @@ export function FeaturedProjects() {
           <article className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-card">
             <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
               <div className="flex flex-col justify-center p-6 lg:p-7">
-                <ProjectMeta type="AI / 웹소설 플랫폼" status="LIVE" variant="success" />
+                <ProjectMeta type="AI / 웹소설 플랫폼" status={routoon.status} variant="info" />
                 <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-textPrimary">
                   Routoon
                 </h3>
@@ -72,7 +72,7 @@ export function FeaturedProjects() {
                 </p>
                 <p className="mt-4 max-w-[430px] text-sm leading-6 text-textSecondary">
                   정본, 캐릭터 보이스, 회차 맥락을 기반으로 집필부터 검수와 발행까지 연결합니다.
-                  실제 독자 서비스와 작가 작업 흐름을 함께 개발하고 있습니다.
+                  기존 독자 서비스와 작가 작업 흐름을 바탕으로 후속 고도화를 준비합니다.
                 </p>
                 <div className="mt-5">
                   <TechRow tags={routoon.tags} />
@@ -105,6 +105,10 @@ export function FeaturedProjects() {
             </div>
           </article>
 
+          <div className="border-t border-border pt-8 pb-2">
+            <h3 className="text-xl font-semibold text-textPrimary">개발 재개 예정 프로젝트</h3>
+            <p className="mt-2 text-sm leading-6 text-textSecondary">하드웨어 환경 개선 후 개발 재개 예정입니다. 아래는 기존 구현·설계 기록이며, 프로젝트별 품질·검증 과제는 남아 있습니다.</p>
+          </div>
           <article className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-card">
             <div className="grid lg:grid-cols-[0.88fr_1.12fr]">
               <Link
@@ -138,7 +142,7 @@ export function FeaturedProjects() {
               </Link>
 
               <div className="flex flex-col justify-center p-6 lg:p-7">
-                <ProjectMeta type="WPF / 게임 에셋 도구" status="개발 중" variant="warning" />
+                <ProjectMeta type="WPF / 게임 에셋 도구" status="개발 재개 예정" variant="warning" />
                 <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-textPrimary">
                   ShowRoom
                 </h3>
@@ -178,7 +182,7 @@ export function FeaturedProjects() {
               </Link>
 
               <div className="flex flex-col justify-center p-6 lg:p-7">
-                <ProjectMeta type="Routoon Ecosystem / Game" status={idleGame.status} variant="warning" />
+                <ProjectMeta type="Routoon Ecosystem / Game" status="개발 재개 예정" variant="warning" />
                 <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-textPrimary">
                   방치형 게임
                 </h3>
@@ -186,8 +190,8 @@ export function FeaturedProjects() {
                   React Host + Unity WebGL + 서버 권위 전투·성장 시스템
                 </p>
                 <p className="mt-4 max-w-[560px] text-sm leading-6 text-textSecondary">
-                  Routoon 작품 경험과 함께 사용할 수 있도록 개발 중인 방치형 전투 모듈입니다.
-                  React Product Host, Unity WebGL, ASP.NET Core 정산 흐름을 연결해 구현하고 있습니다.
+                  Routoon 작품 경험과 연동하는 방치형 전투 모듈의 개발 사례입니다.
+                  React Product Host, Unity WebGL, ASP.NET Core 정산 흐름을 연결한 기존 작업을 정리했습니다.
                 </p>
 
                 <div className="mt-5 grid grid-cols-2 gap-2">
@@ -215,7 +219,7 @@ export function FeaturedProjects() {
             <article className="overflow-hidden rounded-[14px] border border-border bg-surface shadow-card">
               <div className="grid min-h-full sm:grid-cols-[0.82fr_1.18fr]">
                 <div className="flex flex-col justify-center p-5">
-                  <ProjectMeta type="Unity / 게임" status="개발 중" variant="warning" />
+                  <ProjectMeta type="Unity / 게임" status="개발 재개 예정" variant="warning" />
                   <h3 className="mt-4 text-[22px] font-semibold tracking-[-0.035em] text-textPrimary">
                     랜덤 디펜스 게임
                   </h3>
@@ -271,7 +275,7 @@ export function FeaturedProjects() {
             </article>
 
             <article className="flex min-h-[330px] flex-col rounded-[14px] border border-border bg-surface p-5 shadow-card">
-              <ProjectMeta type="업무 자동화 / AI" status="ARCHITECTURE" variant="default" />
+              <ProjectMeta type="업무 자동화 / AI" status="개발 재개 예정" variant="default" />
               <h3 className="mt-4 text-[22px] font-semibold tracking-[-0.035em] text-textPrimary">
                 ImpactSuite
               </h3>

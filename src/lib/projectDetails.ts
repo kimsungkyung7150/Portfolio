@@ -54,7 +54,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: "routoon",
     title: "Routoon",
     type: "AI / 웹소설 플랫폼",
-    status: "고도화 중",
+    status: "고도화 예정",
     statusVariant: "info",
     subtitle: "AI 웹소설 생성·품질 검증·독자 서비스 플랫폼",
     summary:
@@ -111,7 +111,7 @@ export const projectDetails: ProjectDetail[] = [
     currentScope: [
       "정본을 대화로 만들어 가는 Authorial Context 흐름 고도화",
       "회차 생성 품질·개연성·문체·자연스러움 검증 파이프라인 개선",
-      "독자 서비스와 작가 작업실 실제 운영",
+      "기존 독자 서비스·작가 작업실을 보존하고 후속 고도화 예정",
     ],
     highlights: [
       "정본(Canon)·캐릭터 보이스·회차 맥락을 집필 입력으로 연결",
@@ -133,7 +133,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: "idle-game",
     title: "Routoon 연동 방치형 게임",
     type: "Routoon Ecosystem / Game",
-    status: "개발 중",
+    status: "하드웨어 환경 개선 후 개발 재개 예정",
     statusVariant: "warning",
     subtitle: "React Host + Unity WebGL + 서버 권위 전투·성장 시스템",
     summary:
@@ -194,7 +194,7 @@ export const projectDetails: ProjectDetail[] = [
       "BattleTicket 발급 → Unity 재생 → 서버 재시뮬레이션 → Settlement 흐름 구현",
       "자동 사냥·실패 스테이지 복구·오프라인 Gold·공격력 성장 구현",
       "장비 제작·착용·분해·잠금·강화와 Stage 10 장비 진행 흐름 구현",
-      "상용 UI/아트는 선택된 UI 시안을 기준으로 교체·고도화 중",
+      "상용 UI/아트 정합과 최종 품질 검증은 미완료이며 개발 재개 후 보완 예정",
     ],
     highlights: [
       "React Product Host와 Unity WebGL 런타임을 같은 Routoon 세션에 통합",
@@ -232,7 +232,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: "showroom",
     title: "ShowRoom",
     type: "AI / 게임 에셋",
-    status: "개발 중",
+    status: "하드웨어 환경 개선 후 개발 재개 예정",
     statusVariant: "warning",
     subtitle: "WPF 기반 AI 게임 에셋 제작·검수·전달 도구",
     summary:
@@ -322,7 +322,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: "random-defense",
     title: "랜덤 디펜스 게임",
     type: "게임 / Unity",
-    status: "개발 중",
+    status: "하드웨어 환경 개선 후 개발 재개 예정",
     statusVariant: "warning",
     subtitle: "140종 몬스터·3마리 조합·웨이브 전투를 구현하는 Unity WebGL 랜덤 디펜스",
     summary:
@@ -416,7 +416,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: "impactsuite",
     title: "ImpactSuite",
     type: "AI / 레거시 분석",
-    status: "주요 AI 프로젝트",
+    status: "하드웨어 환경 개선 후 개발 재개 예정",
     statusVariant: "default",
     subtitle: "비침습형 레거시 시스템 실행 흐름 분석 도구",
     summary:
@@ -472,13 +472,13 @@ export const projectDetails: ProjectDetail[] = [
     currentScope: [
       "브라우저 행동·API·SQL 실행 흐름 연결",
       "Neo4j 기반 의존성 그래프와 영향 분석",
-      "MCP를 통한 AI 탐색 인터페이스",
+      "MCP를 통한 AI 탐색 인터페이스 설계·개발 기록 (자동 탐색 미완)",
     ],
     highlights: [
       "애플리케이션 코드를 직접 수정하지 않는 비침습 분석 방식",
       "브라우저 행동 → API → SQL 실행 흐름 추적",
       "Neo4j 그래프로 의존성과 변경 영향 시각화",
-      "AI(MCP)를 이용한 구조 탐색·원인 분석 자동화",
+      "AI(MCP)를 이용한 구조 탐색·원인 분석 자동화 설계",
     ],
     screenshots: [],
     screenshotNote: "공개 가능한 실제 UI 캡처가 없어 임의 화면을 만들지 않고 구조와 분석 흐름으로 설명합니다.",
