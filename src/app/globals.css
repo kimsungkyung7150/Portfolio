@@ -116,3 +116,13 @@ summary:focus-visible {
 .stage-enter { animation:stage-enter 650ms cubic-bezier(.2,.7,.2,1) both; }
 .motion-paused .stage-orbit { animation-play-state:paused; }
 @media (prefers-reduced-motion: reduce) { .stage-orbit, .stage-enter {animation:none !important;} }
+
+.project-theatre { background: #080a10; }
+.theatre-wash { position:absolute; z-index:-1; width:75%; height:85%; right:-15%; top:-10%; background:radial-gradient(ellipse,#29344e99,transparent 70%); }
+.theatre-scene { opacity:0; transition:opacity 900ms ease; }
+.theatre-scene.scene-active {opacity:1;z-index:1;}
+.theatre-image { transform:scale(1.015); }
+.scene-active .theatre-image { animation:scene-pan 5.5s ease-out both; }
+@keyframes scene-pan {from{transform:scale(1.055) translateY(2px);}to{transform:scale(1.015) translateY(0);}}
+.motion-paused .theatre-image {animation-play-state:paused;}
+@media(prefers-reduced-motion:reduce){.theatre-scene{transition:none!important}.theatre-image{animation:none!important;transform:none}}
