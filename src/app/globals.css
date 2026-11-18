@@ -126,3 +126,20 @@ summary:focus-visible {
 @keyframes scene-pan {from{transform:scale(1.055) translateY(2px);}to{transform:scale(1.015) translateY(0);}}
 .motion-paused .theatre-image {animation-play-state:paused;}
 @media(prefers-reduced-motion:reduce){.theatre-scene{transition:none!important}.theatre-image{animation:none!important;transform:none}}
+
+.art-intro {display:grid;grid-template-columns:1.15fr 1fr;min-height:730px;border-bottom:1px solid var(--color-border);}
+.art-copy {display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:42px clamp(24px,4vw,64px);}
+.art-statement {padding:12px 0 24px;}
+.art-stage {position:relative;overflow:hidden;min-height:730px;background:#e0e6ee;color:#202b3c;}
+.art-type {position:absolute;inset:18px 0 auto;display:flex;flex-direction:column;gap:130px;line-height:.85;font-size:clamp(100px,12vw,190px);font-weight:700;letter-spacing:-.07em;color:transparent;-webkit-text-stroke:1px #9ca9b8;transform:translateX(-10px);animation:art-type-drift 13s ease-in-out infinite alternate;}
+.art-type span:last-child {align-self:flex-end;}
+.art-subject {position:absolute;left:50%;top:24px;height:628px;transform:translateX(-50%);animation:art-subject-drift 10s ease-in-out infinite alternate;}
+.art-rule {position:absolute;inset:30px;border:1px solid #a7b2bf80;border-radius:48% 48% 0 0;transform:rotate(-9deg);animation:art-rule-turn 18s ease-in-out infinite alternate;}
+.art-caption {position:absolute;bottom:24px;left:28px;right:28px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+@keyframes art-type-drift {to{transform:translateX(24px) translateY(12px);}}
+@keyframes art-subject-drift {to{transform:translateX(-50%) translateY(10px);}}
+@keyframes art-rule-turn {to{transform:rotate(8deg);}}
+.motion-paused .art-type,.motion-paused .art-subject,.motion-paused .art-rule {animation-play-state:paused;}
+.explore-row {transition:background-color .2s ease;}.explore-row:hover {background:#ffffff04;}
+@media(max-width:900px){.art-intro{grid-template-columns:1fr}.art-copy{padding:32px 24px;gap:28px}.art-stage{min-height:640px}.art-subject{height:530px}.art-type{font-size:150px;gap:180px}.art-caption{bottom:22px}.art-statement{padding:0}}
+@media(prefers-reduced-motion:reduce){.art-type,.art-subject,.art-rule{animation:none!important}.explore-row span{transition:none!important}}
