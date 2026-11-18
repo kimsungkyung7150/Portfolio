@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { experiences } from "@/lib/experienceTimeline"
 
 
 import { Badge } from "@/components/ui/Badge"
@@ -88,7 +87,6 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
         ))}
       </section>
 
-      <section className="border-t border-border py-10"><h2 className="text-2xl font-semibold">개인 개발 기록</h2><div className="mt-6 grid gap-5 md:grid-cols-2">{experiences.slice(0,2).map(item => <article key={item.title} className="rounded-xl border border-border p-6"><p className="text-sm text-primarySoft">{item.period} · {item.role}</p><h3 className="mt-3 text-xl font-semibold">{item.title}</h3><p className="mt-3 text-sm leading-7 text-textSecondary">{item.summary}</p><ul className="mt-4 space-y-2 text-sm leading-7 text-textSecondary">{item.points.map(point=><li key={point}>{point}</li>)}</ul><p className="mt-4 text-xs leading-6 text-textMuted">{item.stack}</p></article>)}</div></section>
     </div>
   )
 }
