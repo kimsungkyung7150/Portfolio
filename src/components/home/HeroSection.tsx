@@ -6,7 +6,7 @@ const showcases=[
  {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom"},
  {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon"},
  {name:"모바일 방치형 · 빛의 기사단",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"빛의 기사단 모바일 방치형 게임 UI 디자인 시안",slug:"idle-game"},
- {name:"하루 · Memory OS",kind:"개인 환경 테스트 · 데모 화면",src:"/projects/haru/demo-v2/poster.jpg",alt:"하루 작업 기록과 인수인계 데모",slug:"haru"},
+ {name:"하루 · Memory OS",kind:"실제 질문·답변 · 저장 원문 조회",src:"/projects/haru/demo-v2/recall-screen.png",alt:"하루가 실제 질문에 저장된 업무 원문을 근거로 답변하는 화면",slug:"haru"},
  {name:"ImpactSuite",kind:"개발 중 · 설계 흐름",src:"",alt:"",slug:"impactsuite"},
 ]
 const clamp=(v:number)=>Math.max(0,Math.min(1,v))
@@ -40,6 +40,7 @@ export function HeroSection(){
  {showcases.map((item,index)=><div key={item.slug} aria-hidden={!isStatic&&scene!==index+1} className={`showcase-panel ${scene===index+1?"is-active":""}`}>
  <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p>{item.kind}</p></div></div>
  <div className={`showcase-visual visual-${item.slug}`}><span className="showcase-word" aria-hidden="true">EXPLORE</span>
+ {item.slug==="haru"&&<div className="haru-flow" aria-label="동작 설명: 질문, 저장된 관련 기록 확인, 근거 답변"><p>동작 흐름 · 설명용 시각화</p><div><span>질문</span><i aria-hidden="true"/><span>관련 기록</span><i aria-hidden="true"/><span>근거 답변</span></div></div>}
  {item.src?<div className="showcase-screen"><Image src={item.src} alt={item.alt} width={1400} height={900} sizes="(max-width:640px) 90vw,60vw" className="showcase-capture" priority={index===0}/></div>:<div className="showcase-diagram"><span>사용자 행동</span><i/><span>API · SQL 실행 흐름</span><i/><span>의존성 그래프</span><p>ImpactSuite 설계 흐름</p></div>}
  </div></div>)}
  <div className="film-progress" aria-hidden="true"><i/></div>
