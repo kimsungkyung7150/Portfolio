@@ -308,12 +308,12 @@ export const projectDetails: ProjectDetail[] = [
       {
         src: "/projects/showroom/directional-row.png",
         alt: "ShowRoom 방향별 캐릭터 결과",
-        caption: "원화 품질을 유지한 방향별 전체 결과",
+        caption: "동일 원화를 바탕으로 만든 8방향 결과 예시",
       },
       {
         src: "/projects/showroom/motion-lab.png",
         alt: "ShowRoom WPF Motion Lab 화면",
-        caption: "WPF Motion Lab · 모션 프레임 검토",
+        caption: "별도 불늑대 예시 · WPF Motion Lab 모션 프레임 검토",
       },
     ],
     screenshotNote: "기준 원화 전신, 방향별 전체 결과, 실제 WPF Motion Lab 화면으로 구성했습니다.",

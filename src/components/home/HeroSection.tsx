@@ -11,9 +11,9 @@ export function HeroSection() {
         <div className="max-w-[560px]">
           <div className="mb-5 flex flex-wrap items-center gap-2.5">
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-primarySoft">
-              Product / AI Engineer
+              .NET Developer
             </span>
-            <span className="text-[12px] text-textMuted">· 10년+ 엔터프라이즈 개발 경험</span>
+            <span className="text-[12px] text-textMuted">· 8년 6개월 엔터프라이즈 개발 경험</span>
           </div>
 
           <h1 className="text-[clamp(2.5rem,4.2vw,3.75rem)] font-[760] leading-[1.18] tracking-[-0.045em] text-textPrimary">
@@ -36,7 +36,7 @@ export function HeroSection() {
           <dl className="mt-8 grid max-w-[500px] grid-cols-3 border-t border-border pt-5">
             <div className="pr-4">
               <dt className="font-mono text-[9px] uppercase tracking-[0.13em] text-textMuted">Experience</dt>
-              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">10년+</dd>
+              <dd className="mt-1.5 text-[15px] font-semibold text-textPrimary">8년 6개월</dd>
               <dd className="mt-0.5 text-[10px] text-textMuted">엔터프라이즈 개발 경험</dd>
             </div>
             <div className="border-l border-border px-4">

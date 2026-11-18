@@ -263,10 +263,12 @@ export function FeaturedProjects() {
                     <div className="relative overflow-hidden rounded-lg border border-border bg-black">
                       <Image
                         src="/projects/random-defense/gold-active.png"
-                        alt="랜덤 디펜스 골드 몬스터 전투"
-                        fill
+                        alt="랜덤 디펜스 골드 몬스터 전투 · 외부 여백 제외 표시"
+                        width={430}
+                        height={844}
                         sizes="180px"
-                        className="object-cover object-top"
+                        className="absolute w-full max-w-none"
+                        style={{ height: "auto", top: "50%", transform: "translateY(-50%)" }}
                       />
                     </div>
                   </div>

@@ -9,7 +9,7 @@ export function Header() {
             김성경
           </span>
           <span className="hidden border-l border-border pl-3 font-mono text-[11px] uppercase tracking-[0.14em] text-textMuted sm:inline">
-            Product / AI Engineer
+            .NET Developer
           </span>
         </Link>
 

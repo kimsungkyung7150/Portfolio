@@ -53,7 +53,7 @@ export function ExperienceSummary() {
               Experience
             </p>
             <h2 className="mt-1.5 text-[clamp(2rem,3vw,2.55rem)] font-[740] tracking-[-0.04em] text-textPrimary">
-              10년+의 업무 시스템 경험
+              8년 6개월의 업무 시스템 경험
             </h2>
           </div>
           <p className="max-w-[590px] text-sm leading-6 text-textSecondary lg:justify-self-end">

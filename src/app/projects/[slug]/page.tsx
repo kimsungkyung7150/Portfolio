@@ -208,6 +208,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
           <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
             ORIGINAL ART
           </span>
+          <a href="/projects/showroom/fullbody-reference.png" target="_blank" rel="noopener noreferrer" className="absolute inset-x-0 bottom-0 flex min-h-11 items-center justify-center bg-background/90 text-xs text-primarySoft">원화 확대 ↗</a>
         </div>
 
         <div className="grid gap-3">
@@ -223,21 +224,10 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
             <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
               DIRECTIONAL RESULT
             </span>
+            <a href="/projects/showroom/directional-row.png" target="_blank" rel="noopener noreferrer" className="absolute inset-x-0 bottom-0 flex min-h-11 items-center justify-center bg-background/90 text-xs text-primarySoft">8방향 확대 ↗</a>
           </div>
 
-          <div className="relative overflow-hidden rounded-xl border border-border bg-[#111722]">
-            <Image
-              src="/projects/showroom/motion-lab.png"
-              alt="ShowRoom WPF Motion Lab"
-              fill
-              sizes="(max-width: 768px) 64vw, 420px"
-              className="object-contain"
-              priority
-            />
-            <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
-              WPF MOTION LAB
-            </span>
-          </div>
+
         </div>
       </div>
     )
@@ -259,6 +249,23 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
         />
       </div>
     </div>
+  )
+}
+
+function EvidenceFigure({ src, alt, caption, wide = false, crop = false, portrait = false }: {
+  src: string; alt: string; caption: string; wide?: boolean; crop?: boolean; portrait?: boolean
+}) {
+  return (
+    <figure className={`self-start overflow-hidden rounded-xl border border-border bg-surface ${wide ? "lg:col-span-2" : ""}`}>
+      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`${alt} 원본 확대 (새 탭)`} className="block focus-visible:outline-2 focus-visible:outline-primarySoft">
+        <div className={`relative overflow-hidden bg-backgroundSoft ${crop ? "aspect-[430/264]" : portrait ? "mx-auto aspect-[538/1055] max-w-[430px]" : "aspect-[16/10]"}`}>
+          {crop ? <Image src={src} alt={alt} width={430} height={844} sizes="(max-width: 1024px) 100vw, 580px" className="absolute w-full max-w-none" style={{ height: "auto", top: "-106.44%" }} /> :
+            <Image src={src} alt={alt} fill sizes={wide ? "(max-width: 1024px) 100vw, 1180px" : "(max-width: 1024px) 100vw, 580px"} className="object-contain" />}
+        </div>
+        <span className="flex min-h-11 items-center border-t border-border px-4 text-sm font-semibold text-primarySoft">원본 확대 ↗</span>
+      </a>
+      <figcaption className="px-4 pb-4 text-sm leading-6 text-textSecondary">{caption}{crop && " · 외부 흰 여백만 화면에서 가렸으며 원본은 그대로 보존했습니다."}</figcaption>
+    </figure>
   )
 }
 
@@ -519,162 +526,29 @@ export default async function ProjectDetailPage({
             description={project.screenshotNote}
           />
 
+          {project.slug === "routoon" && <p className="mb-5 text-sm leading-7 text-textSecondary">메인·읽기는 다크 테마, 목록·상세는 라이트 테마로 캡처한 기록입니다. 현재 서비스의 모든 화면이 동일한 테마라는 의미는 아닙니다. 각 이미지의 원본을 새 탭에서 확대해 확인할 수 있습니다.</p>}
           {project.slug === "showroom" ? (
-            <div className="grid gap-4 lg:grid-cols-[0.42fr_1.58fr]">
-              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                <div className="relative h-[520px] bg-[#e8ebef] sm:h-[680px]">
-                  <Image
-                    src="/projects/showroom/fullbody-reference.png"
-                    alt="ShowRoom 기준 원화 전신"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 360px"
-                    className="object-contain p-4"
-                  />
+            <div className="space-y-6">
+              <div className="rounded-xl border border-border p-5 text-sm leading-7 text-textSecondary">
+                <p>상단은 동일 여성 기사 원화와 8방향 결과를 비교한 예시입니다. 원화와 결과의 세부 차이는 아래 원본으로 확인하세요.</p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a href="/projects/showroom/fullbody-reference.png" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-primarySoft underline">기준 원화 확대 ↗</a>
+                  <a href="/projects/showroom/directional-row.png" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-primarySoft underline">8방향 결과 확대 ↗</a>
                 </div>
-                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                  기준 원화 전신 · 캐릭터 정체성과 디테일 기준
-                </figcaption>
-              </figure>
-
-              <div className="grid gap-4">
-                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                  <div className="relative h-[180px] w-full bg-backgroundSoft sm:h-[220px]">
-                    <Image
-                      src="/projects/showroom/directional-row.png"
-                      alt="ShowRoom 방향별 전체 결과"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 820px"
-                      className="object-contain p-4"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                    원화 품질을 유지한 방향별 전체 결과
-                  </figcaption>
-                </figure>
-
-                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                  <div className="relative aspect-[16/9] bg-backgroundSoft">
-                    <Image
-                      src="/projects/showroom/motion-lab.png"
-                      alt="ShowRoom WPF Motion Lab"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 820px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                    WPF Motion Lab · 모션 프레임 검토
-                  </figcaption>
-                </figure>
               </div>
-            </div>
-          ) : project.slug === "random-defense" ? (
-            <div className="grid gap-4">
-              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                <div className="relative aspect-[1600/980] bg-[#0a0e16]">
-                  <Image
-                    src="/projects/random-defense/roster-28.png"
-                    alt="랜덤 디펜스 REG-01 28종 비주얼 로스터"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 1180px"
-                    className="object-contain p-3"
-                  />
-                </div>
-                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                  REG-01 Standing 비주얼 로스터 · 28/28 실제 런타임 바인딩
-                </figcaption>
-              </figure>
-
-              <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                <div className="relative aspect-[16/9] bg-[#0a0e16]">
-                  <Image
-                    src="/projects/random-defense/enemy-concepts.png"
-                    alt="랜덤 디펜스 적군 P0 컨셉 아트"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 1180px"
-                    className="object-contain p-3"
-                  />
-                </div>
-                <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                  적군 P0 컨셉 아트 · 현재 아트 방향과 적 디자인 기준
-                </figcaption>
-              </figure>
-
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                  <div className="relative h-[330px] bg-backgroundSoft sm:h-[480px] lg:h-[620px]">
-                    <Image
-                      src="/projects/random-defense/boss-fight.png"
-                      alt="랜덤 디펜스 보스 전투 화면"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 360px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                    모바일 430×844 · 보스 전투 런타임
-                  </figcaption>
-                </figure>
-
-                <figure className="overflow-hidden rounded-xl border border-border bg-surface shadow-card">
-                  <div className="relative h-[330px] bg-backgroundSoft sm:h-[480px] lg:h-[620px]">
-                    <Image
-                      src="/projects/random-defense/gold-active.png"
-                      alt="랜덤 디펜스 골드 몬스터 활성 전투"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 360px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                    Phase6B · 골드 몬스터 활성 전투
-                  </figcaption>
-                </figure>
-              </div>
+              <EvidenceFigure src="/projects/showroom/motion-lab.png" alt="별도 불늑대 캐릭터의 WPF Motion Lab" caption="별도 예시 · 불늑대 모션 프레임 검토 화면. 상단 여성 기사의 모션 결과가 아닙니다." />
             </div>
           ) : project.screenshots.length > 0 ? (
-            <div className="grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-5 lg:grid-cols-2">
               {project.screenshots.map((shot, index) => (
-                <figure
-                  key={shot.src}
-                  className={[
-                    "overflow-hidden rounded-xl border border-border bg-surface shadow-card",
-                    project.slug !== "random-defense" && index === 0 ? "lg:col-span-2" : "",
-                  ].join(" ")}
-                >
-                  <div
-                    className={[
-                      "relative bg-backgroundSoft",
-                      project.slug === "random-defense"
-                        ? "aspect-[430/844]"
-                        : index === 0
-                          ? "aspect-[16/8.5]"
-                          : "aspect-[16/10]",
-                    ].join(" ")}
-                  >
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt}
-                      fill
-                      sizes={
-                        project.slug === "random-defense"
-                          ? "(max-width: 768px) 50vw, 280px"
-                          : index === 0
-                            ? "(max-width: 1024px) 100vw, 1180px"
-                            : "(max-width: 1024px) 100vw, 580px"
-                      }
-                      className="object-contain"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-3 py-2.5 text-[10px] text-textSecondary sm:px-4 sm:py-3 sm:text-[11px]">
-                    {shot.caption}
-                  </figcaption>
-                </figure>
+                <EvidenceFigure key={shot.src} src={shot.src} alt={shot.alt} caption={shot.caption}
+                  wide={index === 0 || shot.src.includes("reader.png")}
+                  crop={shot.src.endsWith("gold-active.png")}
+                  portrait={shot.src.endsWith("boss-fight.png")} />
               ))}
             </div>
-          ) : (
-            <ImpactSuiteHero project={project} />
-          )}
+          ) : <ImpactSuiteHero project={project} />}
+
         </div>
       </section>
 

@@ -68,7 +68,7 @@ export default function AboutPage() {
       <section className="grid gap-10 border-t border-border py-16 lg:grid-cols-[0.65fr_1.35fr]">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">Current Focus</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">현재 만들고 있는 것</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">개인 프로젝트 기록</h2>
         </div>
         <div className="divide-y divide-border border-y border-border">
           {currentFocus.map((item) => (

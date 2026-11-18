@@ -4,7 +4,7 @@ const experiences = [
   {
     period: "현재",
     title: "Routoon · 방치형 게임 · ShowRoom · 랜덤 디펜스 게임",
-    role: "Product / AI / Game Engineering",
+    role: "개인 제품 설계·개발",
     summary: "개인 제품의 설계·구현 경험을 정리했습니다. Routoon은 고도화 예정이며, 게임과 ShowRoom은 하드웨어 환경 개선 후 개발 재개 예정입니다.",
     points: [
       "Routoon: 정본·캐릭터 보이스·회차 맥락을 활용하는 AI 웹소설 생성·검수·발행 흐름 개발",
@@ -71,7 +71,7 @@ export default function ExperiencePage() {
         <div>
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-primarySoft">Experience</p>
           <h1 className="mt-3 text-[clamp(2.75rem,5vw,4rem)] font-[760] leading-[1.08] tracking-[-0.045em] text-textPrimary">
-            10년+의 업무 시스템 경험
+            8년 6개월의 업무 시스템 경험
           </h1>
         </div>
         <div className="max-w-[36rem]">
