@@ -270,3 +270,7 @@ summary:focus-visible {
 @media(max-width:640px){.visual-haru{gap:14px}.haru-flow>p{font-size:9px;margin-bottom:8px}.haru-flow>div{gap:5px}.haru-flow span{font-size:11px;padding:7px 8px}.visual-haru .showcase-capture{max-height:calc((100svh - 100px)*.58 - 110px)}}
 @media(max-width:640px) and (max-height:680px){.visual-haru{gap:10px}.haru-flow>p{font-size:8px;margin-bottom:5px}.haru-flow span{font-size:10px;padding:5px 6px}.visual-haru .showcase-capture{max-height:calc((100svh - 100px)*.5 - 85px)}}
 @media(prefers-reduced-motion:reduce){.haru-flow span,.haru-flow i:after{animation:none!important}}
+
+.showcase-project p.showcase-purpose{max-width:35em;font-size:14px;line-height:1.7;color:#e0e4e9}
+@media(max-width:640px){.showcase-project p.showcase-purpose{font-size:12px;line-height:1.6;margin-top:7px}}
+@media(max-width:640px) and (max-height:680px){.showcase-panel{grid-template-rows:60% 40%}.showcase-copy{padding-top:40px}.showcase-project p.showcase-purpose{font-size:11px}.showcase-capture{max-height:calc((100svh - 100px)*.4 - 30px)}.film-static .showcase-panel{grid-template-rows:300px 370px}}

@@ -3,11 +3,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 const showcases=[
- {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom"},
- {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon"},
- {name:"웹 방치형 · Routoon",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"Routoon 연동 웹 방치형 게임 UI 디자인 시안",slug:"idle-game"},
- {name:"빛의 기사단 · 모바일 RPG",kind:"개발 중 · 승인된 AI UI 목표 시안",src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 모바일 RPG 승인 UI 목표 시안, 실제 실행 화면 아님",slug:"light-knights"},
- {name:"하루 · Memory OS",kind:"실제 질문·답변 · 저장 원문 조회",src:"/projects/haru/demo-v2/recall-screen.png",alt:"하루가 실제 질문에 저장된 업무 원문을 근거로 답변하는 화면",slug:"haru"},
+ {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom",description:"게임 원화와 모션 프레임을 검토·관리하는 WPF 제작 도구입니다."},
+ {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon",description:"AI 집필·검수·발행과 독자 서비스를 연결하는 웹소설 플랫폼입니다."},
+ {name:"웹 방치형 · Routoon",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"Routoon 연동 웹 방치형 게임 UI 디자인 시안",slug:"idle-game",description:"웹소설 플랫폼 Routoon과 연결하도록 개발 중인 웹 방치형 게임입니다."},
+ {name:"빛의 기사단 · 모바일 RPG",kind:"개발 중 · 승인된 AI UI 목표 시안",src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 모바일 RPG 승인 UI 목표 시안, 실제 실행 화면 아님",slug:"light-knights",description:"전투·영웅 성장·편성을 구현하는 개발 중 모바일 RPG입니다."},
+ {name:"하루 · Memory OS",kind:"실제 질문·답변 · 저장 원문 조회",src:"/projects/haru/demo-v2/recall-screen.png",alt:"하루가 실제 질문에 저장된 업무 원문을 근거로 답변하는 화면",slug:"haru",description:"저장된 업무 기록을 찾아 근거와 함께 답하는 개인 AI 비서입니다."},
 ]
 const clamp=(v:number)=>Math.max(0,Math.min(1,v))
 export function HeroSection(){
@@ -38,7 +38,7 @@ export function HeroSection(){
  <div className="film-controls"><Link href="#explore-work" className="sr-only focus:not-sr-only focus:inline-flex focus:min-h-11 focus:items-center">본문 바로가기</Link><button type="button" disabled={reduced} onClick={()=>setMotion(!motion)} aria-pressed={isStatic} className="min-h-11 rounded-full border border-current/25 px-4 text-xs">{reduced?"동작 줄이기 적용됨":motion?"모션 끄기":"모션 켜기"}</button></div>
  <div className="film-scene film-first"><div className="system-plane" aria-hidden="true"><i/><i/><i/><span>C#</span><span>.NET</span><span>SQL</span></div><div className="film-copy"><p className="film-kicker">ENGINEERING</p><h1 className="film-personal-copy">복잡한 업무를 이해하고,<br/><span>구조적으로 풀어내기 위해<br/>노력합니다.</span></h1><p className="film-description">ASP.NET · MS SQL Server<br/>8년 6개월의 업무 시스템 개발 경험.</p></div></div>
  {showcases.map((item,index)=><div key={item.slug} aria-hidden={!isStatic&&scene!==index+1} className={`showcase-panel ${scene===index+1?"is-active":""}`}>
- <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p>{item.kind}</p></div></div>
+ <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p className="showcase-purpose">{item.description}</p><p>{item.kind}</p></div></div>
  <div className={`showcase-visual visual-${item.slug}`}><span className="showcase-word" aria-hidden="true">EXPLORE</span>
  {item.slug==="haru"&&<div className="haru-flow" aria-label="동작 설명: 질문, 저장된 관련 기록 확인, 근거 답변"><p>동작 흐름 · 설명용 시각화</p><div><span>질문</span><i aria-hidden="true"/><span>관련 기록</span><i aria-hidden="true"/><span>근거 답변</span></div></div>}
  {item.src?<div className="showcase-screen"><Image src={item.src} alt={item.alt} width={1400} height={900} sizes="(max-width:640px) 90vw,60vw" className="showcase-capture" priority={index===0}/></div>:<div className="showcase-diagram"><span>사용자 행동</span><i/><span>API · SQL 실행 흐름</span><i/><span>의존성 그래프</span><p>ImpactSuite 설계 흐름</p></div>}
