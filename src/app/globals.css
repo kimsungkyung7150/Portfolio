@@ -243,3 +243,12 @@ summary:focus-visible {
 .visual-showroom .showcase-screen{width:100%;max-width:680px}
 @media(max-width:640px){.visual-showroom{padding-left:66px;padding-right:16px}.visual-showroom .showcase-word{left:4px;font-size:56px}.visual-showroom .showcase-screen{width:100%}}
 @media(max-width:640px) and (max-height:680px){.visual-showroom{padding-left:50px;padding-right:12px}.visual-showroom .showcase-word{font-size:42px}}
+
+/* Shared EXPLORE rail: every project keeps its own aspect ratio. */
+.showcase-visual{padding-left:clamp(84px,9vw,140px);padding-right:28px}
+.showcase-word{left:8px;top:50%;transform:translateY(-50%);font-size:clamp(60px,8vw,116px)}
+.showcase-screen{width:100%;max-width:680px}
+.showcase-capture{height:auto;max-width:100%;object-fit:contain}
+.showcase-diagram{width:100%;max-width:580px}
+@media(max-width:640px){.showcase-visual{padding-left:66px;padding-right:16px}.showcase-word{left:4px;font-size:56px}.showcase-screen{width:100%}}
+@media(max-width:640px) and (max-height:680px){.showcase-visual{padding-left:50px;padding-right:12px}.showcase-word{font-size:42px}}
