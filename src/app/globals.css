@@ -175,3 +175,20 @@ summary:focus-visible {
 @media(max-width:640px){.film-second .film-copy{width:calc(100% - 48px);max-width:none}.film-second .film-description{max-width:100%;font-size:14px}.film-art{height:56%;width:60%}.film-character{height:86%}}
 
 .film-controls{justify-content:flex-end}.film-controls:focus-within{justify-content:space-between}
+
+/* Editorial campaign cut: one focal layer at a time, dark / warm / light. */
+.scroll-film{--second-reveal:100%;--second-copy-x:80px}
+.film-first{background:#101114}.system-plane{opacity:.55}.system-plane span{color:#72777c}.system-plane i{border-color:#a3a6a52e;box-shadow:none}
+.film-second{background:#171715;clip-path:inset(0 0 0 var(--second-reveal))}
+.film-second .film-copy{transform:translateX(var(--second-copy-x));max-width:43%}
+.film-second h2{font-size:clamp(42px,5.7vw,88px)}.film-second h2 span{color:#c4af8c}
+.film-art{width:49%;background:#e9e5dd}.art-word{color:#bfb4a43d;left:-4%;font-size:clamp(100px,12vw,180px)}
+.film-character{height:min(83svh,680px);bottom:38px}.film-art-label{color:#615746}
+.film-third{background:#e9e5dd;color:#242521}.film-third h2 span{color:#777369}.film-third .film-description{color:#625f57}
+.film-static .film-second{clip-path:none}.film-static .film-second .film-copy{transform:none}
+@media(max-width:640px){.film-second .film-copy{max-width:none;width:calc(100% - 48px)}.film-second h2{font-size:40px}.film-character{height:89%;bottom:25px}.film-art{width:64%}.film-second .film-description{font-size:14px}.film-third .film-copy{max-width:90%}}
+@media(prefers-reduced-motion:reduce){.film-second{clip-path:none}.film-second .film-copy{transform:none}}
+
+/* Match the original artwork matte; do not alter the source artwork. */
+.film-art{background:#e0e6ee}
+
