@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 const showcases=[
- {name:"ShowRoom",kind:"캐릭터 제작 도구 · 기준 원화",src:"/projects/showroom/fullbody-reference.png",alt:"ShowRoom 캐릭터 제작에 사용한 기준 원화",slug:"showroom"},
+ {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom"},
  {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon"},
  {name:"모바일 방치형 · 빛의 기사단",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"빛의 기사단 모바일 방치형 게임 UI 디자인 시안",slug:"idle-game"},
  {name:"하루 · Memory OS",kind:"개인 환경 테스트 · 데모 화면",src:"/projects/haru/demo-v2/poster.jpg",alt:"하루 작업 기록과 인수인계 데모",slug:"haru"},
