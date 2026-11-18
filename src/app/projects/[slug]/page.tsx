@@ -124,14 +124,14 @@ function IdleGameHero() {
     <div className="relative pb-0 sm:pb-10">
       <BrowserFrame
         src="/projects/idle-game/ui-concept.png"
-        alt="Routoon 연동 방치형 게임 상용 UI 방향 시안"
+        alt="Routoon 연동 웹 방치형 게임 상용 UI 방향 시안"
         label="TARGET UI CONCEPT"
         contain
       />
       <div className="absolute -bottom-2 right-0 hidden w-[42%] sm:block">
         <BrowserFrame
           src="/projects/idle-game/runtime-battle.png"
-          alt="Routoon 연동 방치형 게임 실제 Unity WebGL 전투 화면"
+          alt="Routoon 연동 웹 방치형 게임 실제 Unity WebGL 전투 화면"
           label="ACTUAL UNITY WEBGL"
           contain
         />

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 const showcases=[
  {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom"},
  {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon"},
- {name:"모바일 방치형 · 빛의 기사단",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"빛의 기사단 모바일 방치형 게임 UI 디자인 시안",slug:"idle-game"},
+ {name:"웹 방치형 · Routoon",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"Routoon 연동 웹 방치형 게임 UI 디자인 시안",slug:"idle-game"},
  {name:"하루 · Memory OS",kind:"실제 질문·답변 · 저장 원문 조회",src:"/projects/haru/demo-v2/recall-screen.png",alt:"하루가 실제 질문에 저장된 업무 원문을 근거로 답변하는 화면",slug:"haru"},
  {name:"ImpactSuite",kind:"개발 중 · 설계 흐름",src:"",alt:"",slug:"impactsuite"},
 ]

@@ -6,7 +6,7 @@ export const experiences = [
     summary: "개인 제품의 설계·구현 경험을 정리했습니다. Routoon은 고도화 예정이며, 게임과 ShowRoom은 하드웨어 환경 개선 후 개발 재개 예정입니다.",
     points: [
       "Routoon: 정본·캐릭터 보이스·회차 맥락을 활용하는 AI 웹소설 생성·검수·발행 흐름 개발",
-      "Routoon 연동 방치형 게임: React Host · Unity WebGL · 서버 권위 BattleTicket/Settlement와 성장 루프 개발",
+      "Routoon 연동 웹 방치형 게임: React Host · Unity WebGL · 서버 권위 BattleTicket/Settlement와 성장 루프 개발",
       "ShowRoom: WPF Studio와 Foundry Host를 분리한 AI 게임 에셋 제작·검수 파이프라인 개발",
       "랜덤 디펜스: 140종 몬스터와 3마리 조합, 웨이브 전투를 구현하는 Unity WebGL 프로젝트",
     ],

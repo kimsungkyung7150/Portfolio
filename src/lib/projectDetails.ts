@@ -131,7 +131,7 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     slug: "idle-game",
-    title: "Routoon 연동 방치형 게임",
+    title: "Routoon 연동 웹 방치형 게임",
     type: "Routoon Ecosystem / Game",
     status: "하드웨어 환경 개선 후 개발 재개 예정",
     statusVariant: "warning",
@@ -205,7 +205,7 @@ export const projectDetails: ProjectDetail[] = [
     screenshots: [
       {
         src: "/projects/idle-game/ui-concept.png",
-        alt: "Routoon 연동 방치형 게임 상용 UI 방향 시안",
+        alt: "Routoon 연동 웹 방치형 게임 상용 UI 방향 시안",
         caption: "선택한 상용 UI 방향 시안 · 목표 디자인이며 실제 런타임 화면과 구분",
       },
       {
