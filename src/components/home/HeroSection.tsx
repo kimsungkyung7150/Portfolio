@@ -3,10 +3,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 const showcases=[
- {name:"ShowRoom",kind:"WPF 비교 화면 · 기준 원화 별도 표시",src:"/projects/showroom/comparison-final.png",alt:"동일 캐릭터의 실제 ShowRoom 원화 비교 화면",slug:"showroom"},
+ {name:"ShowRoom",kind:"캐릭터 제작 도구 · 기준 원화",src:"/projects/showroom/fullbody-reference.png",alt:"ShowRoom 캐릭터 제작에 사용한 기준 원화",slug:"showroom"},
  {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon"},
  {name:"방치형 게임",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"방치형 게임 UI 디자인 시안",slug:"idle-game"},
- {name:"랜덤 디펜스",kind:"별도 Unity 프로젝트 · 실제 전투 화면",src:"/projects/random-defense/boss-fight.png",alt:"랜덤 디펜스 보스 전투 화면",slug:"random-defense"},
  {name:"하루 · Memory OS",kind:"개인 환경 테스트 · 데모 화면",src:"/projects/haru/demo-v2/poster.jpg",alt:"하루 작업 기록과 인수인계 데모",slug:"haru"},
  {name:"ImpactSuite",kind:"개발 중 · 설계 흐름",src:"",alt:"",slug:"impactsuite"},
 ]
@@ -39,10 +38,9 @@ export function HeroSection(){
  <div className="film-controls"><Link href="#explore-work" className="sr-only focus:not-sr-only focus:inline-flex focus:min-h-11 focus:items-center">본문 바로가기</Link><button type="button" disabled={reduced} onClick={()=>setMotion(!motion)} aria-pressed={isStatic} className="min-h-11 rounded-full border border-current/25 px-4 text-xs">{reduced?"동작 줄이기 적용됨":motion?"모션 끄기":"모션 켜기"}</button></div>
  <div className="film-scene film-first"><div className="system-plane" aria-hidden="true"><i/><i/><i/><span>C#</span><span>.NET</span><span>SQL</span></div><div className="film-copy"><p className="film-kicker">ENGINEERING</p><h1 className="film-personal-copy">복잡한 업무를 이해하고,<br/><span>구조적으로 풀어내기 위해<br/>노력합니다.</span></h1><p className="film-description">ASP.NET · MS SQL Server<br/>8년 6개월의 업무 시스템 개발 경험.</p></div></div>
  {showcases.map((item,index)=><div key={item.slug} aria-hidden={!isStatic&&scene!==index+1} className={`showcase-panel ${scene===index+1?"is-active":""}`}>
- <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / 06</p><h2>실무 경험을 바탕으로<br/><span>새로운 기술을<br/>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p>{item.kind}</p></div></div>
+ <div className="showcase-copy"><p className="film-kicker">EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>실무 경험을 바탕으로<br/><span>새로운 기술을<br/>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p>{item.kind}</p></div></div>
  <div className={`showcase-visual visual-${item.slug}`}><span className="showcase-word" aria-hidden="true">EXPLORE</span>
  {item.src?<div className="showcase-screen"><Image src={item.src} alt={item.alt} width={1400} height={900} sizes="(max-width:640px) 90vw,60vw" className="showcase-capture" priority={index===0}/></div>:<div className="showcase-diagram"><span>사용자 행동</span><i/><span>API · SQL 실행 흐름</span><i/><span>의존성 그래프</span><p>ImpactSuite 설계 흐름</p></div>}
- {item.slug==="showroom"&&<figure className="showcase-reference"><Image src="/projects/showroom/fullbody-reference.png" alt="별도 레이어로 표시한 동일 캐릭터 기준 원화" width={223} height={628} className="showcase-reference-image"/><figcaption>기준 원화</figcaption></figure>}
  </div></div>)}
  <div className="film-progress" aria-hidden="true"><i/></div>
  </div></section>
