@@ -148,8 +148,8 @@ export const projectDetails: ProjectDetail[] = [
     architectureNotes: ["개발 중인 프로젝트이며 최종 품질 검증은 완료되지 않았습니다."],
     currentScope: ["모바일 가로 UI 시안 제작", "Unity 화면 적용 및 사용성·시각 품질 보완 중"],
     highlights: ["전투·성장·편성을 연결한 모바일 화면 구성"],
-    screenshots: [{src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 승인된 영웅 UI 목표 시안",caption:"승인된 UI 목표 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"}],
-    screenshotNote: "승인된 Gemini UI 목표 시안입니다. 실제 Unity 실행 화면이나 출시 완료 결과가 아닙니다.",
+    screenshots: [{src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 승인된 영웅 UI 목표 시안",caption:"승인된 UI 목표 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"},{src:"/projects/light-knights/growth-ui-reference.png",alt:"빛의 기사단 룬 성장 UI 참고 시안",caption:"성장 UI 참고 시안 · AI 생성 이미지 활용 · 실제 실행 화면 아님"}],
+    screenshotNote: "첫 영웅 화면은 승인된 목표 시안이고, 성장 화면은 후속 참고 시안입니다. 모두 AI 생성 이미지로 실제 Unity 실행 화면이나 출시 완료 결과가 아닙니다.",
   },
   {
     slug: "idle-game",
@@ -423,13 +423,13 @@ export const projectDetails: ProjectDetail[] = [
     slug: "impactsuite",
     title: "ImpactSuite",
     type: "AI / 레거시 분석",
-    status: "하드웨어 환경 개선 후 개발 재개 예정",
+    status: "종료된 프로젝트",
     statusVariant: "default",
     subtitle: "비침습형 레거시 시스템 실행 흐름 분석 도구",
     summary:
       "운영 시스템을 직접 수정하지 않고 브라우저 행동·API·SQL 실행 흐름을 수집해 변경 영향과 병목을 구조적으로 분석하는 도구입니다.",
     description:
-      "문서가 부족한 레거시 시스템에서도 추측이 아니라 실제 실행 흐름을 근거로 분석하는 것을 목표로 합니다. 브라우저 사용자 행동과 API 호출, SQL 실행을 하나의 흐름으로 연결하고 Neo4j에 의존성 그래프를 구성한 뒤, AI(MCP)가 해당 증거를 바탕으로 변경 영향과 병목 원인을 탐색하도록 설계했습니다.",
+      "문서가 부족한 레거시 시스템에서도 추측이 아니라 실제 실행 흐름을 근거로 분석하는 것을 목표로 설계했습니다. 브라우저 사용자 행동과 API 호출, SQL 실행을 하나의 흐름으로 연결하고 Neo4j에 의존성 그래프를 구성한 뒤, AI(MCP)가 해당 증거를 바탕으로 변경 영향과 병목 원인을 탐색하도록 설계했습니다.",
     role: "Architecture · Trace Capture · Graph Analysis · MCP",
     problem:
       "오래 운영된 업무 시스템은 문서와 실제 동작이 다르거나, 화면 하나의 변경이 어떤 API와 SQL에 영향을 주는지 사람이 기억에 의존해야 하는 경우가 많습니다. 소스를 읽는 것만으로는 실제 런타임 흐름을 놓칠 수 있어 ‘실제로 실행된 증거’를 중심으로 구조를 복원할 필요가 있었습니다.",

@@ -12,7 +12,7 @@ const records = [
     summary: "정적 코드 분석과 실제 실행 증거를 구분하여, 화면에서 SQL까지의 의존성과 변경 영향을 탐색하는 구조를 설계했습니다.",
     flow: ["Roslyn 정적 분석 / UI·SQL 런타임 수집", "MSSQL Fact 정규화", "Neo4j 의존성 그래프", "정·역방향 영향도 탐색"],
     points: ["정적 분석 결과는 후보 관계, 런타임 수집 결과는 관측된 실행 관계로 구분합니다.", "Menu·Screen·Action·SQL·Table·Class·Method를 연결하고 GraphRAG 기반 탐색을 설계했습니다.", "민감 정보 마스킹, 설정 외부화, 탐색 깊이와 Top-K 제한을 설계에 포함했습니다."],
-    scope: "설계 단계의 기록입니다. 자동 탐색과 운영 환경 검증은 남은 과제이며, 구현 상태는 ImpactSuite 사례에 정리했습니다.",
+    scope: "종료된 프로젝트의 설계 기록입니다. 자동 탐색과 운영 환경 검증은 완료되지 않았으며, 당시 구현 범위는 ImpactSuite 사례에 정리했습니다.",
     source: "레거시 시스템 분석 프로젝트.pptx · 설계 발표자료", stack: ".NET 8 · Roslyn · MS SQL Server · Neo4j · Redis · GraphRAG", href: "/projects/impactsuite", linkLabel: "ImpactSuite 사례 보기",
   },
   {

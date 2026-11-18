@@ -13,10 +13,10 @@ export const experiences = [
     stack: "React · ASP.NET Core · WPF · Neo4j · MCP · Unity",
   },
   {
-    period: "2025 - 현재",
+    period: "2025년 시작 · 종료",
     title: "ImpactSuite",
     role: "AI-assisted Legacy Analysis",
-    summary: "2025년부터 레거시 시스템의 구조와 변경 영향을 살펴보는 분석 도구를 설계·개발해 왔습니다. 현재는 하드웨어 환경 개선 후 개발 재개 예정입니다.",
+    summary: "2025년부터 레거시 시스템의 구조와 변경 영향을 살펴보는 분석 도구를 설계·개발해 왔습니다. 현재 종료된 프로젝트로, 설계와 개발 기록을 보존합니다.",
     points: [
       "브라우저 행동, API 호출, SQL 실행 흐름을 하나의 분석 경로로 연결",
       "Neo4j 그래프로 화면·API·서비스·SQL 간 의존성을 구조화",

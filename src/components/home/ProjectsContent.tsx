@@ -39,15 +39,15 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
           <span className="hidden text-sm text-textMuted sm:block">{projectDetails.length} projects</span>
         </div>
 
-        <p className="mb-6 text-sm leading-7 text-textSecondary">하루는 개인 환경 테스트 완료 후 실사용 예정이며, Routoon은 고도화 예정입니다. 빛의 기사단은 모바일 UI와 품질 보완 중이며, 나머지는 하드웨어 환경 개선 후 개발 재개 예정으로 묶어 소개합니다. 기존 구현 기록과 남은 품질·검증 과제는 각 사례에서 구분합니다.</p>
+        <p className="mb-6 text-sm leading-7 text-textSecondary">하루는 개인 환경 테스트 완료 후 실사용 예정이며, Routoon은 고도화 예정입니다. 빛의 기사단은 모바일 UI와 품질 보완 중이며, ImpactSuite는 종료된 프로젝트입니다. 그 외 보류 프로젝트는 하드웨어 환경 개선 후 개발 재개 예정입니다. 기존 구현 기록과 남은 품질·검증 과제는 각 사례에서 구분합니다.</p>
         {[
           { title: "테스트 완료 · 고도화 예정", slugs: ["haru", "routoon"] },
+          { title: "개발 보류 및 종료 기록", slugs: ["showroom", "idle-game", "random-defense", "impactsuite"] },
           { title: "제작·품질 보완 중", slugs: ["light-knights"] },
-          { title: "하드웨어 환경 개선 후 개발 재개 예정", slugs: ["showroom", "idle-game", "random-defense", "impactsuite"] },
         ].map((group) => (
           <div key={group.title} className="mb-10 last:mb-0">
             <h3 className="mb-4 text-lg font-semibold leading-7 text-textPrimary">{group.title}</h3>
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className={`grid gap-4 ${group.slugs.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
           {projectDetails.filter((project) => group.slugs.includes(project.slug)).map((project) => (
             <article
               key={project.slug}
