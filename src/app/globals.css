@@ -144,7 +144,7 @@ summary:focus-visible {
 @media(max-width:900px){.art-intro{grid-template-columns:1fr}.art-copy{padding:32px 24px;gap:28px}.art-stage{min-height:640px}.art-subject{height:530px}.art-type{font-size:150px;gap:180px}.art-caption{bottom:22px}.art-statement{padding:0}}
 @media(prefers-reduced-motion:reduce){.art-type,.art-subject,.art-rule{animation:none!important}.explore-row span{transition:none!important}}
 
-/* Scroll film: no scroll hijacking; progress follows native document scrolling. */
+/* Scroll film with gesture-scoped, escapable scene navigation. */
 .scroll-film {--progress:0;--first-opacity:1;--first-y:0px;--first-scale:1;--second-opacity:0;--art-x:50%;--art-scale:1.15;--third-opacity:0;--third-y:80px;--curtain:100%;height:340svh;position:relative;}
 .film-stage {height:calc(100svh - 72px);min-height:560px;position:sticky;top:72px;overflow:hidden;background:#090c12;}
 .film-controls{position:absolute;z-index:10;inset:20px 32px auto;display:flex;justify-content:space-between;color:#c2cbd8;mix-blend-mode:difference;}
@@ -173,3 +173,5 @@ summary:focus-visible {
 @media(prefers-reduced-motion:reduce){.scroll-film{height:auto}.film-stage{position:relative;top:0;height:auto;overflow:visible}.film-scene{position:relative;min-height:600px;opacity:1;transform:none;clip-path:none}.film-art,.film-third .film-copy{transform:none}.film-controls{position:relative;inset:auto;padding:16px 24px;background:#0b1018;mix-blend-mode:normal}.film-progress,.film-scroll-hint{display:none}}
 
 @media(max-width:640px){.film-second .film-copy{width:calc(100% - 48px);max-width:none}.film-second .film-description{max-width:100%;font-size:14px}.film-art{height:56%;width:60%}.film-character{height:86%}}
+
+.film-controls{justify-content:flex-end}.film-controls:focus-within{justify-content:space-between}
