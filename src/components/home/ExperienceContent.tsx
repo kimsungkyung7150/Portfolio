@@ -1,4 +1,3 @@
-import Link from "next/link"
 
 import { experiences } from "@/lib/experienceTimeline"
 
@@ -14,16 +13,11 @@ export function ExperienceContent({ embedded = false }: { embedded?: boolean }) 
         </div>
         <div className="max-w-[36rem]">
           <p className="text-[1.05rem] leading-8 text-textSecondary">
-            회사 내부 화면, 소스, 고객 데이터는 공개하지 않습니다.
+            
             대신 맡았던 문제의 범위, 역할, 기술적 판단과 사용 기술을 중심으로 정리했습니다.
           </p>
         </div>
       </header>
-      <aside className="mt-8 rounded-xl border border-border bg-surface p-5 sm:p-6">
-        <h2 className="text-lg font-semibold text-textPrimary">업무와 개인 프로젝트를 따로 보기</h2>
-        <p className="mt-2 text-sm leading-7 text-textSecondary">이 탭은 업무 경력의 흐름을 정리합니다. 상세 역할·조치는 업무 프로젝트, 최근 개인 개발은 개인 프로젝트에서 확인할 수 있습니다.</p>
-        <Link href={embedded ? "#work-projects" : "/work-projects"} className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">업무 프로젝트 보기 →</Link>
-      </aside>
 
       <div className="mt-12 divide-y divide-border border-y border-border">
         {experiences.slice(2).map((item) => (
@@ -38,7 +32,7 @@ export function ExperienceContent({ embedded = false }: { embedded?: boolean }) 
               <ul className="mt-5 grid gap-2 text-sm text-textSecondary">
                 {item.points.map((point) => (
                   <li key={point} className="flex gap-3">
-                    <span className="text-primarySoft">→</span>
+                    <span className="text-primarySoft" aria-hidden="true">•</span>
                     <span>{point}</span>
                   </li>
                 ))}

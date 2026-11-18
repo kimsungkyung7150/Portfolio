@@ -41,9 +41,6 @@ export function WorkProjectsContent({ embedded = false }: { embedded?: boolean }
             <p className="mt-4 max-w-[28rem] text-sm leading-7 text-textSecondary">
               실제 회사 화면이나 소스 대신 어떤 도메인과 기술 문제를 다뤘는지 요약합니다.
             </p>
-            <Link href={embedded ? "#experience" : "/experience"} className="mt-6 inline-flex text-sm font-semibold text-primarySoft hover:text-white">
-              경력 자세히 보기 →
-            </Link>
           </div>
 
           <div className="divide-y divide-border border-y border-border">
@@ -60,5 +57,5 @@ export function WorkProjectsContent({ embedded = false }: { embedded?: boolean }
           </div>
         </div>
       </section>
-<aside className="mb-14 rounded-xl border border-border p-6"><h2 className="text-lg font-semibold">이전 웹 개발 참여 기록</h2><p className="mt-3 text-sm leading-7 text-textSecondary">기존에 정리한 K-POP 쇼핑몰과 교회 홈페이지 참여 기록은 원래 자료 페이지에서 보존하고 있습니다. 현재 외부 사이트를 본인이 구현한 당시 버전으로 단정하지 않습니다.</p><Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-primarySoft">이전 프로젝트 기록 보기 →</Link></aside>
+<aside className="mb-14 rounded-xl border border-border p-6"><h2 className="text-lg font-semibold">이전 웹 개발 참여 기록</h2><p className="mt-3 text-sm leading-7 text-textSecondary">K-POP 쇼핑몰과 교회 홈페이지 개발에 참여한 경험을 별도 기록으로 정리했습니다.</p><Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-primarySoft">이전 프로젝트 기록 보기</Link></aside>
 </div></> }

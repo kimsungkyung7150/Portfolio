@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { experiences } from "@/lib/experienceTimeline"
 
 
@@ -26,7 +27,7 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
       <aside className="mt-8 rounded-xl border border-border bg-surface p-5 sm:p-6">
         <h2 className="text-lg font-semibold text-textPrimary">설계·이전 프로젝트 기록</h2>
         <p className="mt-2 text-sm leading-7 text-textSecondary">레거시 분석, 스마트팜 데이터 파이프라인, 음식 탐색 교육 프로젝트와 웹 개발 참여 기록을 원본 근거·담당 역할·검증 범위로 나누어 정리했습니다.</p>
-        <Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">6개 프로젝트 기록 보기 →</Link>
+        <Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primarySoft">설계·이전 프로젝트 기록</Link>
       </aside>
 
       <section className="py-14">
@@ -47,9 +48,8 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
             <h3 className="mb-4 text-lg font-semibold leading-7 text-textPrimary">{group.title}</h3>
             <div className="grid gap-4 md:grid-cols-2">
           {projectDetails.filter((project) => group.slugs.includes(project.slug)).map((project) => (
-            <Link
+            <article
               key={project.slug}
-              href={"/projects/" + project.slug}
               className="group flex min-h-[300px] flex-col rounded-xl border border-border bg-surface p-6 transition duration-200 hover:-translate-y-0.5 hover:border-primarySoft/40"
             >
               <div className="flex items-start justify-between gap-4">
@@ -65,9 +65,22 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
               <p className="mt-3 max-w-[32rem] text-sm leading-7 text-textSecondary">{project.summary}</p>
               <div className="mt-auto pt-8">
                 <p className="font-mono text-[11px] leading-5 text-textMuted">{project.tags.slice(0, 6).join(" · ")}</p>
-                <span className="mt-4 inline-flex text-sm font-semibold text-primarySoft">Case Study →</span>
+                <details className="mt-4 scroll-mt-28 border-t border-border pt-3">
+                  <summary className="flex min-h-11 cursor-pointer items-center text-sm font-semibold text-primarySoft">프로젝트 내용 펼치기</summary>
+                  <div className="space-y-6 pt-5 text-sm leading-7 text-textSecondary">
+                    <p>{project.description}</p>
+                    <section><h4 className="font-semibold text-textPrimary">담당 역할</h4><p className="mt-2">{project.role}</p></section>
+                    <section><h4 className="font-semibold text-textPrimary">다룬 문제</h4><p className="mt-2">{project.problem}</p></section>
+                    <section><h4 className="font-semibold text-textPrimary">설계와 선택</h4><div className="mt-3 space-y-4">{project.decisions.map(item=><div key={item.title}><h5 className="font-medium text-textPrimary">{item.title}</h5><p>{item.reason}</p></div>)}</div></section>
+                    <section><h4 className="font-semibold text-textPrimary">구현 범위와 현재 상태</h4><ul className="mt-2 list-disc space-y-2 pl-4">{project.currentScope.map(item=><li key={item}>{item}</li>)}</ul></section>
+                    <section><h4 className="font-semibold text-textPrimary">구조</h4><div className="mt-3 space-y-3">{project.architecture.map(item=><div key={item.title}><h5 className="font-medium text-textPrimary">{item.title}</h5><p>{item.description}</p></div>)}</div></section>
+                    {project.screenshotNote && <p className="text-xs leading-6 text-textMuted">{project.screenshotNote}</p>}
+                    {project.screenshots.map(shot=><figure key={shot.src}><Image src={shot.src} alt={shot.alt} width={1000} height={700} sizes="(max-width:768px) 90vw, 600px" className="h-auto max-h-[600px] w-full rounded-lg border border-border object-contain"/><figcaption className="mt-2 text-xs leading-6 text-textMuted">{shot.caption}</figcaption></figure>)}
+                    <Link href={"/projects/"+project.slug} className="inline-flex min-h-11 items-center text-primarySoft">전용 상세 페이지</Link>
+                  </div>
+                </details>
               </div>
-            </Link>
+            </article>
           ))}
             </div>
           </div>
