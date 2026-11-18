@@ -8,7 +8,6 @@ const showcases=[
  {name:"웹 방치형 · Routoon",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"Routoon 연동 웹 방치형 게임 UI 디자인 시안",slug:"idle-game"},
  {name:"빛의 기사단 · 모바일 RPG",kind:"개발 중 · 승인된 AI UI 목표 시안",src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 모바일 RPG 승인 UI 목표 시안, 실제 실행 화면 아님",slug:"light-knights"},
  {name:"하루 · Memory OS",kind:"실제 질문·답변 · 저장 원문 조회",src:"/projects/haru/demo-v2/recall-screen.png",alt:"하루가 실제 질문에 저장된 업무 원문을 근거로 답변하는 화면",slug:"haru"},
- {name:"ImpactSuite",kind:"종료된 프로젝트 · 설계 기록",src:"",alt:"",slug:"impactsuite"},
 ]
 const clamp=(v:number)=>Math.max(0,Math.min(1,v))
 export function HeroSection(){

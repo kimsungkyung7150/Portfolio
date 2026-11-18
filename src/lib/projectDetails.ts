@@ -396,28 +396,7 @@ export const projectDetails: ProjectDetail[] = [
       "모바일 430×844 기준 REG-01 전투 슬라이스와 WebGL 검증",
       "보스전·골드 몬스터·실패 조합 기록 등 게임 규칙 확장 중",
     ],
-    screenshots: [
-      {
-        src: "/projects/random-defense/roster-28.png",
-        alt: "랜덤 디펜스 REG-01 28종 비주얼 로스터",
-        caption: "REG-01 Standing 비주얼 로스터 · 28/28 실제 런타임 바인딩",
-      },
-      {
-        src: "/projects/random-defense/enemy-concepts.png",
-        alt: "랜덤 디펜스 적 컨셉 아트",
-        caption: "적군 P0 컨셉 아트 · 현재 아트 방향과 적 디자인 기준",
-      },
-      {
-        src: "/projects/random-defense/boss-fight.png",
-        alt: "랜덤 디펜스 보스 전투 화면",
-        caption: "모바일 430×844 · 보스 전투 런타임",
-      },
-      {
-        src: "/projects/random-defense/gold-active.png",
-        alt: "랜덤 디펜스 골드 몬스터 전투 화면",
-        caption: "Phase6B · 골드 몬스터 활성 전투",
-      },
-    ],
+    screenshots: [],
   },
   {
     slug: "impactsuite",

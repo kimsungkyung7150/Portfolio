@@ -65,60 +65,6 @@ function BrowserFrame({
   )
 }
 
-function RandomDefenseHero() {
-  const stats = [
-    ["Standing", "28 / 28"],
-    ["Attack Atlas", "9 / 28"],
-    ["Parity", "2,071 / 0 mismatch"],
-    ["WebGL", "PASS"],
-  ]
-
-  return (
-    <div className="grid min-h-[360px] grid-cols-[0.42fr_0.58fr] gap-3 rounded-[18px] border border-border bg-backgroundSoft p-3 shadow-card sm:min-h-[430px] sm:p-4">
-      <div className="relative overflow-hidden rounded-xl border border-border bg-black">
-        <Image
-          src="/projects/random-defense/boss-fight.png"
-          alt="랜덤 디펜스 보스 전투 런타임"
-          fill
-          sizes="(max-width: 768px) 42vw, 280px"
-          className="object-cover object-top"
-          priority
-        />
-        <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
-          430×844 RUNTIME
-        </span>
-      </div>
-
-      <div className="grid min-w-0 grid-rows-[auto_1fr] gap-3">
-        <div className="grid grid-cols-2 gap-2">
-          {stats.map(([label, value]) => (
-            <div key={label} className="rounded-lg border border-border bg-surface px-3 py-2.5">
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-textMuted">{label}</p>
-              <p className="mt-1 text-[11px] font-semibold leading-4 text-textPrimary sm:text-[13px]">{value}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="relative min-h-[180px] overflow-hidden rounded-xl border border-border bg-[#0a0e16]">
-          <Image
-            src="/projects/random-defense/roster-28.png"
-            alt="REG-01 28종 비주얼 로스터"
-            fill
-            sizes="(max-width: 768px) 58vw, 420px"
-            className="object-contain p-2"
-            priority
-          />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent px-3 pb-2 pt-8">
-            <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-primarySoft">
-              REG-01 VISUAL ROSTER · 28 / 28
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function IdleGameHero() {
   return (
     <div className="relative pb-0 sm:pb-10">
@@ -175,7 +121,7 @@ function ImpactSuiteHero({ project }: { project: ProjectDetail }) {
 
 function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
   if (project.slug === "random-defense") {
-    return <RandomDefenseHero />
+    return <div className="rounded-2xl border border-border bg-backgroundSoft p-8"><p className="text-sm text-primarySoft">{project.status}</p><p className="mt-4 leading-8 text-textSecondary">{project.summary}</p></div>
   }
 
   if (project.slug === "light-knights") {
@@ -544,7 +490,7 @@ export default async function ProjectDetailPage({
                   portrait={shot.src.endsWith("boss-fight.png")} />
               ))}
             </div>
-          ) : <ImpactSuiteHero project={project} />}
+           ) : project.slug === "impactsuite" ? <ImpactSuiteHero project={project} /> : null}
 
         </div>
       </section>
