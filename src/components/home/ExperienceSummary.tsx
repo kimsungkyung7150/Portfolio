@@ -18,8 +18,8 @@ export function ExperienceSummary() {
     <section id="work-cases" className="scroll-mt-24 bg-backgroundSoft py-14">
       <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
         <p className="text-xs font-medium uppercase tracking-widest text-primarySoft">Professional experience</p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight">실무에서 맡았던 두 가지 문제</h2>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-textSecondary">담당한 업무와 역할, 구현·개선 내용을 정리했습니다.</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight">대표 업무 사례</h2>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-textSecondary">여러 업무 프로젝트 중 채용 합격자 관리와 재고·도매 사이트 개선 사례를 자세히 정리했습니다.</p>
         <div className="mt-7 grid gap-5 lg:grid-cols-2">{cases.map(item => <article key={item.title} className="rounded-xl border border-border bg-surface p-5 sm:p-7"><p className="text-xs text-primarySoft">{item.period}</p><h3 className="mt-3 text-xl font-semibold leading-8">{item.title}</h3><dl className="mt-5 divide-y divide-border">{item.rows.map(([label,text])=><div key={label} className="py-4"><dt className="text-sm font-semibold text-textPrimary">{label}</dt><dd className="mt-2 text-sm leading-7 text-textSecondary">{text}</dd></div>)}</dl></article>)}</div>
       </div>
     </section>

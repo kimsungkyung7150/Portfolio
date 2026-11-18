@@ -3,43 +3,27 @@ import Link from "next/link"
 import { ExperienceSummary } from "@/components/home/ExperienceSummary"
 
 const otherExperience = [
-  {
-    domain: "Enterprise",
-    title: "인사 · 채용 시스템",
-    description: "채용 이후 계약·발령까지 이어지는 업무 흐름과 외부 API 연동을 개발했습니다.",
-    stack: "ASP.NET · MS SQL Server · REST API",
-  },
-  {
-    domain: "Business Systems",
-    title: "회계 · 전자결재",
-    description: "회계 계산 로직과 결재·전자서명·휴가 관리 등 예외가 많은 업무 규칙을 시스템화했습니다.",
-    stack: "ASP.NET MVC/WebForms · T-SQL",
-  },
-  {
-    domain: "Commerce / Data",
-    title: "B2B · WMS · 재고",
-    description: "주문·물류 시스템 연동과 대규모 재고 조회의 SQL 병목을 분석하고 개선했습니다.",
-    stack: "C# · MS SQL Server · WMS API · Vue.js",
-  },
-  {
-    domain: "Automation",
-    title: "운영 · 마이그레이션 도구",
-    description: "반복되는 운영 작업과 시스템 이전 과정을 줄이기 위한 Windows 유틸리티를 개발했습니다.",
-    stack: "C# · WinForms · MS SQL Server",
-  },
+  { domain: "HR / Recruitment", title: "채용 합격자 통합 관리", description: "아키텍처 설계와 전반 개발을 맡아 오퍼레터·품의·계약·발령 절차를 통합 관리하는 시스템을 구축했습니다.", stack: "ASP.NET WebForms · JavaScript · jQuery · MS SQL Server" },
+  { domain: "Inventory", title: "재고관리 · 도매 사이트", description: "화면·백엔드·프로시저를 개발하고 느린 쿼리와 비즈니스 로직을 개선했습니다. Vue 도입으로 프론트엔드와 백엔드를 분리했습니다.", stack: "ASP.NET MVC · MS SQL Server · JavaScript · jQuery · Vue" },
+  { domain: "Accounting", title: "회계 프로그램", description: "백엔드·프로시저·화면 개발을 맡아 매출 시점 관리와 환율 계산 등 회계 업무 자동화를 구현했습니다.", stack: "ASP.NET MVC · JavaScript · jQuery · MS SQL Server" },
+  { domain: "B2B / Logistics", title: "B2B 쇼핑몰 · WMS 연동", description: "백엔드·프로시저·UI를 개발하고 화장품·케이팝 주문 시스템과 WMS를 연동한 자동 주문 처리를 구현했습니다.", stack: "ASP.NET MVC · JavaScript · jQuery" },
+  { domain: "Approval", title: "전자결재 · 연차 관리", description: "화면과 기능 개발을 맡아 자동 결재선·대체 결재·전자서명 기능을 구현했습니다.", stack: "ASP.NET MVC · MS SQL Server · JavaScript · jQuery" },
+  { domain: "Web / CMS", title: "홈페이지 제작 · 제작 엔진", description: "여러 스택의 홈페이지 제작·유지보수·기능 개선과 프리미엄 홈페이지 제작 엔진의 기능 확장·안정화 개발에 참여했습니다.", stack: "ASP.NET MVC · PHP · Classic ASP · MySQL · JavaScript · jQuery" },
+  { domain: "Church Administration", title: "웹 교적 · 재정 관리", description: "유지보수와 테스트를 맡아 기능 개선과 장애 대응을 수행했습니다.", stack: "ASP.NET WebForms · MS SQL Server" },
+  { domain: "Operations", title: "운영 자동화 도구", description: "마이그레이션 자동화와 서버 환경 설정 자동화 도구를 설계·개발했습니다.", stack: "C# WinForms · MS SQL Server" },
 ]
 
 export function WorkProjectsContent({ embedded = false }: { embedded?: boolean }) { const Title = embedded ? "h2" : "h1"; return <>
 <header className="mx-auto max-w-7xl px-5 py-12 lg:px-8"><p className="text-sm text-primarySoft">Professional Projects</p><Title className="mt-3 text-4xl font-semibold">업무 프로젝트</Title><p className="mt-5 max-w-3xl text-base leading-8 text-textSecondary">회사에서 맡은 업무와 본인 역할, 구현·개선 내용을 정리했습니다. 경력과 개인 개발 기록은 각각의 영역으로 구분합니다.</p></header>
-<ExperienceSummary />
+
 <div className="mx-auto max-w-7xl px-5 lg:px-8">
       <section className="border-t border-border py-14">
         <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">Previous Work</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">업무 프로젝트 경험</h2>
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primarySoft">Areas of Work</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-textPrimary">담당한 업무 영역</h2>
             <p className="mt-4 max-w-[28rem] text-sm leading-7 text-textSecondary">
-              실제 회사 화면이나 소스 대신 어떤 도메인과 기술 문제를 다뤘는지 요약합니다.
+              업무 시스템 구축부터 유지보수, 데이터 처리와 운영 자동화까지 담당한 영역입니다. 아래에는 채용·재고 프로젝트를 대표 사례로 정리했습니다.
             </p>
           </div>
 
@@ -58,4 +42,4 @@ export function WorkProjectsContent({ embedded = false }: { embedded?: boolean }
         </div>
       </section>
 <aside className="mb-14 rounded-xl border border-border p-6"><h2 className="text-lg font-semibold">이전 웹 개발 참여 기록</h2><p className="mt-3 text-sm leading-7 text-textSecondary">K-POP 쇼핑몰과 교회 홈페이지 개발에 참여한 경험을 별도 기록으로 정리했습니다.</p><Link href="/project-records" className="mt-3 inline-flex min-h-11 items-center text-primarySoft">이전 프로젝트 기록 보기</Link></aside>
-</div></> }
+</div><ExperienceSummary /></> }

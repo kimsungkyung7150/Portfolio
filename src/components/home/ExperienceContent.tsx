@@ -14,7 +14,7 @@ export function ExperienceContent({ embedded = false }: { embedded?: boolean }) 
         <div className="max-w-[36rem]">
           <p className="text-[1.05rem] leading-8 text-textSecondary">
             
-            대신 맡았던 문제의 범위, 역할, 기술적 판단과 사용 기술을 중심으로 정리했습니다.
+            맡았던 문제의 범위, 역할, 기술적 판단과 사용 기술을 중심으로 정리했습니다.
           </p>
         </div>
       </header>
@@ -23,7 +23,7 @@ export function ExperienceContent({ embedded = false }: { embedded?: boolean }) 
         {experiences.slice(2).map((item) => (
           <article key={item.period + item.title} className="grid gap-5 py-8 lg:grid-cols-[150px_1fr] lg:gap-10">
             <div>
-              <p className="font-mono text-xs text-primarySoft">{item.period}</p>
+              {item.period && <p className="font-mono text-xs text-primarySoft">{item.period}</p>}
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-textMuted">{item.role}</p>
             </div>
             <div>

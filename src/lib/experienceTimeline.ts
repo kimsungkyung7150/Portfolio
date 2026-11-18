@@ -25,7 +25,7 @@ export const experiences = [
     stack: "C# · ASP.NET Core · Playwright · Neo4j · MCP",
   },
   {
-    period: "2023 - 2026",
+    period: "",
     title: "인사 · 채용 시스템",
     role: "Enterprise Application Engineering",
     summary: "채용 이후 계약과 발령까지 이어지는 HR 업무 흐름과 외부 서비스 연동을 개발·고도화했습니다.",
@@ -37,7 +37,7 @@ export const experiences = [
     stack: "ASP.NET · MS SQL Server · REST API",
   },
   {
-    period: "2021 - 2022",
+    period: "",
     title: "회계 · 전자결재 · 커머스 · 재고",
     role: "Business Systems / Data",
     summary: "여러 업무 도메인의 복잡한 규칙과 대규모 데이터 조회 문제를 시스템으로 구현했습니다.",
@@ -49,7 +49,7 @@ export const experiences = [
     stack: "ASP.NET MVC/WebForms · MS SQL Server · T-SQL · Vue.js",
   },
   {
-    period: "2015 - 2020",
+    period: "",
     title: "웹 · 업무 시스템 유지보수와 기반 구축",
     role: "Web / Backend Engineering",
     summary: "웹사이트와 업무 시스템을 운영하며 장애 원인 분석, 마이그레이션, 성능 개선 경험을 쌓았습니다.",
