@@ -1,30 +1,18 @@
+"use client"
 import Link from "next/link"
-
+import { usePathname } from "next/navigation"
+const tabs = [
+  { href: "/experience", label: "경력" },
+  { href: "/work-projects", label: "업무 프로젝트" },
+  { href: "/projects", label: "개인 프로젝트" },
+]
 export function Header() {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-background/88 backdrop-blur-xl">
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/" className="group flex min-w-0 items-center gap-3">
-          <span className="text-base font-semibold tracking-[-0.02em] text-textPrimary transition-colors group-hover:text-primarySoft">
-            김성경
-          </span>
-          <span className="hidden border-l border-border pl-3 font-mono text-[11px] uppercase tracking-[0.14em] text-textMuted sm:inline">
-            .NET Developer
-          </span>
-        </Link>
-
-        <nav aria-label="주요 메뉴" className="flex items-center gap-1 sm:gap-2">
-          <Link href="/projects" className="rounded-md px-2.5 py-2 text-xs font-medium text-textSecondary transition-colors hover:bg-surface hover:text-textPrimary sm:px-3 sm:text-sm">
-            프로젝트
-          </Link>
-          <Link href="/experience" className="rounded-md px-2.5 py-2 text-xs font-medium text-textSecondary transition-colors hover:bg-surface hover:text-textPrimary sm:px-3 sm:text-sm">
-            경력
-          </Link>
-          <Link href="/about" className="rounded-md px-2.5 py-2 text-xs font-medium text-textSecondary transition-colors hover:bg-surface hover:text-textPrimary sm:px-3 sm:text-sm">
-            소개
-          </Link>
-        </nav>
-      </div>
-    </header>
-  )
+ const pathname = usePathname()
+ return <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-background/95 backdrop-blur-xl">
+ <div className="mx-auto flex max-w-7xl flex-col px-4 sm:flex-row sm:items-center sm:justify-between sm:px-5 lg:px-8">
+  <Link href="/" aria-label="김성경 포트폴리오 홈" className="flex min-h-12 items-center gap-3 self-start rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primarySoft sm:min-h-[72px]"><span className="font-semibold">김성경</span><span className="border-l border-border pl-3 font-mono text-[11px] text-textMuted">.NET Developer</span></Link>
+  <nav aria-label="포트폴리오 분류" className="grid grid-cols-3 gap-2 pb-2 sm:flex sm:pb-0">
+   {tabs.map(tab => { const active = pathname === tab.href || (tab.href === "/projects" && pathname.startsWith("/projects/")); return <Link key={tab.href} href={tab.href} aria-current={active ? "page" : undefined} className={`inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-lg border px-2 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primarySoft sm:px-4 sm:text-sm ${active ? "border-primarySoft/50 bg-primary/15 text-primarySoft" : "border-transparent text-textSecondary hover:bg-surface hover:text-textPrimary"}`}>{tab.label}</Link> })}
+  </nav>
+ </div></header>
 }

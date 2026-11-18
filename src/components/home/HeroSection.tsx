@@ -1,24 +1,26 @@
-import { Button } from "@/components/ui/Button"
-
+"use client"
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 export function HeroSection() {
-  return (
-    <section className="border-b border-border bg-background">
-      <div className="mx-auto grid max-w-[1240px] gap-10 px-5 py-14 lg:grid-cols-[1.3fr_0.7fr] lg:px-8 lg:py-20">
-        <div>
-          <p className="text-sm font-medium text-primarySoft">김성경 · ASP.NET / MS SQL Server 개발자</p>
-          <h1 className="mt-5 text-[clamp(2.25rem,4.2vw,3.75rem)] font-semibold leading-[1.2] tracking-[-0.04em]">8년 6개월,<br />업무 시스템을 개발하고<br />운영 문제를 다뤘습니다.</h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-textSecondary">C#·ASP.NET과 MS SQL Server를 기반으로 인사·채용, 회계·결재, 커머스·재고 업무를 다뤘습니다. 업무 흐름 구현, 외부 API 연동, SQL 병목 분석 경험을 중심으로 소개합니다.</p>
-          <div className="mt-7 flex flex-wrap gap-3"><Button href="#work-cases">실무 사례 2개 보기</Button><Button href="/projects/haru" variant="outline">대표 개인 프로젝트 · 하루</Button><Button href="/contact" variant="outline">연락 안내</Button></div>
-        </div>
-        <aside className="self-center rounded-xl border border-border bg-surface p-6">
-          <h2 className="text-lg font-semibold">먼저 보실 내용</h2>
-          <dl className="mt-5 space-y-5 text-sm leading-7">
-            <div><dt className="text-primarySoft">실무</dt><dd className="text-textSecondary">업무 시스템 개발·운영 / 외부 서비스 연동 / SQL 조회 개선</dd></div>
-            <div><dt className="text-primarySoft">대표 개인 프로젝트</dt><dd className="text-textSecondary">하루: 업무 기록 저장·검색·인수인계<br />개인 환경 테스트 완료 · 실사용 예정</dd></div>
-            <div><dt className="text-primarySoft">확인 가능한 자료</dt><dd className="text-textSecondary">역할과 조치, 구현 화면, 데모, 검증 기록과 남은 한계를 구분합니다.</dd></div>
-          </dl>
-        </aside>
-      </div>
-    </section>
-  )
+ const [motion, setMotion] = useState(true)
+ const [visible, setVisible] = useState(true)
+ const section = useRef<HTMLElement>(null)
+ useEffect(()=>{
+  let onScreen = true
+  const update=()=>setVisible(onScreen && !document.hidden)
+  const observer=new IntersectionObserver(([entry])=>{onScreen=entry.isIntersecting;update()})
+  if(section.current) observer.observe(section.current)
+  document.addEventListener("visibilitychange",update)
+  return ()=>{observer.disconnect();document.removeEventListener("visibilitychange",update)}
+ },[])
+ return <section ref={section} className={`portfolio-stage relative isolate overflow-hidden border-b border-border ${motion && visible ? "" : "motion-paused"}`}>
+  <div aria-hidden="true" className="stage-orbit" />
+  <div className="relative mx-auto max-w-7xl px-5 pb-12 pt-14 lg:px-8 lg:pb-16 lg:pt-24">
+   <div className="flex flex-wrap items-center justify-between gap-4"><p className="text-xs tracking-[0.12em] text-textSecondary">KIM SUNGKYUNG / .NET DEVELOPER</p><button type="button" onClick={()=>setMotion(!motion)} aria-pressed={!motion} className="inline-flex min-h-11 items-center rounded-full border border-border px-4 text-xs text-textSecondary">배경 움직임 {motion ? "정지" : "재생"}</button></div>
+   <p className="stage-enter mt-12 text-sm text-primarySoft">ASP.NET · MS SQL Server / 실무 8년 6개월</p>
+   <h1 className="stage-enter mt-5 max-w-5xl text-[clamp(2.5rem,6.8vw,6rem)] font-semibold leading-[1.12] tracking-[-0.055em]">복잡한 업무를<br/><span className="text-textSecondary">작동하는 시스템으로.</span></h1>
+   <div className="stage-enter mt-8 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end"><p className="w-full max-w-[36rem] text-base leading-8 text-textSecondary">김성경입니다. C#·ASP.NET과 SQL을 기반으로<br className="hidden sm:block"/> 업무 흐름을 구현하고, 운영 문제를 다뤄 왔습니다.</p><Link href="/work-projects" className="inline-flex min-h-12 w-fit items-center gap-10 rounded-full bg-textPrimary px-6 font-semibold text-background transition-transform hover:-translate-y-0.5">업무 프로젝트 보기 <span aria-hidden="true">↗</span></Link></div>
+   <div className="mt-14 grid grid-cols-3 border-y border-border text-xs sm:mt-20 sm:text-sm">{[["01","경력","/experience"],["02","업무 프로젝트","/work-projects"],["03","개인 프로젝트","/projects"]].map(([n,label,href])=><Link key={href} href={href} className="group flex min-h-20 flex-col justify-center gap-2 border-r border-border px-2 last:border-0 sm:px-6"><span className="font-mono text-[10px] text-textMuted">{n}</span><span className="font-semibold transition-colors group-hover:text-primarySoft">{label} <span aria-hidden="true">↗</span></span></Link>)}</div>
+  </div>
+ </section>
 }

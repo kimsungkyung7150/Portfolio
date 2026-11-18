@@ -11,8 +11,10 @@ export function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-4 text-sm text-textSecondary">
-          <Link href="/projects" className="transition-colors hover:text-textPrimary">프로젝트</Link>
+          <Link href="/projects" className="transition-colors hover:text-textPrimary">개인 프로젝트</Link>
           <Link href="/experience" className="transition-colors hover:text-textPrimary">경력</Link>
+          <Link href="/work-projects" className="transition-colors hover:text-textPrimary">업무 프로젝트</Link>
+          <Link href="/about" className="transition-colors hover:text-textPrimary">소개</Link>
           <Link href="/contact" className="transition-colors hover:text-textPrimary">연락</Link>
           <span className="text-textMuted">© {new Date().getFullYear()}</span>
         </div>
