@@ -8,7 +8,7 @@ const showcases=[
  {name:"ShowRoom",kind:"실제 WPF 화면 · 입력 원화 확인 단계",src:"/projects/showroom/pipeline-running.png",alt:"ShowRoom WPF에서 입력 원화를 확인하는 실제 화면",slug:"showroom",description:"게임 원화와 모션 프레임을 검토·관리하는 WPF 제작 도구입니다."},
  {name:"Routoon",kind:"실제 독자 서비스 화면",src:"/projects/routoon/home.png",alt:"Routoon 실제 메인 화면",slug:"routoon",description:"AI 집필·검수·발행과 독자 서비스를 연결하는 웹소설 플랫폼입니다."},
  {name:"웹 방치형 · Routoon",kind:"개발 중 · UI 디자인 시안",src:"/projects/idle-game/ui-concept.png",alt:"Routoon 연동 웹 방치형 게임 UI 디자인 시안",slug:"idle-game",description:"웹소설 플랫폼 Routoon과 연결하도록 개발 중인 웹 방치형 게임입니다."},
- {name:"빛의 기사단 · 모바일 RPG",kind:"개발 중 · 승인된 AI UI 목표 시안",src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단 모바일 RPG 승인 UI 목표 시안, 실제 실행 화면 아님",slug:"light-knights",description:"전투·영웅 성장·편성을 구현하는 개발 중 모바일 RPG입니다."},
+ {name:"빛의 기사단 · 모바일 RPG",kind:"UI 시안",src:"/projects/light-knights/approved-ui-reference.png",alt:"빛의 기사단의 영웅 선택과 성장 화면 디자인",slug:"light-knights",description:"전투·영웅 성장·편성을 구현하는 개발 중 모바일 RPG입니다."},
 ]
 const clamp=(v:number)=>Math.max(0,Math.min(1,v))
 export function HeroSection(){

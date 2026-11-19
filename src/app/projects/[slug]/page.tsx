@@ -124,8 +124,19 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
     return <div className="rounded-2xl border border-border bg-backgroundSoft p-8"><p className="text-sm text-primarySoft">{project.status}</p><p className="mt-4 leading-8 text-textSecondary">{project.summary}</p></div>
   }
 
-  if (project.slug === "light-knights") {
-    return <BrowserFrame src="/projects/light-knights/approved-ui-reference.png" alt="빛의 기사단 승인 UI 목표 시안" label="APPROVED UI CONCEPT · NOT RUNTIME" contain />
+  if (project.slug === "light-knights" && project.screenshots.length > 0) {
+    const [battle] = project.screenshots
+    return (
+      <a
+        href={battle.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${battle.caption} 원본 확대 (새 탭)`}
+        className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primarySoft"
+      >
+        <BrowserFrame src={battle.src} alt={battle.alt} label={battle.caption} contain />
+      </a>
+    )
   }
 
   if (project.slug === "idle-game") {
@@ -255,6 +266,9 @@ export default async function ProjectDetailPage({
   if (project.slug === "haru") {
     return <HaruCaseStudy />
   }
+
+  const isLightKnights = project.slug === "light-knights"
+  const evidenceShots = isLightKnights ? project.screenshots.slice(1) : project.screenshots
 
   return (
     <div>
@@ -464,8 +478,8 @@ export default async function ProjectDetailPage({
       <section className="bg-background py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
-            eyebrow="Evidence"
-            title="화면 및 검증 자료"
+            eyebrow={isLightKnights ? "Design" : "Evidence"}
+            title={isLightKnights ? "영웅 UI" : "화면 및 검증 자료"}
             description={project.screenshotNote}
           />
 
@@ -481,9 +495,9 @@ export default async function ProjectDetailPage({
               </div>
               <EvidenceFigure src="/projects/showroom/motion-lab.png" alt="별도 불늑대 캐릭터의 WPF Motion Lab" caption="별도 예시 · 불늑대 모션 프레임 검토 화면. 상단 여성 기사의 모션 결과가 아닙니다." />
             </div>
-          ) : project.screenshots.length > 0 ? (
+          ) : evidenceShots.length > 0 ? (
             <div className="grid gap-5 lg:grid-cols-2">
-              {project.screenshots.map((shot, index) => (
+              {evidenceShots.map((shot, index) => (
                 <EvidenceFigure key={shot.src} src={shot.src} alt={shot.alt} caption={shot.caption}
                   wide={index === 0 || shot.src.includes("reader.png")}
                   crop={shot.src.endsWith("gold-active.png")}
