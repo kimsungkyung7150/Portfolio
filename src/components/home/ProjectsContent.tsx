@@ -65,8 +65,18 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
               <p className="mt-3 max-w-[32rem] text-sm leading-7 text-textSecondary">{project.summary}</p>
               <div className="mt-auto pt-8">
                 <p className="font-mono text-[11px] leading-5 text-textMuted">{project.tags.slice(0, 6).join(" · ")}</p>
-                <details className="mt-4 scroll-mt-28 border-t border-border pt-3">
-                  <summary className="flex min-h-11 cursor-pointer items-center text-sm font-semibold text-primarySoft">프로젝트 내용 펼치기</summary>
+                <Link
+                  href={"/projects/" + project.slug}
+                  aria-label={`${project.title} 상세 보기`}
+                  className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-md text-sm font-semibold text-primarySoft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primarySoft"
+                >
+                  상세 보기 <span aria-hidden="true">→</span>
+                </Link>
+                <details className="group/summary mt-2 scroll-mt-28 border-t border-border pt-3">
+                  <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium text-textSecondary">
+                    <span className="group-open/summary:hidden">프로젝트 요약 펼치기</span>
+                    <span className="hidden group-open/summary:inline">프로젝트 요약 접기</span>
+                  </summary>
                   <div className="space-y-6 pt-5 text-sm leading-7 text-textSecondary">
                     <p>{project.description}</p>
                     <section><h4 className="font-semibold text-textPrimary">담당 역할</h4><p className="mt-2">{project.role}</p></section>
@@ -76,7 +86,6 @@ export function ProjectsContent({ embedded = false }: { embedded?: boolean }) { 
                     <section><h4 className="font-semibold text-textPrimary">구조</h4><div className="mt-3 space-y-3">{project.architecture.map(item=><div key={item.title}><h5 className="font-medium text-textPrimary">{item.title}</h5><p>{item.description}</p></div>)}</div></section>
                     {project.screenshotNote && <p className="text-xs leading-6 text-textMuted">{project.screenshotNote}</p>}
                     {project.screenshots.map(shot=><figure key={shot.src}><Image src={shot.src} alt={shot.alt} width={1000} height={700} sizes="(max-width:768px) 90vw, 600px" className="h-auto max-h-[600px] w-full rounded-lg border border-border object-contain"/><figcaption className="mt-2 text-xs leading-6 text-textMuted">{shot.caption}</figcaption></figure>)}
-                    <Link href={"/projects/"+project.slug} className="inline-flex min-h-11 items-center text-primarySoft">전용 상세 페이지</Link>
                   </div>
                 </details>
               </div>

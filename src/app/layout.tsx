@@ -15,14 +15,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const description = "8년 6개월간 C#·SQL 업무 시스템을 개발한 경험과 업무 기억 비서 하루, 웹소설 플랫폼 Routoon의 설계·구현 사례를 소개합니다."
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-seven-pied-70.vercel.app"),
   title: {
     default: ".NET Developer | Portfolio",
     template: "%s | Portfolio",
   },
-  description:
-    "8년 6개월의 C#·SQL 업무 시스템 경험을 바탕으로 업무 기억 비서 하루, AI 웹소설 플랫폼 Routoon 등 근거와 검증이 남는 제품을 만드는 개발자 개발자의 포트폴리오입니다.",
+  description,
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    title: ".NET Developer | Portfolio",
+    description,
+    siteName: "Portfolio",
+  },
 }
 
 export default function RootLayout({

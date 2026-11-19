@@ -6,6 +6,8 @@ import { notFound } from "next/navigation"
 
 import { Badge } from "@/components/ui/Badge"
 import { HaruCaseStudy } from "@/components/haru/HaruCaseStudy"
+import { ImpactSuiteExample } from "@/components/projects/ImpactSuiteExample"
+import { RoutoonStatusLink } from "@/components/projects/RoutoonStatusLink"
 import { getProjectDetail, projectDetails, type ProjectDetail } from "@/lib/projectDetails"
 
 export function generateStaticParams() {
@@ -268,6 +270,7 @@ export default async function ProjectDetailPage({
   }
 
   const isLightKnights = project.slug === "light-knights"
+  const isImpactSuite = project.slug === "impactsuite"
   const evidenceShots = isLightKnights ? project.screenshots.slice(1) : project.screenshots
 
   return (
@@ -321,17 +324,7 @@ export default async function ProjectDetailPage({
                 ))}
               </div>
 
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-semibold text-white transition hover:bg-primary/90"
-                >
-                  {project.liveLabel ?? "서비스 접속"}
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              )}
+              {project.slug === "routoon" && <RoutoonStatusLink />}
             </div>
 
             <ProjectHeroVisual project={project} />
@@ -479,8 +472,8 @@ export default async function ProjectDetailPage({
         <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
           <SectionHeading
             eyebrow={isLightKnights ? "Design" : "Evidence"}
-            title={isLightKnights ? "영웅 UI" : "화면 및 검증 자료"}
-            description={project.screenshotNote}
+            title={isLightKnights ? "영웅 UI" : isImpactSuite ? "SQL 분석 결과" : "화면 및 검증 자료"}
+            description={isImpactSuite ? "보관된 ImpactSuite SQL 파서에 합성 재고 조회 쿼리를 입력해 테이블, 조회 열, 조인과 필터를 추출했습니다." : project.screenshotNote}
           />
 
           {project.slug === "routoon" && <p className="mb-5 text-sm leading-7 text-textSecondary">메인·읽기는 다크 테마, 목록·상세는 라이트 테마로 캡처한 기록입니다. 현재 서비스의 모든 화면이 동일한 테마라는 의미는 아닙니다. 각 이미지의 원본을 새 탭에서 확대해 확인할 수 있습니다.</p>}
@@ -504,7 +497,7 @@ export default async function ProjectDetailPage({
                   portrait={shot.src.endsWith("boss-fight.png")} />
               ))}
             </div>
-           ) : project.slug === "impactsuite" ? <ImpactSuiteHero project={project} /> : null}
+           ) : isImpactSuite ? <ImpactSuiteExample /> : null}
 
         </div>
       </section>

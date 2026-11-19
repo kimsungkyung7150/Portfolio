@@ -43,8 +43,6 @@ export type ProjectDetail = {
   currentScope: string[]
   highlights: string[]
   screenshots: ProjectScreenshot[]
-  liveUrl?: string
-  liveLabel?: string
   screenshotNote?: string
 }
 
@@ -125,8 +123,6 @@ export const projectDetails: ProjectDetail[] = [
       { src: "/projects/routoon/work-detail.png", alt: "Routoon 공개 작품 상세 화면", caption: "공개 작품 상세" },
       { src: "/projects/routoon/reader.png", alt: "Routoon 실제 회차 읽기 화면", caption: "실제 공개 회차 읽기 화면" },
     ],
-    liveUrl: "https://reader.routoon.com/",
-    liveLabel: "Routoon 접속",
     screenshotNote: "실제 공개 서비스에서 캡처한 화면입니다.",
   },
   {
@@ -477,7 +473,6 @@ export const projectDetails: ProjectDetail[] = [
       "AI(MCP)를 이용한 구조 탐색·원인 분석 자동화 설계",
     ],
     screenshots: [],
-    screenshotNote: "공개 가능한 실제 UI 캡처가 없어 임의 화면을 만들지 않고 구조와 분석 흐름으로 설명합니다.",
   },
 ]
 

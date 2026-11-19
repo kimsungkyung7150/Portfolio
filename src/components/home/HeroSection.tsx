@@ -39,7 +39,23 @@ export function HeroSection(){
  return <section ref={root} data-scene={scene} className={`scroll-film film-showcase ${isStatic?"film-static":""}`} aria-label="포트폴리오 인트로">
  <div className="film-stage">
  <div className="film-controls"><Link href="#explore-work" className="sr-only focus:not-sr-only focus:inline-flex focus:min-h-11 focus:items-center">본문 바로가기</Link><button type="button" disabled={reduced} onClick={()=>setMotion(!motion)} aria-pressed={isStatic} className="min-h-11 rounded-full border border-current/25 px-4 text-xs">{reduced?"동작 줄이기 적용됨":motion?"모션 끄기":"모션 켜기"}</button></div>
- <div className="film-scene film-first"><div className="system-plane" aria-hidden="true"><i/><i/><i/><span>C#</span><span>.NET</span><span>SQL</span></div><div className="film-copy"><p className="film-kicker">ENGINEERING</p><h1 className="film-personal-copy">복잡한 업무를 이해하고,<br/><span>구조적으로 풀어내기 위해<br/>노력합니다.</span></h1><p className="film-description">ASP.NET · MS SQL Server<br/>8년 6개월의 업무 시스템 개발 경험.</p></div></div>
+ <div className="film-scene film-first">
+  <div className="system-plane" aria-hidden="true"><i/><i/><i/><span>C#</span><span>.NET</span><span>SQL</span></div>
+  <div className="film-copy">
+   <p className="film-kicker">ENGINEERING</p>
+   <h1 className="film-personal-copy">복잡한 업무를 이해하고,<br/><span>구조적으로 풀어내기 위해<br/>노력합니다.</span></h1>
+   <p className="film-description">ASP.NET · MS SQL Server<br/>8년 6개월의 업무 시스템 개발 경험.</p>
+   <a
+    href="#work-cases"
+    onClick={() => window.dispatchEvent(new Event("portfolio:direct-navigation"))}
+    tabIndex={!isStatic && scene !== 0 ? -1 : undefined}
+    aria-hidden={!isStatic && scene !== 0 ? true : undefined}
+    className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-primarySoft px-4 text-sm font-semibold text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primarySoft sm:mt-7"
+   >
+    대표 업무 사례 보기 <span aria-hidden="true">↓</span>
+   </a>
+  </div>
+ </div>
  {showcases.map((item,index)=><div key={item.slug} aria-hidden={!isStatic&&scene!==index+1} className={`showcase-panel ${scene===index+1?"is-active":""}`}>
  <div className="showcase-copy"><p className="film-kicker"><span className="showcase-section-label">개인 프로젝트</span>EXPLORATION · {String(index+1).padStart(2,"0")} / {String(showcases.length).padStart(2,"0")}</p><h2>새로운 기술을<br/><span>탐색하고 시도합니다.</span></h2><div className="showcase-project"><h3>{item.name}</h3><p className="showcase-purpose">{item.description}</p><p>{item.kind}</p></div></div>
  <div className={`showcase-visual visual-${item.slug}`}><span className="showcase-word" aria-hidden="true">EXPLORE</span>

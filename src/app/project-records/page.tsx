@@ -41,7 +41,7 @@ const webRecords = [
 
 export default function ProjectRecordsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
+    <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
       <Link href="/projects" className="inline-flex min-h-11 items-center text-sm text-primarySoft">← 전체 프로젝트</Link>
       <header className="mt-6 max-w-3xl">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-primarySoft">Project archive</p>
@@ -79,6 +79,6 @@ export default function ProjectRecordsPage() {
         <div className="mt-6 grid gap-4 md:grid-cols-3">{webRecords.map((item) => <article key={item.name} className="min-w-0 rounded-xl border border-border p-5"><p className="text-xs text-primarySoft">{item.period}</p><h3 className="mt-3 text-lg font-semibold">{item.title}</h3><a href={"https://" + item.name} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center break-all font-mono text-xs text-primarySoft">{item.name} ↗</a><p className="mt-4 text-sm leading-7 text-textSecondary">{item.scope}</p><p className="mt-4 text-xs leading-6 text-primarySoft">{item.stack}</p></article>)}</div>
       </section>
       
-    </main>
+    </div>
   )
 }

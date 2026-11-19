@@ -1,0 +1,14 @@
+{
+  "sql": "SELECT i.sku, s.quantity\r\nFROM items i\r\nINNER JOIN stock_balances s ON i.id = s.item_id\r\nWHERE s.warehouse_id = 10",
+  "operation": "SELECT",
+  "tables": [
+    "items",
+    "stock_balances"
+  ],
+  "columns": [
+    "i.sku",
+    "s.quantity"
+  ],
+  "join": "i.id = s.item_id",
+  "filter": "warehouse_id = 10"
+}
