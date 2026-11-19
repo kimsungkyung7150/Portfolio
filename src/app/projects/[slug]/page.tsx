@@ -194,7 +194,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
       <BrowserFrame
         src="/projects/routoon/home.png"
         alt="Routoon 실제 서비스 메인 화면"
-        label="LIVE · READER.ROUTOON.COM"
+        label="독자 서비스 화면"
       />
       <div className="absolute -bottom-2 right-0 hidden w-[42%] sm:block">
         <BrowserFrame
@@ -302,6 +302,8 @@ export default async function ProjectDetailPage({
                 {project.summary}
               </p>
 
+              {project.slug === "routoon" && <RoutoonStatusLink />}
+
               <div className="mt-7 grid gap-3 border-y border-border py-4 sm:grid-cols-2">
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.13em] text-textMuted">Role</p>
@@ -324,7 +326,6 @@ export default async function ProjectDetailPage({
                 ))}
               </div>
 
-              {project.slug === "routoon" && <RoutoonStatusLink />}
             </div>
 
             <ProjectHeroVisual project={project} />
