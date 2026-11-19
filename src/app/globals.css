@@ -34,6 +34,11 @@ html {
   background: var(--color-background);
 }
 
+html:has(dialog[data-image-lightbox][open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
 body {
   margin: 0;
   background:

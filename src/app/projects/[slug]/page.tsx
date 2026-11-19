@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 
 import { Badge } from "@/components/ui/Badge"
 import { HaruCaseStudy } from "@/components/haru/HaruCaseStudy"
+import { ImageLightbox } from "@/components/projects/ImageLightbox"
 import { ImpactSuiteExample } from "@/components/projects/ImpactSuiteExample"
 import { RoutoonStatusLink } from "@/components/projects/RoutoonStatusLink"
 import { getProjectDetail, projectDetails, type ProjectDetail } from "@/lib/projectDetails"
@@ -129,15 +130,15 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
   if (project.slug === "light-knights" && project.screenshots.length > 0) {
     const [battle] = project.screenshots
     return (
-      <a
-        href={battle.src}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`${battle.caption} 원본 확대 (새 탭)`}
-        className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primarySoft"
+      <ImageLightbox
+        src={battle.src}
+        alt={battle.alt}
+        caption={battle.caption}
+        triggerLabel={`${battle.caption} 원본 확대`}
+        className="block cursor-zoom-in rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primarySoft"
       >
-        <BrowserFrame src={battle.src} alt={battle.alt} label={battle.caption} contain />
-      </a>
+        <BrowserFrame src={battle.src} alt={battle.alt} label={`${battle.caption} · 원본 확대`} contain />
+      </ImageLightbox>
     )
   }
 
@@ -164,7 +165,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
           <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
             ORIGINAL ART
           </span>
-          <a href="/projects/showroom/fullbody-reference.png" target="_blank" rel="noopener noreferrer" className="absolute inset-x-0 bottom-0 flex min-h-11 items-center justify-center bg-background/90 text-xs text-primarySoft">원화 확대 ↗</a>
+          <ImageLightbox src="/projects/showroom/fullbody-reference.png" alt="ShowRoom 기준 원화 전신" caption="ShowRoom 기준 원화" className="absolute inset-x-0 bottom-0 flex min-h-11 cursor-zoom-in items-center justify-center bg-background/90 text-xs text-primarySoft">원화 확대</ImageLightbox>
         </div>
 
         <div className="grid gap-3">
@@ -180,7 +181,7 @@ function ProjectHeroVisual({ project }: { project: ProjectDetail }) {
             <span className="absolute left-2 top-2 rounded bg-background/85 px-2 py-1 font-mono text-[9px] text-white/70">
               DIRECTIONAL RESULT
             </span>
-            <a href="/projects/showroom/directional-row.png" target="_blank" rel="noopener noreferrer" className="absolute inset-x-0 bottom-0 flex min-h-11 items-center justify-center bg-background/90 text-xs text-primarySoft">8방향 확대 ↗</a>
+            <ImageLightbox src="/projects/showroom/directional-row.png" alt="ShowRoom 방향별 전체 결과" caption="ShowRoom 8방향 결과" className="absolute inset-x-0 bottom-0 flex min-h-11 cursor-zoom-in items-center justify-center bg-background/90 text-xs text-primarySoft">8방향 확대</ImageLightbox>
           </div>
 
 
@@ -213,13 +214,13 @@ function EvidenceFigure({ src, alt, caption, wide = false, crop = false, portrai
 }) {
   return (
     <figure className={`self-start overflow-hidden rounded-xl border border-border bg-surface ${wide ? "lg:col-span-2" : ""}`}>
-      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`${alt} 원본 확대 (새 탭)`} className="block focus-visible:outline-2 focus-visible:outline-primarySoft">
+      <ImageLightbox src={src} alt={alt} caption={caption} triggerLabel={`${alt} 원본 확대`} className="block cursor-zoom-in focus-visible:outline-2 focus-visible:outline-primarySoft">
         <div className={`relative overflow-hidden bg-backgroundSoft ${crop ? "aspect-[430/264]" : portrait ? "mx-auto aspect-[538/1055] max-w-[430px]" : "aspect-[16/10]"}`}>
           {crop ? <Image src={src} alt={alt} width={430} height={844} sizes="(max-width: 1024px) 100vw, 580px" className="absolute w-full max-w-none" style={{ height: "auto", top: "-106.44%" }} /> :
             <Image src={src} alt={alt} fill sizes={wide ? "(max-width: 1024px) 100vw, 1180px" : "(max-width: 1024px) 100vw, 580px"} className="object-contain" />}
         </div>
-        <span className="flex min-h-11 items-center border-t border-border px-4 text-sm font-semibold text-primarySoft">원본 확대 ↗</span>
-      </a>
+        <span className="flex min-h-11 items-center border-t border-border px-4 text-sm font-semibold text-primarySoft">원본 확대</span>
+      </ImageLightbox>
       <figcaption className="px-4 pb-4 text-sm leading-6 text-textSecondary">{caption}{crop && " · 외부 흰 여백만 화면에서 가렸으며 원본은 그대로 보존했습니다."}</figcaption>
     </figure>
   )
@@ -477,14 +478,14 @@ export default async function ProjectDetailPage({
             description={isImpactSuite ? "보관된 ImpactSuite SQL 파서에 합성 재고 조회 쿼리를 입력해 테이블, 조회 열, 조인과 필터를 추출했습니다." : project.screenshotNote}
           />
 
-          {project.slug === "routoon" && <p className="mb-5 text-sm leading-7 text-textSecondary">메인·읽기는 다크 테마, 목록·상세는 라이트 테마로 캡처한 기록입니다. 현재 서비스의 모든 화면이 동일한 테마라는 의미는 아닙니다. 각 이미지의 원본을 새 탭에서 확대해 확인할 수 있습니다.</p>}
+          {project.slug === "routoon" && <p className="mb-5 text-sm leading-7 text-textSecondary">메인·읽기는 다크 테마, 목록·상세는 라이트 테마로 캡처한 기록입니다. 현재 서비스의 모든 화면이 동일한 테마라는 의미는 아닙니다.</p>}
           {project.slug === "showroom" ? (
             <div className="space-y-6">
               <div className="rounded-xl border border-border p-5 text-sm leading-7 text-textSecondary">
                 <p>상단은 동일 여성 기사 원화와 8방향 결과를 비교한 예시입니다. 원화와 결과의 세부 차이는 아래 원본으로 확인하세요.</p>
                 <div className="mt-3 flex flex-wrap gap-3">
-                  <a href="/projects/showroom/fullbody-reference.png" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-primarySoft underline">기준 원화 확대 ↗</a>
-                  <a href="/projects/showroom/directional-row.png" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-primarySoft underline">8방향 결과 확대 ↗</a>
+                  <ImageLightbox src="/projects/showroom/fullbody-reference.png" alt="ShowRoom 기준 원화 전신" caption="ShowRoom 기준 원화" className="inline-flex min-h-11 cursor-zoom-in items-center text-primarySoft underline">기준 원화 확대</ImageLightbox>
+                  <ImageLightbox src="/projects/showroom/directional-row.png" alt="ShowRoom 방향별 전체 결과" caption="ShowRoom 8방향 결과" className="inline-flex min-h-11 cursor-zoom-in items-center text-primarySoft underline">8방향 결과 확대</ImageLightbox>
                 </div>
               </div>
               <EvidenceFigure src="/projects/showroom/motion-lab.png" alt="별도 불늑대 캐릭터의 WPF Motion Lab" caption="별도 예시 · 불늑대 모션 프레임 검토 화면. 상단 여성 기사의 모션 결과가 아닙니다." />
